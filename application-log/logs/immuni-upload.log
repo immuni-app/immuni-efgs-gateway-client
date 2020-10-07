@@ -1,0 +1,341 @@
+2020-10-07 11:52:58.209  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 11:52:58.223  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 267148 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 11:52:58.224  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 11:52:58.940  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 11:52:58.941  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 11:52:58.969  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 25ms. Found 0 MongoDB repository interfaces.
+2020-10-07 11:52:58.977  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 11:52:58.978  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 11:52:58.995  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-07 11:52:59.356  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 11:52:59.365  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 11:52:59.365  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 11:52:59.365  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 11:52:59.474  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 11:52:59.474  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1218 ms
+2020-10-07 11:53:00.191  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-07 11:53:00.235  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:497}] to 26.2.73.206:27017
+2020-10-07 11:53:00.239  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2198235}
+2020-10-07 11:53:00.755  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-07 11:53:00.977  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-07 11:53:00.993  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-07 11:53:01.023  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-07 11:53:01.032  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 3.094 seconds (JVM running for 4.286)
+2020-10-07 11:54:00.695  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:498}] to 26.2.73.206:27017
+2020-10-07 11:55:07.160  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-07 11:55:07.160  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-10-07 11:55:07.173  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 13 ms
+2020-10-07 12:31:02.559  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-07 12:31:02.798  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-07 12:31:02.800  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-07 12:31:03.030  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:498}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-07 15:08:10.103  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 294852 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:08:10.104  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:08:10.106  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:08:10.826  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:08:10.827  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:08:10.866  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 33ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:08:10.880  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:08:10.881  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:08:10.908  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2020-10-07 15:08:11.312  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:08:11.320  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:08:11.320  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:08:11.320  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:08:11.482  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:08:11.483  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1336 ms
+2020-10-07 15:08:11.971  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+2020-10-07 15:08:11.974  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-07 15:08:11.987  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-07 15:08:11.996 ERROR [Italian client for interoperability with European Federation Gateway Service,] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at it.interop.federationgateway.EfgsGatewayItalyClientApplication.main(EfgsGatewayItalyClientApplication.java:15)
+Caused by: it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:122)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initSignatureGenerator(SignatureGenerator.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+Caused by: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:104)
+	... 27 common frames omitted
+2020-10-07 15:08:45.289  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:08:45.300  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 293568 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:08:45.303  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:08:45.789  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:08:45.790  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:08:45.818  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 25ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:08:45.827  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:08:45.828  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:08:45.844  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-07 15:08:46.194  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:08:46.201  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:08:46.202  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:08:46.202  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:08:46.312  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:08:46.313  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 979 ms
+2020-10-07 15:08:46.601  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+2020-10-07 15:08:46.604  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-07 15:08:46.614  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-07 15:08:46.620 ERROR [Italian client for interoperability with European Federation Gateway Service,] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at it.interop.federationgateway.EfgsGatewayItalyClientApplication.main(EfgsGatewayItalyClientApplication.java:15)
+Caused by: it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:122)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initSignatureGenerator(SignatureGenerator.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+Caused by: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:104)
+	... 27 common frames omitted
+2020-10-07 15:09:38.898  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:09:38.915  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 243184 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:09:38.917  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:09:39.429  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:09:39.429  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:09:39.458  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:09:39.467  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:09:39.468  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:09:39.487  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-10-07 15:09:39.844  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:09:39.855  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:09:39.856  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:09:39.856  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:09:39.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:09:39.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1017 ms
+2020-10-07 15:09:40.288  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+2020-10-07 15:09:40.290  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-07 15:09:40.300  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-07 15:09:40.308 ERROR [Italian client for interoperability with European Federation Gateway Service,] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at it.interop.federationgateway.EfgsGatewayItalyClientApplication.main(EfgsGatewayItalyClientApplication.java:15)
+Caused by: it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:122)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initSignatureGenerator(SignatureGenerator.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+Caused by: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:104)
+	... 27 common frames omitted
+2020-10-07 15:10:02.435  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:10:02.453  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 7052 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:10:02.455  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:10:02.945  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:10:02.945  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:10:02.973  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:10:02.981  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:10:02.982  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:10:02.999  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2020-10-07 15:10:03.344  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:10:03.350  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:10:03.351  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:10:03.351  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:10:03.451  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:10:03.451  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 965 ms
+2020-10-07 15:10:03.968  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-07 15:10:04.013  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:503}] to 26.2.73.206:27017
+2020-10-07 15:10:04.016  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2169390}
+2020-10-07 15:10:04.494  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-07 15:10:04.714  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:10:04.732  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-10-07 15:10:04.733  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-07 15:10:04.751  INFO [Italian client for interoperability with European Federation Gateway Service,] Pausing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:10:04.752  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-07 15:10:04.756  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:10:04.757  INFO [Italian client for interoperability with European Federation Gateway Service,] Destroying ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:10:04.761  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-07 15:10:04.764 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-10-07 15:11:13.637  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:11:13.655  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 296148 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:11:13.656  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:11:14.157  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:11:14.158  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:11:14.186  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 25ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:11:14.194  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:11:14.195  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:11:14.212  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-07 15:11:14.569  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:11:14.576  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:11:14.577  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:11:14.577  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:11:14.677  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:11:14.678  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 991 ms
+2020-10-07 15:11:15.165  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-07 15:11:15.205  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:504}] to 26.2.73.206:27017
+2020-10-07 15:11:15.208  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2291982}
+2020-10-07 15:11:15.754  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-07 15:11:15.979  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:11:16.001  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-07 15:11:16.009  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.601 seconds (JVM running for 3.495)
+2020-10-07 15:11:23.219  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-07 15:11:23.219  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-10-07 15:11:23.225  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 6 ms
+2020-10-07 15:12:17.373  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-07 15:12:17.535  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-07 15:13:40.664  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-07 15:13:40.677  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 290756 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-07 15:13:40.679  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-07 15:13:41.163  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:13:41.164  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-07 15:13:41.195  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-07 15:13:41.205  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-07 15:13:41.206  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-07 15:13:41.225  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-10-07 15:13:41.564  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-07 15:13:41.571  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-07 15:13:41.572  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-07 15:13:41.572  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-07 15:13:41.681  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-07 15:13:41.681  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 971 ms
+2020-10-07 15:13:41.978  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+2020-10-07 15:13:41.980  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-07 15:13:41.989  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-07 15:13:41.996 ERROR [Italian client for interoperability with European Federation Gateway Service,] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'signatureGenerator': Invocation of init method failed; nested exception is it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at it.interop.federationgateway.EfgsGatewayItalyClientApplication.main(EfgsGatewayItalyClientApplication.java:15)
+Caused by: it.interop.federationgateway.batchsigning.BatchSignatureException: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:122)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initSignatureGenerator(SignatureGenerator.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	... 19 common frames omitted
+Caused by: java.io.FileNotFoundException: security\sign\pkcs_signer_client_val.jks (Impossibile trovare il percorso specificato)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
+	at it.interop.federationgateway.batchsigning.SignatureGenerator.initExternalSignatureGenerator(SignatureGenerator.java:104)
+	... 27 common frames omitted

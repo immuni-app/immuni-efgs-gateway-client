@@ -1,0 +1,1081 @@
+2020-10-06 17:58:50.048  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 17:58:50.066  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 263224 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 17:58:50.068  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 17:58:50.518  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 17:58:50.547  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 17:58:50.849  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 17:58:50.857  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 17:58:50.858  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 17:58:50.858  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 17:58:50.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 17:58:50.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 864 ms
+2020-10-06 17:58:51.835  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 17:58:51.893  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:440}] to 26.2.73.206:27017
+2020-10-06 17:58:51.897  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2363494}
+2020-10-06 17:58:52.244  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 17:58:52.376  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 17:58:52.407  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 17:58:52.414  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.609 seconds (JVM running for 3.567)
+2020-10-06 17:59:22.709  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-06 17:59:22.710  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-10-06 17:59:22.716  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 6 ms
+2020-10-06 18:11:30.494  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:11:30.678  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:11:55.883  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:11:55.898  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 257164 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:11:55.899  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:11:56.347  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:11:56.374  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 24ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:11:56.682  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:11:56.689  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:11:56.689  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:11:56.689  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:11:56.798  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:11:56.798  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 867 ms
+2020-10-06 18:11:57.330  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:11:57.369  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:441}] to 26.2.73.206:27017
+2020-10-06 18:11:57.373  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2104489}
+2020-10-06 18:11:57.686  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:11:57.821  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:11:57.842  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:11:57.850  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.205 seconds (JVM running for 3.133)
+2020-10-06 18:12:03.615  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-06 18:12:03.615  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-10-06 18:12:03.621  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 6 ms
+2020-10-06 18:22:21.034  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:22:21.218  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:27:14.958  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:27:14.974  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 263180 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:27:14.976  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:27:15.438  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:27:15.468  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:27:15.796  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:27:15.805  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:27:15.805  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:27:15.805  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:27:15.920  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:27:15.920  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 911 ms
+2020-10-06 18:27:16.461  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:27:16.502  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:442}] to 26.2.73.206:27017
+2020-10-06 18:27:16.506  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2379418}
+2020-10-06 18:27:16.850  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:27:16.984  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:27:17.013  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:27:17.021  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.294 seconds (JVM running for 3.229)
+2020-10-06 18:38:33.469  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:38:33.685  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:38:56.458  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:38:56.471  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 265460 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:38:56.472  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:38:56.908  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:38:56.937  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 25ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:38:57.238  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:38:57.246  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:38:57.246  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:38:57.246  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:38:57.349  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:38:57.349  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 846 ms
+2020-10-06 18:38:57.866  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:38:57.907  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:443}] to 26.2.73.206:27017
+2020-10-06 18:38:57.911  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2206048}
+2020-10-06 18:38:58.268  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:38:58.400  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:38:58.423  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:38:58.430  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.192 seconds (JVM running for 3.219)
+2020-10-06 18:41:54.290  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:41:54.472  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:42:40.454  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:42:40.466  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 262516 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:42:40.468  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:42:40.933  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:43:02.871  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:43:02.884  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 264196 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:43:02.886  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:43:03.338  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:43:03.367  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:43:03.671  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:43:03.679  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:43:03.679  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:43:03.679  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:43:03.782  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:43:03.783  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 866 ms
+2020-10-06 18:43:04.301  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:43:04.353  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:444}] to 26.2.73.206:27017
+2020-10-06 18:43:04.357  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2168790}
+2020-10-06 18:43:04.702  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:43:04.830  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:43:04.851  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:43:04.859  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.209 seconds (JVM running for 3.031)
+2020-10-06 18:46:51.250  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:46:51.442  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:47:46.648  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:47:46.663  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 267936 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:47:46.665  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:47:47.120  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:47:47.150  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:47:47.467  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:47:47.474  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:47:47.475  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:47:47.475  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:47:47.586  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:47:47.586  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 890 ms
+2020-10-06 18:47:48.191  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:47:48.238  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:445}] to 26.2.73.206:27017
+2020-10-06 18:47:48.241  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2251118}
+2020-10-06 18:47:48.591  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:47:48.726  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:47:48.750  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:47:48.756  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.345 seconds (JVM running for 3.291)
+2020-10-06 18:50:31.855  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:50:32.028  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:53:04.402  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:53:04.420  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 255248 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:53:04.422  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:53:04.902  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:53:04.932  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:53:05.244  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:53:05.252  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:53:05.252  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:53:05.253  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:53:05.361  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:53:05.361  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 907 ms
+2020-10-06 18:53:05.852  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:53:05.891  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:446}] to 26.2.73.206:27017
+2020-10-06 18:53:05.895  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2175399}
+2020-10-06 18:53:06.275  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:53:06.431  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:53:06.456  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:53:06.464  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.291 seconds (JVM running for 3.139)
+2020-10-06 18:53:13.115  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:53:13.332  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:53:38.935  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:53:38.954  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 267208 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:53:38.956  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:53:39.343  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Bean method 'initWorker' must not be private or final; change the method's modifiers to continue
+Offending resource: it.interop.federationgateway.EfgsGatewayItalyClientApplication
+2020-10-06 18:53:39.349  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 18:53:39.358 ERROR [Italian client for interoperability with European Federation Gateway Service,] Application run failed
+org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: @Bean method 'initWorker' must not be private or final; change the method's modifiers to continue
+Offending resource: it.interop.federationgateway.EfgsGatewayItalyClientApplication
+	at org.springframework.beans.factory.parsing.FailFastProblemReporter.error(FailFastProblemReporter.java:72)
+	at org.springframework.context.annotation.BeanMethod.validate(BeanMethod.java:50)
+	at org.springframework.context.annotation.ConfigurationClass.validate(ConfigurationClass.java:220)
+	at org.springframework.context.annotation.ConfigurationClassParser.validate(ConfigurationClassParser.java:215)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:320)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:236)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:280)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:96)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:707)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:533)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at it.interop.federationgateway.EfgsGatewayItalyClientApplication.main(EfgsGatewayItalyClientApplication.java:15)
+2020-10-06 18:54:44.816  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:54:44.831  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 263428 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:54:44.832  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:54:45.288  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:54:45.318  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:54:45.634  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:54:45.641  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:54:45.642  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:54:45.642  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:54:45.747  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:54:45.747  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 884 ms
+2020-10-06 18:54:46.256  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:54:46.309  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:447}] to 26.2.73.206:27017
+2020-10-06 18:54:46.312  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2484883}
+2020-10-06 18:54:46.679  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:54:46.820  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:54:46.843  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:54:46.851  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.268 seconds (JVM running for 3.128)
+2020-10-06 18:55:02.781  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:55:03.021  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:55:12.924  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:55:12.942  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 269144 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:55:12.943  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:55:13.497  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:55:13.529  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:55:15.873  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:55:15.881  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:55:15.881  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:55:15.881  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:55:15.980  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:55:15.980  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 3002 ms
+2020-10-06 18:55:16.501  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:55:16.541  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:448}] to 26.2.73.206:27017
+2020-10-06 18:55:16.544  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2518235}
+2020-10-06 18:55:22.264  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:55:22.430  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:55:22.459  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:55:22.468  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 9.799 seconds (JVM running for 10.749)
+2020-10-06 18:56:33.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:56:34.146  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:57:31.865  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 18:57:31.889  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 267556 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 18:57:31.891  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 18:57:32.445  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 18:57:32.481  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 32ms. Found 0 MongoDB repository interfaces.
+2020-10-06 18:57:35.155  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 18:57:35.164  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:57:35.165  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 18:57:35.165  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 18:57:35.278  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 18:57:35.278  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 3348 ms
+2020-10-06 18:57:35.926  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 18:57:36.097  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:449}] to 26.2.73.206:27017
+2020-10-06 18:57:36.101  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2513428}
+2020-10-06 18:57:42.553  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 18:57:42.721  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 18:57:42.751  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 18:57:42.762  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 11.156 seconds (JVM running for 12.453)
+2020-10-06 18:59:39.179  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 18:59:39.357  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:00:35.039  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:00:35.060  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 268536 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:00:35.062  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:00:35.577  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:00:35.608  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:00:36.105  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:00:36.114  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:00:36.115  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:00:36.115  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:00:36.294  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:00:36.295  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1195 ms
+2020-10-06 19:00:36.687  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:00:36.730  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:450}] to 26.2.73.206:27017
+2020-10-06 19:00:36.733  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2253823}
+2020-10-06 19:00:37.387  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:00:37.534  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:00:37.563  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:00:37.572  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.763 seconds (JVM running for 3.866)
+2020-10-06 19:03:09.128  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:03:09.333  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:04:10.296  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:04:10.315  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 268604 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:04:10.316  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:04:10.782  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:04:10.812  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:04:11.131  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:04:11.140  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:04:11.140  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:04:11.141  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:04:11.232  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:04:11.234  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 886 ms
+2020-10-06 19:04:11.749  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:04:11.790  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:451}] to 26.2.73.206:27017
+2020-10-06 19:04:11.793  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2191926}
+2020-10-06 19:04:12.183  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:04:12.330  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:04:12.357  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:04:12.364  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.354 seconds (JVM running for 3.394)
+2020-10-06 19:06:43.159  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:06:43.176  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 266104 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:06:43.178  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:06:43.634  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:06:43.664  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:06:43.976  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:06:43.983  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:06:43.983  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:06:43.984  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:06:44.089  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:06:44.089  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 878 ms
+2020-10-06 19:06:44.564  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:06:44.602  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:452}] to 26.2.73.206:27017
+2020-10-06 19:06:44.606  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2115006}
+2020-10-06 19:06:44.958  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:06:45.099  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:06:45.111  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-10-06 19:06:45.111  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:06:45.116  INFO [Italian client for interoperability with European Federation Gateway Service,] Pausing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:06:45.116  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-06 19:06:45.121  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:06:45.121  INFO [Italian client for interoperability with European Federation Gateway Service,] Destroying ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:06:45.127  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 19:06:45.130 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-10-06 19:07:15.712  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:07:15.727  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 247996 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:07:15.728  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:07:16.169  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:07:16.196  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:07:16.494  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:07:16.501  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:16.502  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:07:16.502  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:07:16.612  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:07:16.612  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 855 ms
+2020-10-06 19:07:17.072  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:07:17.110  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:453}] to 26.2.73.206:27017
+2020-10-06 19:07:17.114  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2232789}
+2020-10-06 19:07:17.459  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:07:17.596  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:17.609  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-10-06 19:07:17.610  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:07:17.615  INFO [Italian client for interoperability with European Federation Gateway Service,] Pausing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:17.615  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-06 19:07:17.620  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:17.620  INFO [Italian client for interoperability with European Federation Gateway Service,] Destroying ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:17.625  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 19:07:17.629 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-10-06 19:07:28.401  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:07:28.566  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:07:51.628  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:07:51.646  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 254652 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:07:51.647  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:07:52.104  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:07:52.134  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:07:52.445  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:07:52.452  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:52.453  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:07:52.453  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:07:52.569  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:07:52.569  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 891 ms
+2020-10-06 19:07:53.028  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:07:53.065  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:454}] to 26.2.73.206:27017
+2020-10-06 19:07:53.068  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2149259}
+2020-10-06 19:07:53.392  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:07:53.529  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:07:53.552  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:07:53.559  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.155 seconds (JVM running for 3.095)
+2020-10-06 19:11:00.221  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:11:00.418  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:11:28.726  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:11:28.739  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 267592 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:11:28.740  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:11:29.285  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:11:29.318  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:11:29.661  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:11:29.670  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:11:29.670  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:11:29.670  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:11:29.797  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:11:29.797  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1019 ms
+2020-10-06 19:11:30.360  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:11:30.404  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:455}] to 26.2.73.206:27017
+2020-10-06 19:11:30.407  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2077146}
+2020-10-06 19:11:30.872  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:11:31.160  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:11:31.183  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:11:31.190  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.718 seconds (JVM running for 3.773)
+2020-10-06 19:13:47.452  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:13:47.626  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:22:18.444  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:22:18.459  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 268280 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:22:18.461  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:22:18.980  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:22:19.008  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 25ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:22:19.322  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:22:19.329  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:22:19.330  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:22:19.330  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:22:19.508  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:22:19.508  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1017 ms
+2020-10-06 19:22:20.515  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:22:20.554  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:456}] to 26.2.73.206:27017
+2020-10-06 19:22:20.557  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2022461}
+2020-10-06 19:22:20.882  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:22:21.005  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:22:21.034  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:22:21.041  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.856 seconds (JVM running for 3.731)
+2020-10-06 19:26:28.928  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:26:29.104  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:27:00.456  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:27:00.474  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 270840 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:27:00.476  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:27:00.954  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:27:00.984  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:27:01.296  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:27:01.303  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:27:01.303  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:27:01.303  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:27:01.402  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:27:01.402  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 893 ms
+2020-10-06 19:27:01.933  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:27:01.986  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:457}] to 26.2.73.206:27017
+2020-10-06 19:27:01.989  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2188320}
+2020-10-06 19:27:02.331  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:27:02.470  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:27:02.492  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:27:02.499  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.274 seconds (JVM running for 3.261)
+2020-10-06 19:28:20.123  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:28:20.317  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:29:24.887  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:29:24.904  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 270072 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:29:24.905  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:29:25.379  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:29:25.415  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 32ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:29:25.730  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:29:25.737  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:29:25.738  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:29:25.738  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:29:25.838  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:29:25.838  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 899 ms
+2020-10-06 19:29:26.318  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:29:26.356  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:458}] to 26.2.73.206:27017
+2020-10-06 19:29:26.360  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2130029}
+2020-10-06 19:29:26.721  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:29:26.854  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:29:26.875  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:29:26.882  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.213 seconds (JVM running for 3.064)
+2020-10-06 19:31:58.066  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:31:58.233  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:45:23.486  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:45:23.491  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 269960 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:45:23.493  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:45:24.003  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:45:24.035  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:45:24.382  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:45:24.392  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:45:24.392  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:45:24.393  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:45:24.578  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:45:24.579  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1050 ms
+2020-10-06 19:45:25.676  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:45:25.713  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:459}] to 26.2.73.206:27017
+2020-10-06 19:45:25.716  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2038085}
+2020-10-06 19:45:26.044  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:45:26.183  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:45:26.209  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:45:26.216  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 3.057 seconds (JVM running for 3.923)
+2020-10-06 19:46:55.328  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:46:55.345  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 272976 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:46:55.346  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:46:55.789  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:46:55.819  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:46:56.138  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:46:56.145  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:46:56.145  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:46:56.145  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:46:56.237  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:46:56.237  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 859 ms
+2020-10-06 19:46:56.694  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:46:56.745  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:460}] to 26.2.73.206:27017
+2020-10-06 19:46:56.747  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2116208}
+2020-10-06 19:46:57.089  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:46:57.209  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 19:46:57.224  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:46:57.236  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-10-06 19:46:57.236  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 19:46:57.236  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:46:57.240  INFO [Italian client for interoperability with European Federation Gateway Service,] Pausing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:46:57.241  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-06 19:46:57.247  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:46:57.247  INFO [Italian client for interoperability with European Federation Gateway Service,] Destroying ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:46:57.253  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 19:46:57.256 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-10-06 19:47:16.469  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:47:16.641  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:47:26.969  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 19:47:26.984  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 272532 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 19:47:26.986  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 19:47:27.431  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 19:47:27.460  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 26ms. Found 0 MongoDB repository interfaces.
+2020-10-06 19:47:27.789  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 19:47:27.796  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:47:27.797  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 19:47:27.797  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 19:47:27.900  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 19:47:27.900  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 884 ms
+2020-10-06 19:47:28.378  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 19:47:28.416  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:461}] to 26.2.73.206:27017
+2020-10-06 19:47:28.419  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2076245}
+2020-10-06 19:47:28.757  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:47:28.872  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 19:47:28.886  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 19:47:28.908  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 19:47:28.923  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.17 seconds (JVM running for 3.045)
+2020-10-06 19:48:00.120  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:462}] to 26.2.73.206:27017
+2020-10-06 19:49:11.183  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 19:49:11.356  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 19:49:11.357  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 19:49:11.359  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:462}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:09:20.623  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:09:20.637  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 274708 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:09:20.639  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:09:21.161  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:09:21.161  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:09:21.195  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 31ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:09:21.559  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:09:21.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:09:21.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:09:21.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:09:21.677  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:09:21.677  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1000 ms
+2020-10-06 21:09:22.294  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:09:22.353  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:463}] to 26.2.73.206:27017
+2020-10-06 21:09:22.356  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2074442}
+2020-10-06 21:09:22.728  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:09:22.814  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/RedisAutoConfiguration.class]: Unsatisfied dependency expressed through method 'redisTemplate' parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2020-10-06 21:09:22.814  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:09:22.818  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-06 21:09:22.829  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 21:09:22.932 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisTemplate in org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration required a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' that could not be found.
+
+The following candidates were found but could not be injected:
+	- Bean method 'redisConnectionFactory' in 'JedisConnectionConfiguration' not loaded because @ConditionalOnClass did not find required classes 'org.apache.commons.pool2.impl.GenericObjectPool', 'redis.clients.jedis.Jedis'
+	- Bean method 'redisConnectionFactory' in 'LettuceConnectionConfiguration' not loaded because @ConditionalOnClass did not find required class 'io.lettuce.core.RedisClient'
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.springframework.data.redis.connection.RedisConnectionFactory' in your configuration.
+
+2020-10-06 21:35:54.355  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:35:54.370  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 197248 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:35:54.371  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:35:54.874  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:35:54.874  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:35:54.906  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:35:54.913  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:35:54.914  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:35:54.932  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:35:55.270  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:35:55.278  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:35:55.279  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:35:55.279  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:35:55.391  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:35:55.392  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 989 ms
+2020-10-06 21:35:55.991  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:35:56.031  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:464}] to 26.2.73.206:27017
+2020-10-06 21:35:56.034  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2035682}
+2020-10-06 21:35:56.360  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:35:56.580  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:35:56.595  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:35:56.616  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:35:56.624  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.503 seconds (JVM running for 3.415)
+2020-10-06 21:36:00.100  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:465}] to 26.2.73.206:27017
+2020-10-06 21:37:07.285  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:37:07.460  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:37:07.461  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:37:07.464  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:465}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:37:20.974  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:37:20.993  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 259544 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:37:20.994  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:37:21.533  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:37:21.534  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:37:21.566  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:37:21.573  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:37:21.574  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:37:21.592  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:37:21.956  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:37:21.965  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:37:21.966  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:37:21.966  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:37:22.084  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:37:22.085  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1056 ms
+2020-10-06 21:37:22.651  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:37:22.692  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:466}] to 26.2.73.206:27017
+2020-10-06 21:37:22.695  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2291982}
+2020-10-06 21:37:23.063  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:37:23.299  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:37:23.318  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:37:23.348  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:37:23.361  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.64 seconds (JVM running for 3.889)
+2020-10-06 21:38:27.663  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:467}] to 26.2.73.206:27017
+2020-10-06 21:41:04.808  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:41:04.998  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:41:04.999  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:41:05.003  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:467}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:41:39.086  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:41:39.100  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 124528 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:41:39.101  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:41:39.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:41:39.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:41:39.600  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 28ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:41:39.608  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:41:39.609  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:41:39.625  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:41:39.943  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:41:39.950  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:41:39.951  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:41:39.951  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:41:40.081  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:41:40.082  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 951 ms
+2020-10-06 21:41:40.626  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:41:40.664  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:468}] to 26.2.73.206:27017
+2020-10-06 21:41:40.668  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2140546}
+2020-10-06 21:41:41.021  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:41:41.239  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:41:41.266  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:41:41.289  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:41:41.302  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.435 seconds (JVM running for 3.259)
+2020-10-06 21:42:00.089  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:469}] to 26.2.73.206:27017
+2020-10-06 21:42:08.522  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:42:08.725  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:42:08.726  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:42:08.734  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:469}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:42:16.550  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:42:16.569  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 277596 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:42:16.570  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:42:17.075  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:42:17.076  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:42:17.107  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:42:17.114  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:42:17.115  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:42:17.132  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:42:17.491  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:42:17.499  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:42:17.499  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:42:17.500  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:42:17.618  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:42:17.619  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1017 ms
+2020-10-06 21:42:18.141  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:42:18.180  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:470}] to 26.2.73.206:27017
+2020-10-06 21:42:18.184  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2166987}
+2020-10-06 21:42:18.556  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:42:18.786  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:42:18.802  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:42:18.831  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:42:18.844  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.525 seconds (JVM running for 3.544)
+2020-10-06 21:43:24.166  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:471}] to 26.2.73.206:27017
+2020-10-06 21:45:22.075  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:45:22.237  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:45:22.240  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:45:22.246  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:471}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:46:44.205  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:46:44.225  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 275412 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:46:44.227  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:46:44.731  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:46:44.731  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:46:44.764  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 30ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:46:44.771  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:46:44.772  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:46:44.789  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:46:45.126  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:46:45.133  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:46:45.133  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:46:45.134  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:46:45.244  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:46:45.245  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 986 ms
+2020-10-06 21:46:45.764  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:46:45.804  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:472}] to 26.2.73.206:27017
+2020-10-06 21:46:45.808  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2368001}
+2020-10-06 21:46:46.152  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:46:46.382  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:46:46.396  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:46:46.423  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:46:46.439  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.503 seconds (JVM running for 3.472)
+2020-10-06 21:47:19.572  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:47:19.591  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 272004 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:47:19.593  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:47:20.142  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:47:20.143  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:47:20.176  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:47:20.184  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:47:20.185  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:47:20.203  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2020-10-06 21:47:20.560  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:47:20.567  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:47:20.567  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:47:20.568  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:47:20.671  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:47:20.671  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1044 ms
+2020-10-06 21:47:21.209  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:47:21.262  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:473}] to 26.2.73.206:27017
+2020-10-06 21:47:21.266  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2933184}
+2020-10-06 21:47:21.667  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:47:21.967  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:47:21.985  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:47:22.000  WARN [Italian client for interoperability with European Federation Gateway Service,] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-10-06 21:47:22.000  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:47:22.001  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:47:22.006  INFO [Italian client for interoperability with European Federation Gateway Service,] Pausing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:47:22.006  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping service [Tomcat]
+2020-10-06 21:47:22.012  INFO [Italian client for interoperability with European Federation Gateway Service,] Stopping ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:47:22.012  INFO [Italian client for interoperability with European Federation Gateway Service,] Destroying ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:47:22.017  INFO [Italian client for interoperability with European Federation Gateway Service,] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-06 21:47:22.021 ERROR [Italian client for interoperability with European Federation Gateway Service,] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-10-06 21:48:09.368  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:474}] to 26.2.73.206:27017
+2020-10-06 21:48:11.959  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:48:12.133  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:48:12.135  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:48:12.140  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:474}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 21:52:29.370  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 21:52:29.389  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 265144 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 21:52:29.390  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 21:52:29.936  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:52:29.937  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 21:52:29.970  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-06 21:52:29.978  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 21:52:29.979  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 21:52:29.997  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 21:52:30.371  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 21:52:30.379  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:52:30.380  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 21:52:30.380  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 21:52:30.485  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 21:52:30.486  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1060 ms
+2020-10-06 21:52:31.054  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 21:52:31.099  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:475}] to 26.2.73.206:27017
+2020-10-06 21:52:31.102  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2254423}
+2020-10-06 21:52:31.548  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:52:31.798  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 21:52:31.815  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 21:52:31.842  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 21:52:31.855  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.735 seconds (JVM running for 3.666)
+2020-10-06 21:53:04.339  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:476}] to 26.2.73.206:27017
+2020-10-06 21:59:57.536  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 21:59:57.710  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 21:59:57.711  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 21:59:57.715  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:476}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 22:00:03.423 ERROR [Italian client for interoperability with European Federation Gateway Service,] Unexpected error occurred in scheduled task
+org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties': Could not bind properties to 'RedisProperties' : prefix=spring.redis, ignoreInvalidFields=false, ignoreUnknownFields=true; nested exception is java.lang.IllegalStateException: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@16746061 has been closed already
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind(ConfigurationPropertiesBindingPostProcessor.java:92)
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.postProcessBeforeInitialization(ConfigurationPropertiesBindingPostProcessor.java:78)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:884)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolvePreparedArguments(ConstructorResolver.java:831)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:151)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:408)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1176)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:624)
+	at org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors(BeanFactoryUtils.java:378)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:168)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:150)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at it.interop.federationgateway.repository.EfgsWorkerInfoRepository$$EnhancerBySpringCGLIB$$7e506262.getEfgsWorkerInfoUpload(<generated>)
+	at it.interop.federationgateway.worker.EfgsWorker.uploadWorker(EfgsWorker.java:73)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.IllegalStateException: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@16746061 has been closed already
+	at org.springframework.context.support.AbstractApplicationContext.assertBeanFactoryActive(AbstractApplicationContext.java:1093)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1114)
+	at org.springframework.boot.context.properties.BoundConfigurationProperties.get(BoundConfigurationProperties.java:78)
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBinder.getHandler(ConfigurationPropertiesBinder.java:127)
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBinder.getBindHandler(ConfigurationPropertiesBinder.java:109)
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBinder.bind(ConfigurationPropertiesBinder.java:89)
+	at org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor.bind(ConfigurationPropertiesBindingPostProcessor.java:89)
+	... 54 common frames omitted
+2020-10-06 22:44:14.291  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 22:44:14.308  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 280520 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 22:44:14.310  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 22:44:14.967  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:44:14.967  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 22:44:15.009  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 38ms. Found 0 MongoDB repository interfaces.
+2020-10-06 22:44:15.021  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:44:15.022  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 22:44:15.050  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-10-06 22:44:15.475  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 22:44:15.483  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 22:44:15.483  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 22:44:15.484  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 22:44:15.602  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 22:44:15.602  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1252 ms
+2020-10-06 22:44:16.377  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 22:44:16.439  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:480}] to 26.2.73.206:27017
+2020-10-06 22:44:16.443  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2648639}
+2020-10-06 22:44:21.218  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 22:44:21.476  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 22:44:21.494  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 22:44:21.519  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 22:44:21.533  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 7.488 seconds (JVM running for 8.676)
+2020-10-06 22:49:35.903  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 22:49:35.918  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 265432 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 22:49:35.957  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 22:49:37.059  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:49:37.061  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 22:49:37.102  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 37ms. Found 0 MongoDB repository interfaces.
+2020-10-06 22:49:37.123  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:49:37.124  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 22:49:37.150  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+2020-10-06 22:49:37.620  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 22:49:37.630  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 22:49:37.630  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 22:49:37.630  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 22:49:37.756  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 22:49:37.756  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1685 ms
+2020-10-06 22:49:38.435  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 22:49:38.518  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:482}] to 26.2.73.206:27017
+2020-10-06 22:49:38.522  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2490893}
+2020-10-06 22:49:43.235  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 22:49:43.481  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 22:49:43.499  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 22:49:43.524  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 22:49:43.536  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 7.898 seconds (JVM running for 9.027)
+2020-10-06 22:52:11.676  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:483}] to 26.2.73.206:27017
+2020-10-06 22:55:51.363  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 22:55:51.537  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 22:55:51.538  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 22:55:51.662  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:483}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 22:59:57.040  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 22:59:57.054  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 271640 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 22:59:57.056  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 22:59:57.613  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:59:57.614  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 22:59:57.651  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 34ms. Found 0 MongoDB repository interfaces.
+2020-10-06 22:59:57.660  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 22:59:57.662  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 22:59:57.681  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2020-10-06 22:59:58.056  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 22:59:58.064  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 22:59:58.064  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 22:59:58.064  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 22:59:58.172  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 22:59:58.172  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1079 ms
+2020-10-06 22:59:58.753  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 22:59:58.825  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:487}] to 26.2.73.206:27017
+2020-10-06 22:59:58.828  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2689803}
+2020-10-06 23:00:05.508  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:00:05.791  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 23:00:05.809  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:00:05.839  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 23:00:05.857  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 9.055 seconds (JVM running for 10.209)
+2020-10-06 23:04:11.251  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 23:04:11.421  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 23:04:11.422  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:05:53.194  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 23:05:53.210  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 26144 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 23:05:53.212  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 23:05:53.779  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:05:53.780  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 23:05:53.817  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 33ms. Found 0 MongoDB repository interfaces.
+2020-10-06 23:05:53.827  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:05:53.828  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 23:05:53.849  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-10-06 23:05:54.249  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 23:05:54.258  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:05:54.258  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 23:05:54.258  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 23:05:54.368  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 23:05:54.368  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1121 ms
+2020-10-06 23:05:54.886  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 23:05:54.947  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:490}] to 26.2.73.206:27017
+2020-10-06 23:05:54.952  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2773033}
+2020-10-06 23:05:58.888  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:05:59.126  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 23:05:59.144  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:05:59.168  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 23:05:59.181  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 6.217 seconds (JVM running for 7.315)
+2020-10-06 23:07:00.022 ERROR [Italian client for interoperability with European Federation Gateway Service,] Unexpected error occurred in scheduled task
+org.springframework.dao.QueryTimeoutException: Redis command timed out; nested exception is io.lettuce.core.RedisCommandTimeoutException: Command timed out after 10 millisecond(s)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:70)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
+	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.convertLettuceAccessException(LettuceStringCommands.java:799)
+	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.set(LettuceStringCommands.java:180)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.set(DefaultedRedisConnection.java:294)
+	at org.springframework.data.redis.connection.DefaultStringRedisConnection.set(DefaultStringRedisConnection.java:982)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.data.redis.core.CloseSuppressingInvocationHandler.invoke(CloseSuppressingInvocationHandler.java:61)
+	at com.sun.proxy.$Proxy94.set(Unknown Source)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider$ShedlockRedisTemplate.lambda$tryToSetExpiration$0(RedisLockProvider.java:122)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider$ShedlockRedisTemplate.tryToSetExpiration(RedisLockProvider.java:122)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider$ShedlockRedisTemplate.access$100(RedisLockProvider.java:116)
+	at net.javacrumbs.shedlock.provider.redis.spring.RedisLockProvider.lock(RedisLockProvider.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy50.lock(Unknown Source)
+	at net.javacrumbs.shedlock.core.DefaultLockingTaskExecutor.executeWithLock(DefaultLockingTaskExecutor.java:63)
+	at net.javacrumbs.shedlock.spring.aop.MethodProxyScheduledLockAdvisor$LockingInterceptor.invoke(MethodProxyScheduledLockAdvisor.java:85)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at it.interop.federationgateway.worker.EfgsWorker$$EnhancerBySpringCGLIB$$2e9f14b4.uploadWorker(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: io.lettuce.core.RedisCommandTimeoutException: Command timed out after 10 millisecond(s)
+	at io.lettuce.core.internal.ExceptionFactory.createTimeoutException(ExceptionFactory.java:53)
+	at io.lettuce.core.internal.Futures.awaitOrCancel(Futures.java:246)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:75)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy91.set(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.set(LettuceStringCommands.java:178)
+	... 40 common frames omitted
+2020-10-06 23:07:23.620  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 23:07:23.793  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 23:07:23.794  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:09:43.443  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 23:09:43.462  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 279964 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 23:09:43.464  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 23:09:44.031  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:09:44.032  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 23:09:44.064  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 29ms. Found 0 MongoDB repository interfaces.
+2020-10-06 23:09:44.074  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:09:44.075  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 23:09:44.093  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-10-06 23:09:44.493  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 23:09:44.502  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:09:44.502  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 23:09:44.503  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 23:09:44.642  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 23:09:44.642  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1143 ms
+2020-10-06 23:09:45.164  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 23:09:45.208  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:493}] to 26.2.73.206:27017
+2020-10-06 23:09:45.227  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17909488}
+2020-10-06 23:09:48.691  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:09:48.934  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 23:09:48.953  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:09:48.985  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 23:09:48.999  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 5.787 seconds (JVM running for 6.852)
+2020-10-06 23:14:09.126  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:494}] to 26.2.73.206:27017
+2020-10-06 23:14:12.643  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 23:14:12.811  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 23:14:12.813  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:14:12.938  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:494}] to 26.2.73.206:27017 because the pool has been closed.
+2020-10-06 23:26:49.294  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-10-06 23:26:49.309  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 274604 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-10-06 23:26:49.310  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-10-06 23:26:49.846  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:26:49.847  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-10-06 23:26:49.877  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 27ms. Found 0 MongoDB repository interfaces.
+2020-10-06 23:26:49.886  INFO [Italian client for interoperability with European Federation Gateway Service,] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-10-06 23:26:49.887  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-10-06 23:26:49.906  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-10-06 23:26:50.286  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-10-06 23:26:50.293  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:26:50.294  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-10-06 23:26:50.294  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-10-06 23:26:50.408  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-10-06 23:26:50.409  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 1063 ms
+2020-10-06 23:26:50.891  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-10-06 23:26:50.929  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:495}] to 26.2.73.206:27017
+2020-10-06 23:26:50.932  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2218367}
+2020-10-06 23:26:51.420  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:26:51.615  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'taskScheduler'
+2020-10-06 23:26:51.634  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-10-06 23:26:51.656  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-10-06 23:26:51.665  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.655 seconds (JVM running for 3.508)
+2020-10-06 23:27:00.726  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:2, serverValue:496}] to 26.2.73.206:27017
+2020-10-06 23:27:12.562  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-06 23:27:12.563  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-10-06 23:27:12.571  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 8 ms
+2020-10-06 23:28:12.618  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-10-06 23:28:12.784  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'taskScheduler'
+2020-10-06 23:28:12.785  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-06 23:28:13.000  INFO [Italian client for interoperability with European Federation Gateway Service,] Closed connection [connectionId{localValue:2, serverValue:496}] to 26.2.73.206:27017 because the pool has been closed.

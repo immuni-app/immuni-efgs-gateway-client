@@ -1,0 +1,23 @@
+2020-09-29 16:57:25.313  INFO [Italian client for interoperability with European Federation Gateway Service,] HV000001: Hibernate Validator 6.1.5.Final
+2020-09-29 16:57:25.330  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting EfgsGatewayItalyClientApplication on gdipietro with PID 125876 (C:\WorkSpace\Immuni\immuni-efgs-gateway-client\target\classes started by gdipietro in C:\WorkSpace\Immuni\immuni-efgs-gateway-client)
+2020-09-29 16:57:25.333  INFO [Italian client for interoperability with European Federation Gateway Service,] No active profile set, falling back to default profiles: default
+2020-09-29 16:57:25.795  INFO [Italian client for interoperability with European Federation Gateway Service,] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-09-29 16:57:25.859  INFO [Italian client for interoperability with European Federation Gateway Service,] Finished Spring Data repository scanning in 61ms. Found 1 MongoDB repository interfaces.
+2020-09-29 16:57:26.188  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat initialized with port(s): 8080 (http)
+2020-09-29 16:57:26.196  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ProtocolHandler ["http-nio-8080"]
+2020-09-29 16:57:26.197  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting service [Tomcat]
+2020-09-29 16:57:26.197  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-29 16:57:26.308  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring embedded WebApplicationContext
+2020-09-29 16:57:26.309  INFO [Italian client for interoperability with European Federation Gateway Service,] Root WebApplicationContext: initialization completed in 942 ms
+2020-09-29 16:57:26.889  INFO [Italian client for interoperability with European Federation Gateway Service,] Cluster created with settings {hosts=[26.2.73.206:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-09-29 16:57:26.938  INFO [Italian client for interoperability with European Federation Gateway Service,] Opened connection [connectionId{localValue:1, serverValue:375}] to 26.2.73.206:27017
+2020-09-29 16:57:26.941  INFO [Italian client for interoperability with European Federation Gateway Service,] Monitor thread successfully connected to server with description ServerDescription{address=26.2.73.206:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2234592}
+2020-09-29 16:57:27.303  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-29 16:57:27.426  INFO [Italian client for interoperability with European Federation Gateway Service,] Starting ProtocolHandler ["http-nio-8080"]
+2020-09-29 16:57:27.455  INFO [Italian client for interoperability with European Federation Gateway Service,] Tomcat started on port(s): 8080 (http) with context path '/v1'
+2020-09-29 16:57:27.462  INFO [Italian client for interoperability with European Federation Gateway Service,] Started EfgsGatewayItalyClientApplication in 2.366 seconds (JVM running for 3.308)
+2020-09-29 16:57:45.009  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-29 16:57:45.009  INFO [Italian client for interoperability with European Federation Gateway Service,] Initializing Servlet 'dispatcherServlet'
+2020-09-29 16:57:45.016  INFO [Italian client for interoperability with European Federation Gateway Service,] Completed initialization in 7 ms
+2020-09-29 16:58:24.138  INFO [Italian client for interoperability with European Federation Gateway Service,] Application shutdown requested.
+2020-09-29 16:58:24.305  INFO [Italian client for interoperability with European Federation Gateway Service,] Shutting down ExecutorService 'applicationTaskExecutor'

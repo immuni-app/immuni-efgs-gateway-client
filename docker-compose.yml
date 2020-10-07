@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: KEYS
+    command: mongod --auth
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      persistence:
+        aliases:
+          - mongodb
+      
+  redis:
+    image: "redis:alpine"
+    command: redis-server --requirepass efgs
+    ports:
+     - "6379:6379"
+    networks:
+      persistence:
+        aliases:
+          - redis
+
+  backend:
+    build: .
+    image: immuni-efgs-gateway-client/client
+    container_name: immuni-efgs-gateway-client
+    ports:
+      - 8080:8080
+    environment:
+      - SERVER_PORT=8080
+      - PROXY_HOST=
+      - PROXY_PORT=
+      - PROXY_USER=
+      - PROXY_PWD=
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - MONGODB_DB=KEYS
+      - MONGODB_USER=root
+      - MONGODB_PWD=password
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PWD=efgs
+
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      backend:
+      persistence:
+
+networks:
+  persistence:
+  backend:
