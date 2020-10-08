@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 ### JAVA ###
-application_dev.properties
+application-dev.properties
 TestController.java
 
 ### STS ###

@@ -1,5 +1,6 @@
 package it.interop.federationgateway.client.base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -13,22 +14,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.ssl.SSLContextBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 //import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 //import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 //import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
@@ -50,7 +50,13 @@ public class RestApiClientBase {
 	
 	@Value("${security.jks.password}")
 	private String jksPassword;
+
+	@Value("${security.jksTrust.path}")
+	private String jksTrustPath;
 	
+	@Value("${security.jksTrust.password}")
+	private String jksTrustPassword;
+
 	@Value("${security.cert.password}")
 	private String certPassword;
 	
@@ -67,19 +73,21 @@ public class RestApiClientBase {
 	private String proxyPassword;
 
 	@Getter
-	@Autowired
 	private RestTemplate restTemplate;
 
 	
-	@Bean
-	private RestTemplate initRestTemplate() throws RestApiException {
+	@PostConstruct
+	private void initRestTemplate() throws RestApiException {
 		try {
 			KeyStore clientStore = KeyStore.getInstance("PKCS12");
 			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
 			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
 			//sslContextBuilder.useProtocol("TLS");
+			//La CA Actalis e certificato
 			sslContextBuilder.loadKeyMaterial(clientStore, certPassword.toCharArray());
-			sslContextBuilder.loadTrustMaterial(new TrustSelfSignedStrategy());
+			
+			//Il certificato del gateway
+			sslContextBuilder.loadTrustMaterial(new File(jksTrustPath), jksTrustPassword.toCharArray());
 			SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build());
 
 		    HttpClientBuilder clientBuilder = HttpClientBuilder.create();
@@ -105,7 +113,7 @@ public class RestApiClientBase {
 			requestFactory.setConnectTimeout(10000); // 10 seconds
 			requestFactory.setReadTimeout(10000); // 10 seconds
 			
-			return new RestTemplate(requestFactory);
+			restTemplate = new RestTemplate(requestFactory);
 			
 		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException | KeyManagementException | IOException e) {
 			throw new RestApiException(e);

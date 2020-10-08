@@ -1,8 +1,22 @@
 package it.interop.federationgateway.batchsigning;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 import java.util.Base64;
 
+import javax.annotation.PostConstruct;
+
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.ssl.SSLContextBuilder;
 import org.bouncycastle.cms.CMSException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -10,33 +24,37 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import it.interop.federationgateway.client.base.RestApiException;
 import lombok.Data;
 
 @Service
 public class SignatureGenerator {
 
-	/*External signature*/
-	private RestTemplate restTemplate;
-
-	@Value("${batch.signature.internal.path}")
-	private String internalFileName;
-
-	@Value("${batch.signature.external.url}")
+	@Value("${signature.external.url}")
 	private String externalUrl;
 
-	@Value("${batch.signature.external.jks.path}")
-	private String externaJksPath;
-
-	@Value("${batch.signature.external.jks.password}")
-	private String externaJksPassword;
-
-	@Value("${batch.signature.external.cert.password}")
-	private String externaCertPassword;
-
+	@Value("${signature.jks.path}")
+	private String jksPath;
 	
+	@Value("${signature.jks.password}")
+	private String jksPassword;
+
+	@Value("${signature.jksTrust.path}")
+	private String jksTrustPath;
+	
+	@Value("${signature.jksTrust.password}")
+	private String jksTrustPassword;
+
+	@Value("${signature.cert.password}")
+	private String certPassword;
+
+	private RestTemplate restTemplate;
+
+
 	public String getSignatureForBytes(final byte[] data) throws CMSException, IOException, BatchSignatureException {
 		HttpHeaders headers = new HttpHeaders();
 
@@ -60,6 +78,38 @@ public class SignatureGenerator {
 			throw new BatchSignatureException(externalUrl+" return null");
 		}
 	}
+
+	@PostConstruct
+	private void intRestTemplate() throws RestApiException {
+		try {
+			KeyStore clientStore = KeyStore.getInstance("PKCS12");
+			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
+			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
+			//sslContextBuilder.useProtocol("TLS");
+			//La CA Actalis e certificato
+			sslContextBuilder.loadKeyMaterial(clientStore, certPassword.toCharArray());
+			
+			//Il certificato del gateway
+			sslContextBuilder.loadTrustMaterial(new File(jksTrustPath), jksTrustPassword.toCharArray());
+			SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build());
+
+		    HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+
+		    clientBuilder.disableCookieManagement();
+
+		    CloseableHttpClient httpClient = clientBuilder.setSSLSocketFactory(sslConnectionSocketFactory).build();
+			
+			HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
+			requestFactory.setConnectTimeout(10000); // 10 seconds
+			requestFactory.setReadTimeout(10000); // 10 seconds
+			
+			restTemplate = new RestTemplate(requestFactory);
+			
+		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException | KeyManagementException | IOException e) {
+			throw new RestApiException(e);
+		}
+	}
+	
 	
 }
 
