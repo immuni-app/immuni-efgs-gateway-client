@@ -45,6 +45,9 @@ public class DiagnosisKeyMapper {
 
 	@Setter
 	public static String localCountry;
+	
+	private static Integer HIGHEST_TRASMSSION_RISK_LEVEL = 3;
+	private static Integer DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS = 0;
 
 	public static List<EfgsKey> protoToEfgsKey(List<EfgsProto.DiagnosisKey> proto) {
 		return proto.stream().map(p -> protoToEfgsKey(p)).collect(Collectors.toList());
@@ -70,7 +73,8 @@ public class DiagnosisKeyMapper {
 				.setRollingStartIntervalNumber(keyPayload.getRollingStartIntervalNumber())
 				.setRollingPeriod(keyPayload.getRollingPeriod())
 				.setTransmissionRiskLevel(keyPayload.getTransmissionRiskLevel())
-				.addAllVisitedCountries(keyPayload.getVisitedCountries()).setOrigin(keyPayload.getOrigin())
+				.addAllVisitedCountries(keyPayload.getVisitedCountries())
+				.setOrigin(keyPayload.getOrigin())
 				.setReportType(mapReportType(keyPayload.getReportType()))
 				.setDaysSinceOnsetOfSymptoms(keyPayload.getDaysSinceOnsetOfSymptoms()).build();
 	}
@@ -106,17 +110,17 @@ public class DiagnosisKeyMapper {
 
 	public static List<EfgsKey> entityToEfgsKeys(BatchFile diagnosisKeyEntity) {
 		List<EfgsKey> entityKeys = new ArrayList<EfgsKey>();
-		for (DiagnosisKeyRaw diagnosisKeyPayload : diagnosisKeyEntity.getKeys()) {
+		for (DiagnosisKey diagnosisKeyPayload : diagnosisKeyEntity.getKeys()) {
 			entityKeys.add(entityPayloadToEfgsKeys(diagnosisKeyPayload, diagnosisKeyEntity.getOrigin()));
 		}
 		return entityKeys;
 	}
 
-	private static EfgsKey entityPayloadToEfgsKeys(DiagnosisKeyRaw diagnosisKeyPayload, String origin) {
+	private static EfgsKey entityPayloadToEfgsKeys(DiagnosisKey diagnosisKeyPayload, String origin) {
 		return new EfgsKey(base64ToByte(diagnosisKeyPayload.getKeyData()),
 				diagnosisKeyPayload.getRollingStartIntervalNumber(), diagnosisKeyPayload.getRollingPeriod(),
-				diagnosisKeyPayload.getTransmissionRiskLevel(), diagnosisKeyPayload.getVisitedCountries(),
-				diagnosisKeyPayload.getReportType(), diagnosisKeyPayload.getDaysSinceOnsetOfSymptoms(), origin);
+				HIGHEST_TRASMSSION_RISK_LEVEL, diagnosisKeyPayload.getCountryOfInterest(),
+				EfgsKey.ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS, origin);
 	}
 
 	public static Map<String, List<EfgsKey>> splitKeysPerOrigin(List<EfgsKey> efgsKeys) {

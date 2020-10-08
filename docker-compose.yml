@@ -11,8 +11,6 @@ services:
     command: mongod --auth
     ports:
       - 27017:27017
-    volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     networks:
       persistence:
         aliases:
@@ -43,8 +41,8 @@ services:
       - MONGODB_HOST=mongodb
       - MONGODB_PORT=27017
       - MONGODB_DB=KEYS
-      - MONGODB_USER=root
-      - MONGODB_PWD=password
+      - MONGODB_USER=efgs
+      - MONGODB_PWD=efgs
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PWD=efgs

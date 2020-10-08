@@ -21,6 +21,7 @@
 package it.interop.federationgateway.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -39,10 +40,21 @@ public class DiagnosisKey implements Serializable {
 	@Field("rolling_period")
 	protected Integer rollingPeriod;
 
+	@Field("country_of_interest")
+	private List<String> countryOfInterest;
+
+	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod, List<String> countryOfInterest) {
+		this.keyData = keyData;
+		this.rollingStartIntervalNumber = rollingStartIntervalNumber;
+		this.rollingPeriod = rollingPeriod;
+		this.countryOfInterest = countryOfInterest;
+	}
+	
 	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod) {
 		this.keyData = keyData;
 		this.rollingStartIntervalNumber = rollingStartIntervalNumber;
 		this.rollingPeriod = rollingPeriod;
+		this.countryOfInterest = null;
 	}
 
 

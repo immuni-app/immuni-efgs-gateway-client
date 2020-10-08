@@ -10,7 +10,6 @@ COPY [ "target/immuni-efgs-gateway-client-0.0.1-SNAPSHOT.jar", "/app.jar" ]
 
 COPY [ "target/classes/security/server/server.jks", "/security/server/server.jks"]
 COPY [ "target/classes/security/sign/sign.jks", "/security/sign/sign.jks"]
-COPY [ "target/classes/security/sign/cert.pem", "/security/sign/cert.pem"]
 
 RUN sh -c 'touch /app.jar'
 

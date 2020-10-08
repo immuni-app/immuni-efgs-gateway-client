@@ -24,8 +24,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -33,6 +33,9 @@ import lombok.Data;
 
 @Data
 @Document(collection = "upload_eu")
+@CompoundIndexes({
+    @CompoundIndex(name = "country_1_to_publish_1", def = "{'country' : 1, 'to_publish': 1}")
+})
 public class UploadEu implements Serializable {
 
 	private static final long serialVersionUID = -9106572163687294395L;
@@ -49,7 +52,6 @@ public class UploadEu implements Serializable {
 	@Field("country")
 	private String country;
 
-	@Indexed(name= "upload_eu_toPublish_ix", direction = IndexDirection.ASCENDING, unique = false)
 	@Field("to_publish")
 	private boolean toPublish;
 

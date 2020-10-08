@@ -28,7 +28,7 @@ public class BatchFile {
   	private String uploadEuReport;
 
 	@Field("keys")
-	private List<DiagnosisKeyRaw> keys;
+	private List<DiagnosisKey> keys;
 	
 	
 }
