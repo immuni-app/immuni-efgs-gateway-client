@@ -1,8 +1,10 @@
 package it.interop.federationgateway.worker;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.bouncycastle.cms.CMSException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -172,7 +174,7 @@ public class EfgsWorker {
 
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 
-		} catch (RestApiException | BatchSignatureException e) {
+		} catch (RestApiException | BatchSignatureException | CMSException | IOException e) {
 			e.printStackTrace();
 		}
 		return nextBatchTag;
