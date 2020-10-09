@@ -6,10 +6,7 @@ LABEL module.name="immuni-efgs-gateway-client" \
 
 COPY [ "target/immuni-efgs-gateway-client-0.0.1-SNAPSHOT.jar", "/app.jar" ]
 
-
-
-COPY [ "target/classes/security/server/server.jks", "/security/server/server.jks"]
-COPY [ "target/classes/security/sign/sign.jks", "/security/sign/sign.jks"]
+RUN mkdir /config
 
 RUN sh -c 'touch /app.jar'
 
@@ -19,4 +16,4 @@ ENV JAVA_OPTS="$JAVA_OPTS -Xms256M -Xmx1G"
 
 EXPOSE 8080
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom --spring.config.location=file:/config/application.properties -jar /app.jar" ]

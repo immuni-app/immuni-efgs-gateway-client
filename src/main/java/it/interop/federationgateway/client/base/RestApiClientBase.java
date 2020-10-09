@@ -45,21 +45,21 @@ public class RestApiClientBase {
 	@Value("${efgs.user_agent}")
 	private String userAgent;
 
-	@Value("${security.jks.path}")
+	@Value("${sslefgs.jks.path}")
 	private String jksPath;
 	
-	@Value("${security.jks.password}")
+	@Value("${sslefgs.jks.password}")
 	private String jksPassword;
 
-	@Value("${security.jksTrust.path}")
-	private String jksTrustPath;
-	
-	@Value("${security.jksTrust.password}")
-	private String jksTrustPassword;
-
-	@Value("${security.cert.password}")
+	@Value("${sslefgs.cert.password}")
 	private String certPassword;
 	
+	@Value("${truststore.jks.path}")
+	private String jksTrustPath;
+	
+	@Value("${truststore.jks.password}")
+	private String jksTrustPassword;
+
 	@Value("${proxy.host}")
 	private String proxyHost;
 
@@ -79,7 +79,7 @@ public class RestApiClientBase {
 	@PostConstruct
 	private void initRestTemplate() throws RestApiException {
 		try {
-			KeyStore clientStore = KeyStore.getInstance("PKCS12");
+			KeyStore clientStore = KeyStore.getInstance("JKS");//PKCS12
 			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
 			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
 			//sslContextBuilder.useProtocol("TLS");

@@ -1,31 +1,6 @@
 version: '3'
 
 services:
-  mongodb:
-    image: mongo:latest
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: KEYS
-    command: mongod --auth
-    ports:
-      - 27017:27017
-    networks:
-      persistence:
-        aliases:
-          - mongodb
-      
-  redis:
-    image: "redis:alpine"
-    command: redis-server --requirepass efgs
-    ports:
-     - "6379:6379"
-    networks:
-      persistence:
-        aliases:
-          - redis
-
   backend:
     build: .
     image: immuni-efgs-gateway-client/client
@@ -46,10 +21,17 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PWD=efgs
+      - SIGN_EXTERNAL_URL=https://immuni-svc-val.sogei.it/v1/pkcs7sign/efgs_bs_ita
+      - SSLDP_JKS_PATH=/security/sign/sign.jks
+      - SSLDP_JKS_PASSWORD=password
+      - SSLDP_CERT_PASSWORD=password
+      - EFGS_BASE_URL=https://acc-efgs-ws.tech.ec.europa.eu
+      - SSLEFGS_JKS_PATH=/security/server/server.jks
+      - SSLEFGS_JKS_PASSWORD=password
+      - SSLEFGS_CERT_PASSWORD=password
+      - TRUST_JKS_PATH=/security/sign/trust.jks
+      - TRUST_JKS_PASSWORD=password
 
-    depends_on:
-      - mongodb
-      - redis
     networks:
       backend:
       persistence:

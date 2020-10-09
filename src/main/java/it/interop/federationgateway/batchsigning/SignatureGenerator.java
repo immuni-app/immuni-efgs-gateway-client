@@ -37,20 +37,21 @@ public class SignatureGenerator {
 	@Value("${signature.external.url}")
 	private String externalUrl;
 
-	@Value("${signature.jks.path}")
+	@Value("${ssldp.jks.path}")
 	private String jksPath;
 	
-	@Value("${signature.jks.password}")
+	@Value("${ssldp.jks.password}")
 	private String jksPassword;
 
-	@Value("${signature.jksTrust.path}")
+	@Value("${ssldp.cert.password}")
+	private String certPassword;
+
+	@Value("${truststore.jks.path}")
 	private String jksTrustPath;
 	
-	@Value("${signature.jksTrust.password}")
+	@Value("${truststore.jks.password}")
 	private String jksTrustPassword;
 
-	@Value("${signature.cert.password}")
-	private String certPassword;
 
 	private RestTemplate restTemplate;
 
@@ -82,7 +83,7 @@ public class SignatureGenerator {
 	@PostConstruct
 	private void intRestTemplate() throws RestApiException {
 		try {
-			KeyStore clientStore = KeyStore.getInstance("PKCS12");
+			KeyStore clientStore = KeyStore.getInstance("JKS");
 			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
 			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
 			//sslContextBuilder.useProtocol("TLS");
