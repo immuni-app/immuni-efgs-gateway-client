@@ -40,21 +40,21 @@ public class DiagnosisKey implements Serializable {
 	@Field("rolling_period")
 	protected Integer rollingPeriod;
 
-	@Field("country_of_interest")
-	private List<String> countryOfInterest;
+	@Field("countries_of_interest")
+	private List<String> countriesOfInterest;
 
-	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod, List<String> countryOfInterest) {
+	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod, List<String> countriesOfInterest) {
 		this.keyData = keyData;
 		this.rollingStartIntervalNumber = rollingStartIntervalNumber;
 		this.rollingPeriod = rollingPeriod;
-		this.countryOfInterest = countryOfInterest;
+		this.countriesOfInterest = countriesOfInterest;
 	}
 	
 	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod) {
 		this.keyData = keyData;
 		this.rollingStartIntervalNumber = rollingStartIntervalNumber;
 		this.rollingPeriod = rollingPeriod;
-		this.countryOfInterest = null;
+		this.countriesOfInterest = null;
 	}
 
 

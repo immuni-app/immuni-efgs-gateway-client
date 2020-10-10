@@ -48,6 +48,7 @@ public class DiagnosisKeyMapper {
 	
 	private static Integer HIGHEST_TRASMSSION_RISK_LEVEL = 3;
 	private static Integer DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS = 0;
+	private static EfgsKey.ReportType DEFAULT_REPORT_TYPE = EfgsKey.ReportType.CONFIRMED_TEST;
 
 	public static List<EfgsKey> protoToEfgsKey(List<EfgsProto.DiagnosisKey> proto) {
 		return proto.stream().map(p -> protoToEfgsKey(p)).collect(Collectors.toList());
@@ -119,8 +120,8 @@ public class DiagnosisKeyMapper {
 	private static EfgsKey entityPayloadToEfgsKeys(DiagnosisKey diagnosisKeyPayload, String origin) {
 		return new EfgsKey(base64ToByte(diagnosisKeyPayload.getKeyData()),
 				diagnosisKeyPayload.getRollingStartIntervalNumber(), diagnosisKeyPayload.getRollingPeriod(),
-				HIGHEST_TRASMSSION_RISK_LEVEL, diagnosisKeyPayload.getCountryOfInterest(),
-				EfgsKey.ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS, origin);
+				HIGHEST_TRASMSSION_RISK_LEVEL, diagnosisKeyPayload.getCountriesOfInterest(),
+				DEFAULT_REPORT_TYPE, DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS, origin);
 	}
 
 	public static Map<String, List<EfgsKey>> splitKeysPerOrigin(List<EfgsKey> efgsKeys) {
