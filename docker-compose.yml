@@ -13,14 +13,8 @@ services:
       - PROXY_PORT=
       - PROXY_USER=
       - PROXY_PWD=
-      - MONGODB_HOST=mongodb
-      - MONGODB_PORT=27017
-      - MONGODB_DB=KEYS
-      - MONGODB_USER=efgs
-      - MONGODB_PWD=efgs
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - REDIS_PWD=efgs
+      - MONGO_DB_URI=mongodb://user:pwd@mongodb:27017/DB
+      - REDIS_URL=redis://:pwd@redis:17955
       - SIGN_EXTERNAL_URL=https://immuni-svc-val.sogei.it/v1/pkcs7sign/efgs_bs_ita
       - SSLDP_JKS_PATH=/security/sign/sign.jks
       - SSLDP_JKS_PASSWORD=password
