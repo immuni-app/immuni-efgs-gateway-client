@@ -1,6 +1,10 @@
 package it.interop.federationgateway.worker;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +46,9 @@ public class EfgsWorker {
 	@Getter
 	@Value("${efgs.origin_country}")
 	private String originCountry;
+	
+	@Value("${efgs.data_retention_days}")
+	private String dataRetentionDays;
 
 	@Autowired(required=true)
 	private RestApiClient client;
@@ -140,6 +147,16 @@ public class EfgsWorker {
 		
 	}
 
+	@Scheduled(cron = "${efgs.worker.delete.schedul}")
+	@SchedulerLock(name = "EfgsWorker_deleteWorker")
+	public void deleteOldDateWorker() {
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.DAY_OF_MONTH, -Integer.parseInt(dataRetentionDays));
+		uploadUeRawRepository.deleteOldData(calendar.getTime());
+	}
+	
+	
 	@Transactional
 	private String upload(String id, String batchDate, String batchTag) {
 		String nextBatchTag = null;
@@ -169,7 +186,7 @@ public class EfgsWorker {
 
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(
-	    					batchTag, batchFile.getKeys().size(), batchSignature, esito.getData())
+	    					batchTag, Float.valueOf(batchFile.getKeys().size()), 0f, batchSignature, esito.getData())
 	    			);
 
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
@@ -214,7 +231,7 @@ public class EfgsWorker {
 				    	
 				    	efgsLogRepository.save(
 				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), 
-				    					batchTagFound, audit.getAmount(), audit.getBatchSignature(), verifiedSign, "OK")
+				    					batchTagFound, audit.getAmount(), diagnosisKeyEntity.getInvalid(), audit.getBatchSignature(), verifiedSign, "OK")
 				    			);
 
 				    }
@@ -234,12 +251,15 @@ public class EfgsWorker {
 		
 		Map<String, UploadEu> mapUploadEuPerCountry = DiagnosisKeyMapper.splitKeysPerVisitatedCountry(uploadEuRaw);
 		
+		Map<String, Float> ammountPerCountry = new HashMap<String, Float>();
 		for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
+			ammountPerCountry.put(uploadEu.getCountry(), Float.valueOf(uploadEu.getKeys().size()));
 			uploadUeRepository.save(uploadEu);
 		}
 		
 		uploadUeRawRepository.setProcessed(id);
-		
+
+		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), ammountPerCountry);
 	}
 	
 	

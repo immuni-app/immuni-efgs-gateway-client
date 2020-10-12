@@ -21,9 +21,12 @@
 package it.interop.federationgateway.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -34,11 +37,12 @@ import lombok.Data;
 @Data
 @Document(collection = "upload_eu_raw")
 public class UploadEuRaw implements Serializable {
+
 	private static final long serialVersionUID = -9106572163687294395L;
 
 	@Id
 	private String id;
-	
+
 	@Field("batch_tag")
   	private String batchTag;
 
@@ -54,13 +58,34 @@ public class UploadEuRaw implements Serializable {
 
 	@Field("keys")
 	private List<DiagnosisKeyRaw> keys;
+	
+	@Transient
+	private Float ammount;
+	
+	@Transient
+	private Float invalid;
 
-	public UploadEuRaw(String id, String batchTag, String origin, List<DiagnosisKeyRaw> keys) {
+	@CreatedDate
+	@Field("created_date")
+	private Date createdDate;
+	
+	public UploadEuRaw() {
+	}
+
+	public UploadEuRaw(String batchTag, String origin, List<DiagnosisKeyRaw> keys, Float ammount, Float invalid) {
+		this(null, batchTag, origin, true, true, keys, ammount, invalid, new Date());
+	}
+
+	public UploadEuRaw(String id, String batchTag, String origin, boolean toProcess, boolean verifiedSign, List<DiagnosisKeyRaw> keys, Float ammount, Float invalid, Date createdDate) {
 		this.id = id;
 		this.batchTag = batchTag;
 		this.origin = origin;
-		this.toProcess = true;
+		this.toProcess = toProcess;
+		this.verifiedSign = verifiedSign;
 		this.keys = keys;
+		this.ammount = ammount;
+		this.invalid = invalid;
+		this.createdDate = createdDate;
 	}
 
 }
