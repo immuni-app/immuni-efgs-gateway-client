@@ -21,12 +21,14 @@
 package it.interop.federationgateway.mapper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.util.StringUtils;
 
 import com.google.protobuf.ByteString;
 
@@ -37,7 +39,6 @@ import it.interop.federationgateway.entity.UploadEu;
 import it.interop.federationgateway.entity.UploadEuRaw;
 import it.interop.federationgateway.model.EfgsKey;
 import it.interop.federationgateway.model.EfgsProto;
-import it.interop.federationgateway.utils.Utility;
 import it.interop.federationgateway.validator.DiagnosisKeyValidator;
 import lombok.Setter;
 
@@ -47,7 +48,7 @@ public class DiagnosisKeyMapper {
 	public static String localCountry;
 	
 	private static Integer HIGHEST_TRASMSSION_RISK_LEVEL = 3;
-	private static Integer DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS = 0;
+	private static Integer DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS = 4000;
 	private static EfgsKey.ReportType DEFAULT_REPORT_TYPE = EfgsKey.ReportType.CONFIRMED_TEST;
 
 	public static List<EfgsKey> protoToEfgsKey(List<EfgsProto.DiagnosisKey> proto) {
@@ -94,7 +95,7 @@ public class DiagnosisKeyMapper {
 				keysPayload.add(diagnosisKeyPayload);
 				invalid += valid ? 1 : 0;
 			}
-			diagnosisKeyEntity = new UploadEuRaw(batchTag, origin, keysPayload, Float.valueOf(keysPayload.size()), Float.valueOf(invalid));
+			diagnosisKeyEntity = new UploadEuRaw(batchTag, origin, keysPayload, Long.valueOf(keysPayload.size()), Long.valueOf(invalid));
 		}
 		return diagnosisKeyEntity;
 	}
@@ -122,7 +123,7 @@ public class DiagnosisKeyMapper {
 		return new EfgsKey(base64ToByte(diagnosisKeyPayload.getKeyData()),
 				diagnosisKeyPayload.getRollingStartIntervalNumber(), diagnosisKeyPayload.getRollingPeriod(),
 				HIGHEST_TRASMSSION_RISK_LEVEL, diagnosisKeyPayload.getCountriesOfInterest(),
-				DEFAULT_REPORT_TYPE, DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS, origin);
+				DEFAULT_REPORT_TYPE, calculateDsos(diagnosisKeyPayload), origin);
 	}
 
 	public static Map<String, List<EfgsKey>> splitKeysPerOrigin(List<EfgsKey> efgsKeys) {
@@ -166,7 +167,7 @@ public class DiagnosisKeyMapper {
 
 						if (key.getVisitedCountries() != null) {
 							for (String country : key.getVisitedCountries()) {
-								if (!Utility.isEmpty(country)) {
+								if (!StringUtils.isEmpty(country)) {
 									if (!keyCountryMap.containsKey(country)) {
 										keyCountryMap.put(country, new UploadEu(uploadEuRaw.getBatchTag(),
 												uploadEuRaw.getOrigin(), country, new ArrayList<DiagnosisKey>()));
@@ -184,6 +185,12 @@ public class DiagnosisKeyMapper {
 		return keyCountryMap;
 	}
 
+	private static Integer calculateDsos(DiagnosisKey diagnosisKeyPayload) {
+		Long time = Long.valueOf(diagnosisKeyPayload.getRollingStartIntervalNumber()) * 600 * 1000; 
+		Long days = (new Date().getTime() - time) / 86400000;
+		return DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS - days.intValue();
+	}
+	
 	public static byte[] byteStringToByteArray(ByteString byteString) {
 		return byteString.toByteArray();
 	}
@@ -201,7 +208,7 @@ public class DiagnosisKeyMapper {
 		Base64 base64Url = new Base64();
 		return base64Url.encodeAsString(bytes);
 	}
-
+	
 	public static EfgsProto.ReportType mapReportType(EfgsKey.ReportType verificationType) {
 		switch (verificationType) {
 		case UNKNOWN:
