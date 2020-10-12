@@ -71,7 +71,13 @@ public class SignatureGenerator {
 		if (respEntity != null) {
 			if (respEntity.getStatusCode() == HttpStatus.OK) {
 				OutputData outputData = respEntity.getBody();
-				return outputData != null ? outputData.getSignature() : null;
+				
+				if (outputData != null) {
+					return outputData.getSignature();
+				} else {
+					throw new BatchSignatureException(externalUrl+" return null");
+				}
+
 			} else {
 				throw new BatchSignatureException(externalUrl+" return status code: "+respEntity.getStatusCode());
 			}
