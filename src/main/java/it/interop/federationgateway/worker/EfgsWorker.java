@@ -185,8 +185,8 @@ public class EfgsWorker {
 			batchFileRepository.setBatchTag(batchFile);
 
 	    	efgsLogRepository.save(
-	    			EfgsLog.buildUploadEfgsLog(
-	    					batchTag, Float.valueOf(batchFile.getKeys().size()), 0f, batchSignature, esito.getData())
+	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
+	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, esito.getData())
 	    			);
 
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
@@ -230,8 +230,8 @@ public class EfgsWorker {
 				    	uploadUeRawRepository.save(diagnosisKeyEntity);
 				    	
 				    	efgsLogRepository.save(
-				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), 
-				    					batchTagFound, audit.getAmount(), diagnosisKeyEntity.getInvalid(), audit.getBatchSignature(), verifiedSign, "OK")
+				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, 
+				    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
 				    			);
 
 				    }
@@ -251,9 +251,9 @@ public class EfgsWorker {
 		
 		Map<String, UploadEu> mapUploadEuPerCountry = DiagnosisKeyMapper.splitKeysPerVisitatedCountry(uploadEuRaw);
 		
-		Map<String, Float> ammountPerCountry = new HashMap<String, Float>();
+		Map<String, Long> ammountPerCountry = new HashMap<String, Long>();
 		for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
-			ammountPerCountry.put(uploadEu.getCountry(), Float.valueOf(uploadEu.getKeys().size()));
+			ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
 			uploadUeRepository.save(uploadEu);
 		}
 		

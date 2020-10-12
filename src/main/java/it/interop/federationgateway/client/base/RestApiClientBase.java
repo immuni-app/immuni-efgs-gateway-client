@@ -31,9 +31,9 @@ import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
-import it.interop.federationgateway.utils.Utility;
 import lombok.Getter;
 
 public class RestApiClientBase {
@@ -92,11 +92,11 @@ public class RestApiClientBase {
 
 		    HttpClientBuilder clientBuilder = HttpClientBuilder.create();
 
-			if (!Utility.isEmpty(proxyHost) && !Utility.isEmpty(proxyPort)) {
+			if (!StringUtils.isEmpty(proxyHost) && !StringUtils.isEmpty(proxyPort)) {
 			    HttpHost myProxy = new HttpHost(proxyHost, Integer.parseInt(proxyPort));
 	
 			    clientBuilder.setProxy(myProxy);
-			    if (!Utility.isEmpty(proxyUser) && !Utility.isEmpty(proxyPassword)) {
+			    if (!StringUtils.isEmpty(proxyUser) && !StringUtils.isEmpty(proxyPassword)) {
 				    CredentialsProvider credsProvider = new BasicCredentialsProvider();
 				    credsProvider.setCredentials( 
 				        new AuthScope(proxyHost, Integer.parseInt(proxyPort)), 

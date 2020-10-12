@@ -26,7 +26,7 @@ public class EfgsLogRepository {
 		return mongoTemplate.findOne(query, EfgsLog.class);
 	}
 	
-	public void setStaristicByCountryBatchtag(String country, String batchTag, Map<String, Float> ammountPerCountry) {
+	public void setStaristicByCountryBatchtag(String country, String batchTag, Map<String, Long> ammountPerCountry) {
 		EfgsLog efgsLog = getByCountryBatchtag(country, batchTag);
 		if (efgsLog!=null) {
 			efgsLog.setAmmountPerCountry(ammountPerCountry);

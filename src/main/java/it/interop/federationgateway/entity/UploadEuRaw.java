@@ -60,10 +60,10 @@ public class UploadEuRaw implements Serializable {
 	private List<DiagnosisKeyRaw> keys;
 	
 	@Transient
-	private Float ammount;
+	private Long ammount;
 	
 	@Transient
-	private Float invalid;
+	private Long invalid;
 
 	@CreatedDate
 	@Field("created_date")
@@ -72,11 +72,11 @@ public class UploadEuRaw implements Serializable {
 	public UploadEuRaw() {
 	}
 
-	public UploadEuRaw(String batchTag, String origin, List<DiagnosisKeyRaw> keys, Float ammount, Float invalid) {
+	public UploadEuRaw(String batchTag, String origin, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid) {
 		this(null, batchTag, origin, true, true, keys, ammount, invalid, new Date());
 	}
 
-	public UploadEuRaw(String id, String batchTag, String origin, boolean toProcess, boolean verifiedSign, List<DiagnosisKeyRaw> keys, Float ammount, Float invalid, Date createdDate) {
+	public UploadEuRaw(String id, String batchTag, String origin, boolean toProcess, boolean verifiedSign, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid, Date createdDate) {
 		this.id = id;
 		this.batchTag = batchTag;
 		this.origin = origin;
