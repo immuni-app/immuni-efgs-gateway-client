@@ -52,6 +52,10 @@ public class DiagnosisKeyRaw implements Serializable {
 
 	@Field("days_since_on_set_of_symptoms")
 	private Integer daysSinceOnsetOfSymptoms;
+	
+	@Field("valid")
+	private boolean valid;
+	
 
 	public DiagnosisKeyRaw(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod,
 			Integer transmissionRiskLevel, List<String> visitedCountries, ReportType reportType,

@@ -86,14 +86,15 @@ public class DiagnosisKeyMapper {
 			List<DiagnosisKeyRaw> keysPayload = new ArrayList<DiagnosisKeyRaw>();
 			String origin = efgsKeys.get(0).getOrigin();
 
+			Integer invalid = 0;
 			for (EfgsKey efgsKey : efgsKeys) {
-				if (!efgsKey.getOrigin().equalsIgnoreCase(origin)) {
-					throw new Exception("Key multi origin!");
-				}
 				DiagnosisKeyRaw diagnosisKeyPayload = efgsKeysToEntityPayload(efgsKey);
+				boolean valid = DiagnosisKeyValidator.isValid(diagnosisKeyPayload);
+				diagnosisKeyPayload.setValid(valid);
 				keysPayload.add(diagnosisKeyPayload);
+				invalid += valid ? 1 : 0;
 			}
-			diagnosisKeyEntity = new UploadEuRaw(null, batchTag, origin, keysPayload);
+			diagnosisKeyEntity = new UploadEuRaw(batchTag, origin, keysPayload, Float.valueOf(keysPayload.size()), Float.valueOf(invalid));
 		}
 		return diagnosisKeyEntity;
 	}
@@ -144,7 +145,7 @@ public class DiagnosisKeyMapper {
 
 			for (DiagnosisKeyRaw key : uploadEuRaw.getKeys()) {
 
-				if (DiagnosisKeyValidator.isValid(key)) {
+				if (key.isValid()) {
 
 					if (key.getVisitedCountries().contains(localCountry)) {
 						//Se la chiave ha IT nell'elenco dei paesi visitati: la chiave è considerata come locale e verrà distribuita a tutti gli utenti IT

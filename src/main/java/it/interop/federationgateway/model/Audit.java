@@ -12,7 +12,7 @@ public class Audit implements Serializable {
 	private String country;
 	private Date  uploadedTime;
 	private String uploaderThumbprint;
-	private float amount;
+	private Float amount;
 	private String batchSignature;
 	
 	

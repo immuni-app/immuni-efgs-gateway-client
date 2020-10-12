@@ -2,13 +2,21 @@ package it.interop.federationgateway.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Data;
 
 @Data
+@CompoundIndexes({
+    @CompoundIndex(name = "efgs_log_country_batch_tag", def = "{'country' : 1, 'batch_tag': 1}")
+})
+@Document(collection = "efgs_log")
 public class EfgsLog implements Serializable {
 	private static final long serialVersionUID = 2330473769691102540L;
 
@@ -25,8 +33,14 @@ public class EfgsLog implements Serializable {
 	private String batchTag;
 
 	@Field("amount")
-	private float amount;
+	private Float amount;
 
+	@Field("invalid")
+	private Float invalid;
+	
+	@Field("ammount_per_country")
+	private Map<String, Float> ammountPerCountry;
+	
 	@Field("batch_signature")
 	private String batchSignature;
 
@@ -44,26 +58,27 @@ public class EfgsLog implements Serializable {
 		DOWNLOAD,
 	}
 
-	private EfgsLog(OperationType operation, String country, String batchTag, float amount, String batchSignature,
+	private EfgsLog(OperationType operation, String country, String batchTag, Float amount, Float invalid, String batchSignature,
 			boolean verifiedSign, Date execution, String executionReport) {
 		this.operation = operation;
 		this.country = country;
 		this.batchTag = batchTag;
 		this.amount = amount;
+		this.invalid = invalid;
 		this.batchSignature = batchSignature;
 		this.verifiedSign = verifiedSign;
 		this.execution = execution;
 		this.executionReport = executionReport;
 	}
 
-	public static EfgsLog buildUploadEfgsLog(String batchTag, float amount, String batchSignature, String executionReport) {
-		return new EfgsLog(EfgsLog.OperationType.UPLOAD, "IT", batchTag, amount, batchSignature,
+	public static EfgsLog buildUploadEfgsLog(String batchTag, Float amount, Float invalid, String batchSignature, String executionReport) {
+		return new EfgsLog(EfgsLog.OperationType.UPLOAD, "IT", batchTag, amount, invalid, batchSignature,
 				true, new Date(), executionReport);
 	}
 
-	public static EfgsLog buildDownloadEfgsLog(String country, String batchTag, float amount, String batchSignature, 
+	public static EfgsLog buildDownloadEfgsLog(String country, String batchTag, Float amount, Float invalid, String batchSignature, 
 			boolean verifiedSign, String executionReport) {
-		return new EfgsLog(EfgsLog.OperationType.DOWNLOAD, country, batchTag, amount, batchSignature,
+		return new EfgsLog(EfgsLog.OperationType.DOWNLOAD, country, batchTag, amount, invalid, batchSignature,
 				verifiedSign, new Date(), executionReport);
 	}
 
