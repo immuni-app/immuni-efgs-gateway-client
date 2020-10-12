@@ -11,9 +11,24 @@ public class Audit implements Serializable {
 
 	private String country;
 	private Date  uploadedTime;
+	private String uploaderCertificate;
 	private String uploaderThumbprint;
-	private Float amount;
+	private String uploaderOperatorSignature;
+	private String signingCertificate;
+	private String uploaderSigningThumbprint;
+	private String signingCertificateOperatorSignature;
+	private Long amount;
 	private String batchSignature;
+
 	
+	public Audit() {
+	}
+
+	public Audit(String country, Date uploadedTime, Long amount, String batchSignature) {
+		this.country = country;
+		this.uploadedTime = uploadedTime;
+		this.amount = amount;
+		this.batchSignature = batchSignature;
+	}
 	
 }
