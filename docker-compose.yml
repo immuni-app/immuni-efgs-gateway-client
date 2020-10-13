@@ -28,7 +28,7 @@ services:
     volumes:
       - c:\security\sslclient:/security/sslclient
       - c:\security\truststore:/security/truststore
-      - c:\config:/config
+      - c:\immuni-gateway-client\config:/immuni-gateway-client/config
     networks:
       backend:
       persistence:
