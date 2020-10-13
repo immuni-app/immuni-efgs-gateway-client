@@ -14,7 +14,7 @@ WORKDIR /immuni-gateway-client
 
 COPY [ "target/immuni-efgs-gateway-client-0.0.1-SNAPSHOT.jar", "/immuni-gateway-client/app.jar" ]
 
-#RUN mkdir -p /immuni-gateway-client/config
+RUN mkdir -p /immuni-gateway-client/config
 RUN mkdir -p /security/sslclient
 RUN mkdir -p /security/truststore
 
@@ -35,4 +35,4 @@ RUN useradd \
     && chmod -R g+rwx /immuni-gateway-client
 USER immuni
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /immuni-gateway-client/app.jar --spring.config.location=file:/immuni-gateway-client/application.properties" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /immuni-gateway-client/app.jar --spring.config.location=file:/immuni-gateway-client/config/application.properties" ]
