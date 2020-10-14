@@ -1,3 +1,17 @@
+/*-
+ *   Copyright (C) 2020 Presidenza del Consiglio dei Ministri.
+ *   Please refer to the AUTHORS file for more information. 
+ *   This program is free software: you can redistribute it and/or modify 
+ *   it under the terms of the GNU Affero General Public License as 
+ *   published by the Free Software Foundation, either version 3 of the
+ *   License, or (at your option) any later version.
+ *   This program is distributed in the hope that it will be useful, 
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+ *   GNU Affero General Public License for more details.
+ *   You should have received a copy of the GNU Affero General Public License
+ *   along with this program. If not, see <https://www.gnu.org/licenses/>.   
+ */
 package it.interop.federationgateway.batchsigning;
 
 import java.io.File;
@@ -30,7 +44,9 @@ import org.springframework.web.client.RestTemplate;
 
 import it.interop.federationgateway.client.base.RestApiException;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class SignatureGenerator {
 
@@ -57,6 +73,7 @@ public class SignatureGenerator {
 
 
 	public String getSignatureForBytes(final byte[] data) throws CMSException, IOException, BatchSignatureException {
+		log.info("START Signature process");
 		HttpHeaders headers = new HttpHeaders();
 
 		headers.set("User-Agent", "");
@@ -73,15 +90,19 @@ public class SignatureGenerator {
 				OutputData outputData = respEntity.getBody();
 				
 				if (outputData != null) {
+					log.info("END Signature process");
 					return outputData.getSignature();
 				} else {
+					log.error("ERROR signature: empty body");
 					throw new BatchSignatureException(externalUrl+" return null");
 				}
 
 			} else {
+				log.error("ERROR signature: response code: "+respEntity.getStatusCode());
 				throw new BatchSignatureException(externalUrl+" return status code: "+respEntity.getStatusCode());
 			}
 		} else {
+			log.error("ERROR signature: empty response");
 			throw new BatchSignatureException(externalUrl+" return null");
 		}
 	}

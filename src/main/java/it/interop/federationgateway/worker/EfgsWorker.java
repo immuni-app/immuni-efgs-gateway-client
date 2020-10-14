@@ -1,3 +1,17 @@
+/*-
+ *   Copyright (C) 2020 Presidenza del Consiglio dei Ministri.
+ *   Please refer to the AUTHORS file for more information. 
+ *   This program is free software: you can redistribute it and/or modify 
+ *   it under the terms of the GNU Affero General Public License as 
+ *   published by the Free Software Foundation, either version 3 of the
+ *   License, or (at your option) any later version.
+ *   This program is distributed in the hope that it will be useful, 
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+ *   GNU Affero General Public License for more details.
+ *   You should have received a copy of the GNU Affero General Public License
+ *   along with this program. If not, see <https://www.gnu.org/licenses/>.   
+ */
 package it.interop.federationgateway.worker;
 
 import java.io.IOException;
@@ -38,8 +52,10 @@ import it.interop.federationgateway.repository.EfgsWorkerInfoRepository;
 import it.interop.federationgateway.repository.UploadUeRawRepository;
 import it.interop.federationgateway.repository.UploadUeRepository;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 
+@Slf4j
 @Service
 public class EfgsWorker {
 
@@ -77,7 +93,7 @@ public class EfgsWorker {
 	@Scheduled(cron = "${efgs.worker.upload.schedul}")
 	@SchedulerLock(name = "EfgsWorker_uploadWorker")
 	public void uploadWorker() {
-		System.out.println("uploadWorker: START");
+		log.info("START Processing upload.");
 		//Recupero ultimo upload (ultima data e ultimo batchtag associato al file)
 		EfgsWorkerInfo efgsWorkerInfo = efgsWorkerInfoRepository.getEfgsWorkerInfoUpload();
 		
@@ -93,6 +109,7 @@ public class EfgsWorker {
 			List<BatchFile> batchFilesToSend = batchFileRepository.getIdBatchFilesToSend();
 			
 			if (batchFilesToSend != null) {
+				log.info("Upload INFO -> total number of batches to be send: "+batchFilesToSend.size());
 				for (BatchFile idBatchFile: batchFilesToSend) {
 					
 					String nextBatchTag = upload(idBatchFile.getId(), batchDate, batchTag);
@@ -102,15 +119,15 @@ public class EfgsWorker {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("ERROR Processing upload.", e);
 		}
-		
+		log.info("END Processing upload.");
 	}
 	
 	@Scheduled(cron = "${efgs.worker.download.schedul}")
 	@SchedulerLock(name = "EfgsWorker_downloadWorker")
 	public void downloadWorker() {
-		System.out.println("downloadWorker: START");
+		log.info("START Processing download.");
 		//Recupero ultimo download (ultima data e ultimo batchtag restituito dal gateway)
 		EfgsWorkerInfo efgsWorkerInfo = efgsWorkerInfoRepository.getEfgsWorkerInfoDownload();
 		
@@ -142,9 +159,9 @@ public class EfgsWorker {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("ERROR Processing download.", e);
 		}
-		
+		log.info("END Processing download.");
 	}
 
 	@Scheduled(cron = "${efgs.worker.delete.schedul}")
@@ -159,30 +176,37 @@ public class EfgsWorker {
 	
 	@Transactional
 	private String upload(String id, String batchDate, String batchTag) {
+		log.info("Upload INFO before sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 		String nextBatchTag = null;
 		try {
 			
 			BatchFile batchFile = batchFileRepository.getById(id);
 			
 			batchFile.setOrigin(originCountry);
-			
+
+			log.info("Upload INFO number of keys:"+batchFile.getKeys().size());
+
 			List<EfgsKey> keyEntities = DiagnosisKeyMapper.entityToEfgsKeys(batchFile);
 
 			
 			EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
 		    	      .addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(keyEntities))
 		    	      .build();
+			log.info("Upload INFO generated protobuf to upload");
 
 		    
 	        String batchSignature = signatureGenerator.getSignatureForBytes(
 	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
+			log.info("Upload INFO signed protobuf to upload");
 
 	        
 	        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
 	        batchFile.setBatchTag(batchTag);
 	        batchFile.setUploadEuReport(esito.getData());
+			log.info("Upload INFO uploaded protobuf");
 	        
 			batchFileRepository.setBatchTag(batchFile);
+			log.info("Upload INFO batch file marked as sent.");
 
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
@@ -192,18 +216,21 @@ public class EfgsWorker {
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 
 		} catch (RestApiException | BatchSignatureException | CMSException | IOException e) {
-			e.printStackTrace();
+			log.error("ERROR Processing upload.", e);
 		}
+		log.info("Upload INFO after sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 		return nextBatchTag;
 	}
 
 	@Transactional
 	private String download(String batchDate, String batchTag) throws Exception {
+		log.info("Download INFO before sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 		String nextBatchTag = null;
 		try {
 			RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(batchDate, batchTag);
 
 			if (resp.getStatusCode() == HttpStatus.OK) {
+				log.info("Start processing downloaded keys");
 			    nextBatchTag = resp.getNextBatchTag();
 
 			    String batchTagFound = resp.getBatchTag();
@@ -217,17 +244,20 @@ public class EfgsWorker {
 					List<Audit> auditList = respAudit.getData();
 					
 				    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
+					log.info("Breakdown of UE keys by origin to verify the signature");
 				    
 				    for (Audit audit: auditList) {
 				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
 				    	
 				    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
+						log.info("Signature verified: {}", verifiedSign);
 				    	
 				    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound);
 				    	
 				    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
 				    	
 				    	uploadUeRawRepository.save(diagnosisKeyEntity);
+						log.info("Saved raw key data");
 				    	
 				    	efgsLogRepository.save(
 				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, 
@@ -237,29 +267,37 @@ public class EfgsWorker {
 				    }
 				}
 				efgsWorkerInfoRepository.saveDownloadBatchTag(batchDate, batchTagFound);
+				log.info("End processing downloaded keys");
+			} else {
+				log.info("Warning! Response code: {}", resp.getStatusCode());
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("ERROR Processing download.", e);
 		}
+		log.info("Download INFO after sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 		return nextBatchTag;
 	}
 
 	@Transactional
 	public void processUploadEuRaw(String id) {
+		log.info("START processing raw keys data -> id: {}", id);
 		UploadEuRaw uploadEuRaw = uploadUeRawRepository.getById(id);
 		
 		Map<String, UploadEu> mapUploadEuPerCountry = DiagnosisKeyMapper.splitKeysPerVisitatedCountry(uploadEuRaw);
+		log.info("Breakdown of UE keys by country");
 		
 		Map<String, Long> ammountPerCountry = new HashMap<String, Long>();
 		for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
 			ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
 			uploadUeRepository.save(uploadEu);
+			log.info("Saved EU keys in order to produce the batch files");
 		}
 		
 		uploadUeRawRepository.setProcessed(id);
 
 		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), ammountPerCountry);
+		log.info("END processing raw keys data -> id: {}", id);
 	}
 	
 	
