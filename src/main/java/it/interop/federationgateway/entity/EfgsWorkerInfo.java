@@ -111,12 +111,32 @@ public class EfgsWorkerInfo implements Serializable {
 		return batchDateFormat.format(new Date());
 	}
 
-	public static String getDefaultBatchTag() {
+	public static String getToDayDefaultBatchTag() {
 		return new StringBuffer(batchTagBaseFormat.format(new Date()))
 				.append("-0").toString();
 	}
 
+	public String getDefaultBatchTag() {
+		try {
+			return new StringBuffer(batchTagBaseFormat.format(batchDateFormat.parse(batchDate)))
+					.append("-0").toString();
+		} catch (ParseException e) {
+			return getToDayDefaultBatchTag();
+		}
+	}
+
 	public String getNextBatchDate() {
+		try {
+			Calendar c = Calendar.getInstance(); 
+			c.setTime(batchDateFormat.parse(batchDate));
+			c.add(Calendar.DATE, 1);
+			return batchDateFormat.format(c.getTime());
+		} catch (ParseException e) {
+			return null;
+		} 
+	}
+	
+	public static String getNextBatchDate(String batchDate) {
 		try {
 			Calendar c = Calendar.getInstance(); 
 			c.setTime(batchDateFormat.parse(batchDate));

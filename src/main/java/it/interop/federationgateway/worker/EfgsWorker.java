@@ -25,7 +25,6 @@ import java.util.Map;
 import org.bouncycastle.cms.CMSException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -99,7 +98,7 @@ public class EfgsWorker {
 		
 		if (efgsWorkerInfo.isBatchDateBeforeToDay()) {
 			efgsWorkerInfo.setBatchDate(EfgsWorkerInfo.getToDayBatchDate());
-			efgsWorkerInfo.setBatchTag(EfgsWorkerInfo.getDefaultBatchTag());
+			efgsWorkerInfo.setBatchTag(EfgsWorkerInfo.getToDayDefaultBatchTag());
 		}
 		
 		String batchDate = efgsWorkerInfo.getBatchDate();
@@ -124,8 +123,8 @@ public class EfgsWorker {
 		log.info("END Processing upload.");
 	}
 	
-	@Scheduled(cron = "${efgs.worker.download.schedul}")
-	@SchedulerLock(name = "EfgsWorker_downloadWorker")
+//	@Scheduled(cron = "${efgs.worker.download.schedul}")
+//	@SchedulerLock(name = "EfgsWorker_downloadWorker")
 	public void downloadWorker() {
 		log.info("START Processing download.");
 		//Recupero ultimo download (ultima data e ultimo batchtag restituito dal gateway)
@@ -143,7 +142,11 @@ public class EfgsWorker {
 				if (nextBatchTag == null) {
 					//se viene restituito nextBatchTag non valorizzato e sto scaricando i file del girono precedemte passo al giorno successivo
 					if (efgsWorkerInfo.isBatchDateBeforeToDay()) {
-						batchDate = efgsWorkerInfo.getNextBatchDate();
+						efgsWorkerInfo.setBatchDate(efgsWorkerInfo.getNextBatchDate());
+						efgsWorkerInfo.setBatchTag(efgsWorkerInfo.getDefaultBatchTag());
+						efgsWorkerInfoRepository.save(efgsWorkerInfo);
+						batchDate = efgsWorkerInfo.getBatchDate();
+						nextBatchTag = efgsWorkerInfo.getNextBatchTag();
 					} else {
 						break;
 					}
@@ -152,15 +155,16 @@ public class EfgsWorker {
 				batchTag = nextBatchTag;
 			}
 			
-			List<UploadEuRaw> idUploadEuRawToProcess = uploadUeRawRepository.getIdUploadEuRawToProcess();
-			
-			for (UploadEuRaw idUploadEuRaw: idUploadEuRawToProcess) {
-				processUploadEuRaw(idUploadEuRaw.getId());
-			}
-			
 		} catch (Exception e) {
 			log.error("ERROR Processing download.", e);
 		}
+
+		List<UploadEuRaw> idUploadEuRawToProcess = uploadUeRawRepository.getIdUploadEuRawToProcess();
+		
+		for (UploadEuRaw idUploadEuRaw: idUploadEuRawToProcess) {
+			processUploadEuRaw(idUploadEuRaw.getId());
+		}
+		
 		log.info("END Processing download.");
 	}
 
@@ -205,9 +209,13 @@ public class EfgsWorker {
 	        batchFile.setUploadEuReport(esito.getData());
 			log.info("Upload INFO uploaded protobuf");
 	        
-			batchFileRepository.setBatchTag(batchFile);
-			log.info("Upload INFO batch file marked as sent.");
+			if (esito.getStatusCode() == RestApiClient.UPLOAD_STATUS_CREATED_201 
+					|| esito.getStatusCode() == RestApiClient.UPLOAD_STATUS_WARNING_207) {
+			
+				batchFileRepository.setBatchTag(batchFile);
+				log.info("Upload INFO batch file marked as sent.");
 
+			}
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
 	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, esito.getData())
@@ -229,7 +237,7 @@ public class EfgsWorker {
 		try {
 			RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(batchDate, batchTag);
 
-			if (resp.getStatusCode() == HttpStatus.OK) {
+			if (resp.getStatusCode() == RestApiClient.DOWNLOAD_STATUS_RETURNS_BATCH_200) {
 				log.info("Start processing downloaded keys");
 			    nextBatchTag = resp.getNextBatchTag();
 
@@ -269,11 +277,13 @@ public class EfgsWorker {
 				efgsWorkerInfoRepository.saveDownloadBatchTag(batchDate, batchTagFound);
 				log.info("End processing downloaded keys");
 			} else {
-				log.info("Warning! Response code: {}", resp.getStatusCode());
+				log.info("Warning! Response code: {}", resp.getStatusCode().toString());
+				throw new Exception(resp.getStatusCode().toString());
 			}
 
 		} catch (Exception e) {
 			log.error("ERROR Processing download.", e);
+			return null;
 		}
 		log.info("Download INFO after sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 		return nextBatchTag;

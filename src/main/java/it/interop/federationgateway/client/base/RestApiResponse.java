@@ -41,12 +41,14 @@ public class RestApiResponse <T> {
     
     public String getBatchTag() {
     	List<String> header = getHeaders().get(RestApiClient.BATCH_TAG);
-    	return (header!=null && header.size()>0) ? header.get(0) : null;
+    	String batchTag = (header!=null && header.size()>0) ? header.get(0) : null;
+    	return "null".equalsIgnoreCase(batchTag) ? null : batchTag;
     }
     
     public String getNextBatchTag() {
     	List<String> header = getHeaders().get(RestApiClient.NEXT_BATCH_TAG);
-    	return (header!=null && header.size()>0) ? header.get(0) : null;
+    	String netBatchTag = (header!=null && header.size()>0) ? header.get(0) : null;
+    	return "null".equalsIgnoreCase(netBatchTag) ? null : netBatchTag;
     }
 
 

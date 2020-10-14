@@ -40,7 +40,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class RestApiClientImpl extends RestApiClientBase implements RestApiClient {
 
-
 	@Override
 	public RestApiResponse<EfgsProto.DiagnosisKeyBatch> download(String date, String batchTag) throws RestApiException {
 		String localVarPath = "/diagnosiskeys/download/{date}".replaceAll("\\{date\\}", date);
@@ -139,13 +138,14 @@ public class RestApiClientImpl extends RestApiClientBase implements RestApiClien
 
 		if (respEntity != null) {
 			
-			log.info("REST Client response-> {}", respEntity.getStatusCode());
 
 			String esito = respEntity.getStatusCode().toString();
 			if (respEntity.getBody() != null) {
 				esito = new String(respEntity.getBody());
 			}
 			
+			log.info("REST Client response-> {} : message: {}", respEntity.getStatusCode(), esito);
+
 			restApiResponse = new RestApiResponse<String>(respEntity.getStatusCode(), headersToMap(respEntity.getHeaders()), esito);
 		}
 		

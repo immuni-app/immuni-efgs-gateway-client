@@ -84,7 +84,7 @@ public class DiagnosisKeyMapper {
 			Integer invalid = 0;
 			for (EfgsKey efgsKey : efgsKeys) {
 				DiagnosisKeyRaw diagnosisKeyPayload = efgsKeysToEntityPayload(efgsKey);
-				boolean valid = DiagnosisKeyValidator.isValid(diagnosisKeyPayload);
+				boolean valid = DiagnosisKeyValidator.isValid(efgsKey);
 				diagnosisKeyPayload.setValid(valid);
 				keysPayload.add(diagnosisKeyPayload);
 				invalid += valid ? 1 : 0;
@@ -136,7 +136,7 @@ public class DiagnosisKeyMapper {
 	public static Map<String, UploadEu> splitKeysPerVisitatedCountry(UploadEuRaw uploadEuRaw) {
 		Map<String, UploadEu> keyCountryMap = new HashMap<String, UploadEu>();
 
-		if (uploadEuRaw != null) {
+		if (uploadEuRaw != null && uploadEuRaw.getKeys() != null) {
 
 			for (DiagnosisKeyRaw key : uploadEuRaw.getKeys()) {
 

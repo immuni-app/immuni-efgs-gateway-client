@@ -29,7 +29,7 @@ import lombok.Data;
 
 @Data
 @CompoundIndexes({
-    @CompoundIndex(name = "efgs_log_country_batch_tag", def = "{'country' : 1, 'batch_tag': 1}")
+    @CompoundIndex(name = "efgs_log_country_batch_tag", def = "{'country' : 1, 'batch_tag': 1}", unique = false)
 })
 @Document(collection = "efgs_log")
 public class EfgsLog implements Serializable {
