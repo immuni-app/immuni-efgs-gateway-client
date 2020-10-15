@@ -213,7 +213,7 @@ public class EfgsWorker {
 					statusCode = HttpStatus.BAD_REQUEST;
 					report = e.getMessage();
 				}
-				log.error("ERROR Processing upload.", e);
+				log.error("ERROR Processing upload. Code: {} - Message: {}", e.getCode(), e.getMessage(),  e);
 			}
 	        
 	        
