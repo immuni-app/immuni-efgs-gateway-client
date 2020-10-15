@@ -213,7 +213,7 @@ public class EfgsWorker {
 					statusCode = HttpStatus.BAD_REQUEST;
 					report = e.getMessage();
 				}
-				log.error("ERROR Processing upload. Code: {} - Message: {}", e.getCode(), e.getMessage(),  e);
+				log.error("ERROR Processing upload RestApiException. Code: {} - Message: {}", e.getCode(), e.getMessage(),  e);
 			}
 	        
 	        
@@ -238,8 +238,12 @@ public class EfgsWorker {
 				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			}
 
-		} catch (BatchSignatureException | CMSException | IOException e) {
-			log.error("ERROR Processing upload.", e);
+		} catch (BatchSignatureException e) {
+			log.error("ERROR Processing upload BatchSignatureException.", e);
+		} catch (CMSException e) {
+			log.error("ERROR Processing upload CMSException.", e);
+		} catch (IOException e) {
+			log.error("ERROR Processing upload IOException.", e);
 		}
 		log.info("Upload INFO after sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 	}
