@@ -14,31 +14,93 @@
  */
 package it.interop.federationgateway.validator;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import it.interop.federationgateway.model.EfgsKey;
 import lombok.extern.slf4j.Slf4j;
+/*
+ * keyData	
+ * Used to generate broadcasts that are collected on the other devices. 
+ * These connect to provide a record of the interaction between two devices. 
+ * This information remains on a device until and unless the user tests positive, 
+ * at which point the user can choose to share that information with the internet-accessible server.
+ */
+
+/*
+ * rollingStartNumber	
+ * The time at which the key was generated, in 10-minute intervals since UTC epoch. 
+ * This time will align to UTC midnight.
+ */
+
+/*
+ * transmissionRiskLevel
+ * 0: Unused
+ * 1: Confirmed test - Low transmission risk level
+ * 2: Confirmed test - Standard transmission risk level
+ * 3: Confirmed test - High transmission risk level
+ * 4: Confirmed clinical diagnosis
+ * 5: Self report
+ * 6: Negative case
+ * 7: Recursive case
+ * 8: Unused/custom
+ */
+
+/*
+ * reportType
+ * 0: UNKNOWN. Report type metadata is missing from the diagnosis key. In v1.7 and higher, keys with report type set to UNKNOWN do not contribute to the risk value.
+ * 1: CONFIRMED_TEST. A medical provider has confirmed the user had a positive diagnostic test for COVID-19.
+ * 2: CONFIRMED_CLINICAL_DIAGNOSIS. A medical provider has confirmed the user had symptoms consistent with a COVID-19 diagnosis.
+ * 3: SELF_REPORT. The user has self-reported symptoms consistent with COVID-19 without confirmation from a medical provider.
+ * 4: RECURSIVE. This value is reserved for future use.
+ * 5: REVOKED. In v1.5, REVOKED is not used. In v1.6 and higher, REVOKED eliminates exposures associated with that key from the detected exposures.
+ */
+
+
 
 @Slf4j
-public class DiagnosisKeyValidator  {
+public class DiagnosisKeyValidator {
 	private static final String VALIDATION_FAILED_MESSAGE = "Validation of diagnosis key failed: ";
 
+	private static Integer KEY_DATA_LENGTH = 16; 
+	private static Integer MAX_ROLLING_START_PERIOD = 144; 
+	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8; 
+
 	public static boolean isValid(EfgsKey efgsKey) {
-		if (efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_TEST && efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_CLINICAL_DIAGNOSIS) {
+		if (efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_TEST
+				&& efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_CLINICAL_DIAGNOSIS) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid report-type.");
 			return false;
-		} else if (efgsKey.getRollingStartIntervalNumber() == 0) {
+		} else if (efgsKey.getRollingStartIntervalNumber() < minRollingStartIntervalNumber() 
+				|| efgsKey.getRollingStartIntervalNumber() > maxRollingStartIntervalNumber()) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling start interval number.");
 			return false;
-		} else if (efgsKey.getKeyData() == null || efgsKey.getKeyData().length < 16) {
+		} else if (efgsKey.getKeyData() == null || efgsKey.getKeyData().length < KEY_DATA_LENGTH) {
 			log.error(VALIDATION_FAILED_MESSAGE + "The keydata is empty or null.");
 			return false;
-		} else if (efgsKey.getRollingPeriod() < 1 || efgsKey.getRollingPeriod() > 144) {
+		} else if (efgsKey.getRollingPeriod() < 1 || efgsKey.getRollingPeriod() > MAX_ROLLING_START_PERIOD) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling period.");
 			return false;
-		} else if (efgsKey.getTransmissionRiskLevel() <= 0) {
+		} else if (efgsKey.getTransmissionRiskLevel() < 0 || efgsKey.getTransmissionRiskLevel() > MAX_TRASMISSION_RISK_LEVEL) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid transmission risk level.");
 			return false;
 		}
 		return true;
 	}
 	
+	private static Long minRollingStartIntervalNumber() {
+    	Calendar calendar = new GregorianCalendar();
+    	calendar.setTime(new Date());
+	    calendar.add(Calendar.DAY_OF_MONTH, -15);
+		return calendar.getTimeInMillis() / 1000 / 600;
+	}
+	
+	private static Long maxRollingStartIntervalNumber() {
+    	Calendar calendar = new GregorianCalendar();
+    	calendar.setTime(new Date());
+		return calendar.getTimeInMillis() / 1000 / 600;
+	}
+	
+
 }

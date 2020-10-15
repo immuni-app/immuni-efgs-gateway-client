@@ -162,12 +162,14 @@ public class DiagnosisKeyMapper {
 						if (key.getVisitedCountries() != null) {
 							for (String country : key.getVisitedCountries()) {
 								if (!StringUtils.isEmpty(country)) {
-									if (!keyCountryMap.containsKey(country)) {
-										keyCountryMap.put(country, new UploadEu(uploadEuRaw.getBatchTag(),
-												uploadEuRaw.getOrigin(), country, new ArrayList<DiagnosisKey>()));
+									if (!country.equals(uploadEuRaw.getOrigin())) {
+										if (!keyCountryMap.containsKey(country)) {
+											keyCountryMap.put(country, new UploadEu(uploadEuRaw.getBatchTag(),
+													uploadEuRaw.getOrigin(), country, new ArrayList<DiagnosisKey>()));
+										}
+										keyCountryMap.get(country).getKeys().add(new DiagnosisKey(key.getKeyData(),
+												key.getRollingStartIntervalNumber(), key.getRollingPeriod()));
 									}
-									keyCountryMap.get(country).getKeys().add(new DiagnosisKey(key.getKeyData(),
-											key.getRollingStartIntervalNumber(), key.getRollingPeriod()));
 								}
 							}
 						}
