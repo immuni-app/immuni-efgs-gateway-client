@@ -69,7 +69,7 @@ public class DiagnosisKeyMapper {
 				.setRollingStartIntervalNumber(keyPayload.getRollingStartIntervalNumber())
 				.setRollingPeriod(keyPayload.getRollingPeriod())
 				.setTransmissionRiskLevel(keyPayload.getTransmissionRiskLevel())
-				.addAllVisitedCountries(keyPayload.getVisitedCountries())
+				.addAllVisitedCountries(keyPayload.getVisitedCountries()==null?new ArrayList<String>():keyPayload.getVisitedCountries())
 				.setOrigin(keyPayload.getOrigin())
 				.setReportType(mapReportType(keyPayload.getReportType()))
 				.setDaysSinceOnsetOfSymptoms(keyPayload.getDaysSinceOnsetOfSymptoms()).build();
