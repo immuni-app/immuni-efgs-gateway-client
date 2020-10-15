@@ -52,6 +52,9 @@ public class UploadEu implements Serializable {
 	@Field("keys")
 	private List<DiagnosisKey> keys;
 
+	public UploadEu() {
+	}
+
 	public UploadEu(String batchTag, String origin, String country, List<DiagnosisKey> keys) {
 		this.batchTag = batchTag;
 		this.origin = origin;

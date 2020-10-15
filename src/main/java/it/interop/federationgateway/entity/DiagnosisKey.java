@@ -36,6 +36,9 @@ public class DiagnosisKey implements Serializable {
 
 	@Field("countries_of_interest")
 	private List<String> countriesOfInterest;
+	
+	public DiagnosisKey() {
+	}
 
 	public DiagnosisKey(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod, List<String> countriesOfInterest) {
 		this.keyData = keyData;

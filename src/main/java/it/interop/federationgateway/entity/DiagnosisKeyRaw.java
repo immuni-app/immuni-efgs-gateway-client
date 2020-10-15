@@ -50,7 +50,9 @@ public class DiagnosisKeyRaw implements Serializable {
 	@Field("valid")
 	private boolean valid;
 	
-
+	public DiagnosisKeyRaw() {
+	}
+	
 	public DiagnosisKeyRaw(String keyData, Integer rollingStartIntervalNumber, Integer rollingPeriod,
 			Integer transmissionRiskLevel, List<String> visitedCountries, ReportType reportType,
 			Integer daysSinceOnsetOfSymptoms) {

@@ -44,5 +44,20 @@ public class BatchFile {
 	@Field("keys")
 	private List<DiagnosisKey> keys;
 	
+	public BatchFile() {
+	}
+
+	public BatchFile(String id, int index, String origin, String batchTag, String uploadEuReport,
+			List<DiagnosisKey> keys) {
+		super();
+		this.id = id;
+		this.index = index;
+		this.origin = origin;
+		this.batchTag = batchTag;
+		this.uploadEuReport = uploadEuReport;
+		this.keys = keys;
+	}
+
+
 	
 }
