@@ -30,6 +30,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpClientErrorException;
 
 import it.interop.federationgateway.batchsigning.BatchSignatureException;
 import it.interop.federationgateway.batchsigning.BatchSignatureUtils;
@@ -208,12 +209,12 @@ public class EfgsWorker {
 			try {
 		        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
 		        report = esito.getData();
-			} catch (RestApiException e) {
-				if (e.getCode() == 400) {
+			} catch (HttpClientErrorException e) {
+				if (e.getRawStatusCode() == 400) {
 					statusCode = HttpStatus.BAD_REQUEST;
 					report = e.getMessage();
 				}
-				log.error("ERROR Processing upload RestApiException. Code: {} - Message: {}", e.getCode(), e.getMessage(),  e);
+				log.error("ERROR Processing upload HttpClientErrorException. Code: {} - Message: {}", e.getRawStatusCode(), e.getMessage(),  e);
 			}
 	        
 	        
@@ -238,6 +239,8 @@ public class EfgsWorker {
 				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			}
 
+		} catch (RestApiException e) {
+			log.error("ERROR Processing upload RestApiException.", e);
 		} catch (BatchSignatureException e) {
 			log.error("ERROR Processing upload BatchSignatureException.", e);
 		} catch (CMSException e) {
