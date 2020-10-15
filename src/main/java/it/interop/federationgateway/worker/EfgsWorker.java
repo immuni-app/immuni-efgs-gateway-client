@@ -26,6 +26,7 @@ import java.util.Map;
 import org.bouncycastle.cms.CMSException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -202,27 +203,42 @@ public class EfgsWorker {
 	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
 			log.info("Upload INFO signed protobuf to upload");
 
+			String report = null;
+			HttpStatus statusCode = null;
+			try {
+		        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
+		        report = esito.getData();
+			} catch (RestApiException e) {
+				if (e.getCode() == 400) {
+					statusCode = HttpStatus.BAD_REQUEST;
+					report = e.getMessage();
+				}
+				log.error("ERROR Processing upload.", e);
+			}
 	        
-	        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
-	        batchFile.setBatchTag(batchTag);
-	        batchFile.setUploadEuReport(esito.getData());
-			log.info("Upload INFO uploaded protobuf");
 	        
-			if (esito.getStatusCode() == RestApiClient.UPLOAD_STATUS_CREATED_201 
-					|| esito.getStatusCode() == RestApiClient.UPLOAD_STATUS_WARNING_207) {
-			
+			if (statusCode == RestApiClient.UPLOAD_STATUS_CREATED_201 
+					|| statusCode == RestApiClient.UPLOAD_STATUS_WARNING_207
+					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_SIGNATURE_400
+					|| statusCode == RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400
+					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_CONTENT_406) {
+
+		        batchFile.setBatchTag(batchTag);
+		        batchFile.setUploadEuReport(report);
+				log.info("Upload INFO uploaded protobuf");
+
 				batchFileRepository.setBatchTag(batchFile);
 				log.info("Upload INFO batch file marked as sent.");
 
 		    	efgsLogRepository.save(
 		    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-		    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, esito.getData())
+		    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
 		    			);
 
 				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			}
 
-		} catch (RestApiException | BatchSignatureException | CMSException | IOException e) {
+		} catch (BatchSignatureException | CMSException | IOException e) {
 			log.error("ERROR Processing upload.", e);
 		}
 		log.info("Upload INFO after sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);

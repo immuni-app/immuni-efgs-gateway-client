@@ -59,6 +59,8 @@ public interface RestApiClient {
 	public static HttpStatus UPLOAD_STATUS_WARNING_207 = HttpStatus.MULTI_STATUS;
 	//Signature not valid. Bad request. - KO retry
 	public static HttpStatus UPLOAD_STATUS_INVALID_SIGNATURE_400 = HttpStatus.BAD_REQUEST;
+	//Bad request. - KO retry
+	public static HttpStatus UPLOAD_STATUS_BAD_REQUEST_400 = HttpStatus.BAD_REQUEST;
 	//Forbidden call in cause of missing or invalid client certificate. - KO retry
 	public static HttpStatus UPLOAD_STATUS_FORBIDDEN_403 = HttpStatus.FORBIDDEN;
 	//Data format or content is not valid. - KO retry
