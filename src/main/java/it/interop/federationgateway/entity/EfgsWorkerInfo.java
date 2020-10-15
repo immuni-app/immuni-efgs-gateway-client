@@ -106,7 +106,6 @@ public class EfgsWorkerInfo implements Serializable {
 		return batchTag;
 	}
 
-
 	public static String getToDayBatchDate() {
 		return batchDateFormat.format(new Date());
 	}

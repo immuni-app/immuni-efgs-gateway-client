@@ -99,27 +99,26 @@ public class EfgsWorker {
 		if (efgsWorkerInfo.isBatchDateBeforeToDay()) {
 			efgsWorkerInfo.setBatchDate(EfgsWorkerInfo.getToDayBatchDate());
 			efgsWorkerInfo.setBatchTag(EfgsWorkerInfo.getToDayDefaultBatchTag());
+			efgsWorkerInfoRepository.save(efgsWorkerInfo);
 		}
 		
-		String batchDate = efgsWorkerInfo.getBatchDate();
-		String batchTag = efgsWorkerInfo.getNextBatchTag();
 		
-		try {
-			List<BatchFile> batchFilesToSend = batchFileRepository.getIdBatchFilesToSend();
-			
-			if (batchFilesToSend != null) {
-				log.info("Upload INFO -> total number of batches to be send: "+batchFilesToSend.size());
-				for (BatchFile idBatchFile: batchFilesToSend) {
-					
-					String nextBatchTag = upload(idBatchFile.getId(), batchDate, batchTag);
-
-					batchTag = nextBatchTag;
+		List<BatchFile> batchFilesToSend = batchFileRepository.getIdBatchFilesToSend();
+		
+		if (batchFilesToSend != null) {
+			log.info("Upload INFO -> total number of batches to be send: "+batchFilesToSend.size());
+			for (BatchFile idBatchFile: batchFilesToSend) {
+				try {
+					String batchDate = efgsWorkerInfo.getBatchDate();
+					String batchTag = efgsWorkerInfo.getNextBatchTag();
+					upload(idBatchFile.getId(), batchDate, batchTag);
+					efgsWorkerInfo.setBatchTag(batchTag);
+				} catch (Exception e) {
+					log.error("ERROR Processing upload.", e);
 				}
 			}
-			
-		} catch (Exception e) {
-			log.error("ERROR Processing upload.", e);
 		}
+			
 		log.info("END Processing upload.");
 	}
 	
@@ -179,9 +178,8 @@ public class EfgsWorker {
 	
 	
 	@Transactional
-	private String upload(String id, String batchDate, String batchTag) {
+	private void upload(String id, String batchDate, String batchTag) {
 		log.info("Upload INFO before sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
-		String nextBatchTag = null;
 		try {
 			
 			BatchFile batchFile = batchFileRepository.getById(id);
@@ -215,19 +213,18 @@ public class EfgsWorker {
 				batchFileRepository.setBatchTag(batchFile);
 				log.info("Upload INFO batch file marked as sent.");
 
-			}
-	    	efgsLogRepository.save(
-	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, esito.getData())
-	    			);
+		    	efgsLogRepository.save(
+		    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
+		    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, esito.getData())
+		    			);
 
-			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
+				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
+			}
 
 		} catch (RestApiException | BatchSignatureException | CMSException | IOException e) {
 			log.error("ERROR Processing upload.", e);
 		}
 		log.info("Upload INFO after sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
-		return nextBatchTag;
 	}
 
 	@Transactional
@@ -243,35 +240,46 @@ public class EfgsWorker {
 
 			    String batchTagFound = resp.getBatchTag();
 
+			    RestApiResponse<List<Audit>> respAudit = client.audit(batchDate, batchTagFound);
+				List<Audit> auditList = respAudit.getData();
+
 			    if (resp.getData() != null) {
 					
 					EfgsProto.DiagnosisKeyBatch protoDiagnosisKeyBatch = resp.getData();
 
-					RestApiResponse<List<Audit>> respAudit = client.audit(batchDate, batchTagFound);
-					
-					List<Audit> auditList = respAudit.getData();
-					
 				    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
 					log.info("Breakdown of UE keys by origin to verify the signature");
 				    
+					Map<String, Boolean> processedAudit = new HashMap<String, Boolean>();
 				    for (Audit audit: auditList) {
-				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
-				    	
-				    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
-						log.info("Signature verified: {}", verifiedSign);
-				    	
-				    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound);
-				    	
-				    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
-				    	
-				    	uploadUeRawRepository.save(diagnosisKeyEntity);
-						log.info("Saved raw key data");
-				    	
-				    	efgsLogRepository.save(
-				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, 
-				    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
-				    			);
+				    	if (!processedAudit.containsKey(audit.getCountry())) {
+					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
+					    	
+					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
+							log.info("Signature verified: {}", verifiedSign);
+					    	
+					    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound);
+					    	
+					    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
+					    	//Not to process if the signature is not verified
+					    	diagnosisKeyEntity.setToProcess(verifiedSign);
+					    	
+					    	uploadUeRawRepository.save(diagnosisKeyEntity);
+							log.info("Saved raw key data");
+					    	
+					    	efgsLogRepository.save(
+					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, 
+					    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
+					    			);
+					    	processedAudit.put(audit.getCountry(), verifiedSign);
+				    	}
 
+				    }
+				} else {
+				    for (Audit audit: auditList) {
+				    	efgsLogRepository.save(
+				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, audit.getAmount(), 0l, false, "ITALIAN BATCH", audit)
+				    			);
 				    }
 				}
 				efgsWorkerInfoRepository.saveDownloadBatchTag(batchDate, batchTagFound);
