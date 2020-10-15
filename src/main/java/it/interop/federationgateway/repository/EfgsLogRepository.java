@@ -34,14 +34,16 @@ public class EfgsLogRepository {
 		return mongoTemplate.save(efgsWorkerInfo);
 	}
 	
-	public EfgsLog getByCountryBatchtag(String country, String batchTag) {
+	public EfgsLog getByCountryBatchtag(String country, String batchTag, Integer index) {
 		Query query = new Query();
-		query.addCriteria(Criteria.where("country").is(country)).addCriteria(Criteria.where("batchTag").is(batchTag));
+		query.addCriteria(Criteria.where("country").is(country))
+		.addCriteria(Criteria.where("batchTag").is(batchTag))
+		.addCriteria(Criteria.where("index").is(index));
 		return mongoTemplate.findOne(query, EfgsLog.class);
 	}
 	
-	public void setStaristicByCountryBatchtag(String country, String batchTag, Map<String, Long> ammountPerCountry) {
-		EfgsLog efgsLog = getByCountryBatchtag(country, batchTag);
+	public void setStaristicByCountryBatchtag(String country, String batchTag, Integer index, Map<String, Long> ammountPerCountry) {
+		EfgsLog efgsLog = getByCountryBatchtag(country, batchTag, index);
 		if (efgsLog!=null) {
 			efgsLog.setAmmountPerCountry(ammountPerCountry);
 			save(efgsLog);

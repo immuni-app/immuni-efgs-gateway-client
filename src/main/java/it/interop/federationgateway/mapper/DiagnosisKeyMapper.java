@@ -75,7 +75,7 @@ public class DiagnosisKeyMapper {
 				.setDaysSinceOnsetOfSymptoms(keyPayload.getDaysSinceOnsetOfSymptoms()).build();
 	}
 
-	public static UploadEuRaw efgsKeysToEntity(List<EfgsKey> efgsKeys, String batchTag) throws Exception {
+	public static UploadEuRaw efgsKeysToEntity(List<EfgsKey> efgsKeys, String batchTag, Integer index) throws Exception {
 		UploadEuRaw diagnosisKeyEntity = null;
 		if (efgsKeys != null && efgsKeys.size() > 0) {
 			List<DiagnosisKeyRaw> keysPayload = new ArrayList<DiagnosisKeyRaw>();
@@ -89,7 +89,7 @@ public class DiagnosisKeyMapper {
 				keysPayload.add(diagnosisKeyPayload);
 				invalid += valid ? 1 : 0;
 			}
-			diagnosisKeyEntity = new UploadEuRaw(batchTag, origin, keysPayload, Long.valueOf(keysPayload.size()), Long.valueOf(invalid));
+			diagnosisKeyEntity = new UploadEuRaw(batchTag, index, origin, keysPayload, Long.valueOf(keysPayload.size()), Long.valueOf(invalid));
 		}
 		return diagnosisKeyEntity;
 	}

@@ -15,6 +15,7 @@
 package it.interop.federationgateway.worker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -89,8 +90,8 @@ public class EfgsWorker {
 	@Autowired(required=true)
 	private BatchSignatureVerifier batchSignatureVerifier;
 	
-	@Scheduled(cron = "${efgs.worker.upload.schedul}")
-	@SchedulerLock(name = "EfgsWorker_uploadWorker")
+//	@Scheduled(cron = "${efgs.worker.upload.schedul}")
+//	@SchedulerLock(name = "EfgsWorker_uploadWorker")
 	public void uploadWorker() {
 		log.info("START Processing upload.");
 		//Recupero ultimo upload (ultima data e ultimo batchtag associato al file)
@@ -249,16 +250,30 @@ public class EfgsWorker {
 
 				    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
 					log.info("Breakdown of UE keys by origin to verify the signature");
-				    
-					Map<String, Boolean> processedAudit = new HashMap<String, Boolean>();
-				    for (Audit audit: auditList) {
-				    	if (!processedAudit.containsKey(audit.getCountry())) {
-					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
+					
+					Map<String, List<Audit>> auditToMapPerCounty = auditToMapPerCounty(auditList);
+					
+					for (String country : auditToMapPerCounty.keySet()) {
+						List<Audit> auditListInner =  auditToMapPerCounty.get(country);
+				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
+				    	int startIndex = 0;
+				    	int count = 0;
+					    for (Audit audit: auditListInner) {
+					    	count = count + 1;
+					    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
+					    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
+					    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
+					    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
+					    			startIndex = index + 1;
+					    			break;
+					    		}
+					    		
+					    	}
 					    	
-					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
+					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
 							log.info("Signature verified: {}", verifiedSign);
 					    	
-					    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound);
+					    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOriginInner, batchTagFound, count);
 					    	
 					    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
 					    	//Not to process if the signature is not verified
@@ -268,17 +283,19 @@ public class EfgsWorker {
 							log.info("Saved raw key data");
 					    	
 					    	efgsLogRepository.save(
-					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, 
+					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
 					    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
 					    			);
-					    	processedAudit.put(audit.getCountry(), verifiedSign);
-				    	}
-
-				    }
+						    	
+					    }
+						
+					}
+				    
 				} else {
+					int count = 1;
 				    for (Audit audit: auditList) {
 				    	efgsLogRepository.save(
-				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, audit.getAmount(), 0l, false, "ITALIAN BATCH", audit)
+				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, false, "ITALIAN BATCH", audit)
 				    			);
 				    }
 				}
@@ -297,6 +314,19 @@ public class EfgsWorker {
 		return nextBatchTag;
 	}
 
+	
+	private Map<String, List<Audit>> auditToMapPerCounty(List<Audit> audits) {
+		Map<String, List<Audit>> auditToMapPerCounty = new HashMap<String, List<Audit>>();
+		for (Audit audit : audits) {
+			if (!auditToMapPerCounty.containsKey(audit.getCountry())) {
+				auditToMapPerCounty.put(audit.getCountry(), new ArrayList<Audit>());
+			}
+			auditToMapPerCounty.get(audit.getCountry()).add(audit);
+		}
+		
+		return auditToMapPerCounty;
+	}
+	
 	@Transactional
 	public void processUploadEuRaw(String id) {
 		log.info("START processing raw keys data -> id: {}", id);
@@ -314,7 +344,7 @@ public class EfgsWorker {
 		
 		uploadUeRawRepository.setProcessed(id);
 
-		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), ammountPerCountry);
+		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), uploadEuRaw.getIndex(), ammountPerCountry);
 		log.info("END processing raw keys data -> id: {}", id);
 	}
 	

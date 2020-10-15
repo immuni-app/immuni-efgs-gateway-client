@@ -40,6 +40,9 @@ public class UploadEuRaw implements Serializable {
 	@Field("batch_tag")
   	private String batchTag;
 
+	@Field("index")
+  	private Integer index;
+	
 	@Field("origin")
 	private String origin;
 
@@ -66,13 +69,14 @@ public class UploadEuRaw implements Serializable {
 	public UploadEuRaw() {
 	}
 
-	public UploadEuRaw(String batchTag, String origin, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid) {
-		this(null, batchTag, origin, true, true, keys, ammount, invalid, new Date());
+	public UploadEuRaw(String batchTag, Integer index, String origin, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid) {
+		this(null, batchTag, index, origin, true, true, keys, ammount, invalid, new Date());
 	}
 
-	public UploadEuRaw(String id, String batchTag, String origin, boolean toProcess, boolean verifiedSign, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid, Date createdDate) {
+	public UploadEuRaw(String id, String batchTag, Integer index, String origin, boolean toProcess, boolean verifiedSign, List<DiagnosisKeyRaw> keys, Long ammount, Long invalid, Date createdDate) {
 		this.id = id;
 		this.batchTag = batchTag;
+		this.index = index;
 		this.origin = origin;
 		this.toProcess = toProcess;
 		this.verifiedSign = verifiedSign;

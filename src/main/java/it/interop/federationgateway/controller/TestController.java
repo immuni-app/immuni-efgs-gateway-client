@@ -108,7 +108,23 @@ public class TestController {
 		}
 		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
 	}
-	
+
+	@GetMapping("/testUpload")
+	public ResponseEntity<String> testUpload() {
+		StringBuffer content = new StringBuffer();
+		try {
+			
+			efgsWorker.uploadWorker();
+			System.out.println("OK");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			content.append("Errore: ").append(e.getMessage()).append("<br>");
+		}
+		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
+	}
+
 
 	@GetMapping("/testDownload")
 	public ResponseEntity<String> testDownload() {
@@ -256,7 +272,7 @@ public class TestController {
 					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
 					    	boolean ver = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
 					    	
-					    	UploadEuRaw diagnosisKeyEntity =DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound);
+					    	UploadEuRaw diagnosisKeyEntity =DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound, 0);
 					    	
 					    	diagnosisKeyEntity.setVerifiedSign(ver);
 					    	

@@ -29,7 +29,7 @@ import lombok.Data;
 
 @Data
 @CompoundIndexes({
-    @CompoundIndex(name = "efgs_log_country_batch_tag", def = "{'country' : 1, 'batch_tag': 1}", unique = false)
+    @CompoundIndex(name = "efgs_log_country_batch_tag", def = "{'country' : 1, 'batch_tag': 1, 'index':1}", unique = false)
 })
 @Document(collection = "efgs_log")
 public class EfgsLog implements Serializable {
@@ -46,6 +46,9 @@ public class EfgsLog implements Serializable {
 
 	@Field("batch_tag")
 	private String batchTag;
+
+	@Field("index")
+	private Integer index;
 
 	@Field("amount")
 	private Long amount;
@@ -76,11 +79,12 @@ public class EfgsLog implements Serializable {
 	public EfgsLog() {
 	}
 	
-	private EfgsLog(OperationType operation, String country, String batchTag, Long amount, Long invalid,
+	private EfgsLog(OperationType operation, String country, String batchTag, Integer index, Long amount, Long invalid,
 			boolean verifiedSign, Date execution, String executionReport, Audit  audit) {
 		this.operation = operation;
 		this.country = country;
 		this.batchTag = batchTag;
+		this.index = index;
 		this.amount = amount;
 		this.invalid = invalid;
 		this.audit = audit;
@@ -92,13 +96,13 @@ public class EfgsLog implements Serializable {
 	public static EfgsLog buildUploadEfgsLog(String country, String batchTag, Long amount, Long invalid, String batchSignature, String executionReport) {
 		Audit  audit = new Audit(country, new Date(), amount,  batchSignature);
 	
-		return new EfgsLog(EfgsLog.OperationType.UPLOAD, country, batchTag, amount, invalid,
+		return new EfgsLog(EfgsLog.OperationType.UPLOAD, country, batchTag, 1, amount, invalid,
 				true, new Date(), executionReport, audit);
 	}
 
-	public static EfgsLog buildDownloadEfgsLog(String country, String batchTag, Long amount, Long invalid, 
+	public static EfgsLog buildDownloadEfgsLog(String country, String batchTag, Integer index, Long amount, Long invalid, 
 			boolean verifiedSign, String executionReport, Audit  audit) {
-		return new EfgsLog(EfgsLog.OperationType.DOWNLOAD, country, batchTag, amount, invalid,
+		return new EfgsLog(EfgsLog.OperationType.DOWNLOAD, country, batchTag, index, amount, invalid,
 				verifiedSign, new Date(), executionReport, audit);
 	}
 
