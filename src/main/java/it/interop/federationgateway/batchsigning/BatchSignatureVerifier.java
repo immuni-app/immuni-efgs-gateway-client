@@ -1,36 +1,38 @@
 /*-
- * ---license-start
- * EU-Federation-Gateway-Service / efgs-federation-gateway
- * ---
- * Copyright (C) 2020 T-Systems International GmbH and all other contributors
- * ---
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ---license-end
+ *   Copyright (C) 2020 Presidenza del Consiglio dei Ministri.
+ *   Please refer to the AUTHORS file for more information. 
+ *   This program is free software: you can redistribute it and/or modify 
+ *   it under the terms of the GNU Affero General Public License as 
+ *   published by the Free Software Foundation, either version 3 of the
+ *   License, or (at your option) any later version.
+ *   This program is distributed in the hope that it will be useful, 
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+ *   GNU Affero General Public License for more details.
+ *   You should have received a copy of the GNU Affero General Public License
+ *   along with this program. If not, see <https://www.gnu.org/licenses/>.   
  */
-
 package it.interop.federationgateway.batchsigning;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.security.InvalidKeyException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
+import java.security.PublicKey;
 import java.security.Security;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.bouncycastle.asn1.x500.RDN;
 import org.bouncycastle.asn1.x500.style.BCStyle;
@@ -45,8 +47,10 @@ import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.Store;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import it.interop.federationgateway.mapper.DiagnosisKeyMapper;
@@ -63,59 +67,110 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class BatchSignatureVerifier {
 
+	@Value("${truststore.jks.path}")
+	private String jksTrustPath;
+
+	@Value("${truststore.jks.password}")
+	private String jksTrustPassword;
+
+	@Value("${truststore.anchor.alias}")
+	private String trustAnchorAlias;
+
+	private PublicKey anchoPublicKey = null;
 
 	public BatchSignatureVerifier() {
 		Security.addProvider(new BouncyCastleProvider());
+
 	}
 
-	/**
-	 * Verifies the signature of a batch. The signature is an PKCS#7 object encoded
-	 * with base64.
-	 *
-	 * @param batch                the {@link DiagnosisKeyBatch} object that
-	 *                             corresponds to the batch signature.
-	 * @param base64BatchSignature the base64-encoded batch signature to be
-	 *                             verified.
-	 * @return true if the batch signature is correct. False otherwise.
-	 */
-	public boolean verify(final DiagnosisKeyBatch batch, final String base64BatchSignature) {
+	@PostConstruct
+	private void initAnchoPublicKey() throws Exception {
+		try {
+			KeyStore anchorStore = KeyStore.getInstance("JKS");
+			anchorStore.load(new FileInputStream(jksTrustPath), jksTrustPassword.toCharArray());
+			anchoPublicKey = anchorStore.getCertificate(trustAnchorAlias).getPublicKey();
+		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException e) {
+			log.error("Could not load EFGS-TrustAnchor from KeyStore.");
+			throw e;
+		}
+	}
+
+	public boolean verify(final DiagnosisKeyBatch batch, final String base64BatchSignature,
+			final String signingCertificateOperatorSignature, final String signingCertificate) {
 		final byte[] batchSignatureBytes = BatchSignatureUtils.b64ToBytes(base64BatchSignature);
-		if (batchSignatureBytes != null) {
-			try {
+		try {
+			if (batchSignatureBytes != null) {
+				log.info("START Signature verification...");
+
 				final CMSSignedData signedData = new CMSSignedData(getBatchBytes(batch), batchSignatureBytes);
 				final SignerInformation signerInfo = getSignerInformation(signedData);
 
-				final X509CertificateHolder signerCert = getSignerCert(signedData.getCertificates(),
-						signerInfo.getSID());
+				if (signerInfo != null) {
+					final X509CertificateHolder signerCert = getSignerCert(signedData.getCertificates(),
+							signerInfo.getSID());
 
-				if (signerCert == null) {
-					log.error("no signer certificate");
-					return false;
+					if (signerCert == null) {
+						log.error("Erore: no signer certificate");
+						return false;
+					}
+
+					if (!isCertNotExpired(signerCert)) {
+						log.error("Erore: signing certificate expired, certNotBefore={}, certNotAfter={}",
+								signerCert.getNotBefore(), signerCert.getNotAfter());
+						return false;
+					}
+
+					if (!allOriginsMatchingCertCountry(batch, signerCert)) {
+						log.error("Erore: different origins, certNotBefore={}, certNotAfter={}",
+								signerCert.getNotBefore(), signerCert.getNotAfter());
+						return false;
+					}
+
+					JcaX509CertificateConverter converter = new JcaX509CertificateConverter();
+					X509Certificate signerCertConv = converter.getCertificate(signerCert);
+
+					String signingCertificateFromData = x509CertificateToPem(signerCertConv);
+
+					if (!signingCertificateFromData.equals(signingCertificate)) {
+						log.error("Erore: Certificate do not match.");
+						return false;
+					}
+
+					Signature verifier = Signature.getInstance("SHA256with" + anchoPublicKey.getAlgorithm());
+					verifier.initVerify(anchoPublicKey);
+					verifier.update(signingCertificateFromData.getBytes());
+
+					byte[] signatureBytes = Base64.getDecoder().decode(signingCertificateOperatorSignature);
+
+					
+					boolean verified = verifier.verify(signatureBytes);
+					log.info("END Signature verification... verified: {}", verified);
+					
+					return  verified;
 				}
 
-				if (!isCertNotExpired(signerCert)) {
-					log.error("signing certificate expired\", certNotBefore=\"{}\", certNotAfter=\"{}",
-							signerCert.getNotBefore(), signerCert.getNotAfter());
-					return false;
-				}
-
-				if (!allOriginsMatchingCertCountry(batch, signerCert)) {
-					log.error("different origins\", certNotBefore=\"{}\", certNotAfter=\"{}", signerCert.getNotBefore(),
-							signerCert.getNotAfter());
-					return false;
-				}
-
-				if (signerInfo == null) {
-					log.error("no signer information");
-					return false;
-				}
-
-				return verifySignerInfo(signerInfo, signerCert);
-			} catch (CertificateException | OperatorCreationException | CMSException e) {
-				log.error("error verifying batch signature", e);
 			}
+		} catch (InvalidKeyException e) {
+			log.error("Erore: Could not use public key to initialize verifier.");
+		} catch (SignatureException e) {
+			log.error("Erore: Signature verifier is not initialized");
+		} catch (NoSuchAlgorithmException e) {
+			log.error("Erore: Unknown signing algorithm used by EFGS Trust Anchor.");
+		} catch (IOException e) {
+			log.error("Erore: IOException by EFGS Trust Anchor.");
+		} catch (CertificateException | CMSException e) {
+			log.error("Erore: Error verifying batch signature", e);
 		}
 		return false;
+	}
+
+	public static String x509CertificateToPem(final X509Certificate cert) throws IOException {
+		final StringWriter writer = new StringWriter();
+		final JcaPEMWriter pemWriter = new JcaPEMWriter(writer);
+		pemWriter.writeObject(cert);
+		pemWriter.flush();
+		pemWriter.close();
+		return writer.toString().replaceAll("\r\n", "\n");
 	}
 
 	private boolean allOriginsMatchingCertCountry(DiagnosisKeyBatch batch, X509CertificateHolder certificate) {
@@ -132,31 +187,6 @@ public class BatchSignatureVerifier {
 		Date now = new Date();
 
 		return certificate.getNotBefore().before(now) && certificate.getNotAfter().after(now);
-	}
-
-	private boolean isCertificateSignatureValid(final X509CertificateHolder certificate) {
-		try {
-			final X509Certificate x509Certificate = toX509Certificate(certificate);
-			final Signature signature = createSignatureInstance(x509Certificate);
-			signature.initVerify(x509Certificate.getPublicKey());
-			signature.update(x509Certificate.getTBSCertificate());
-			return signature.verify(x509Certificate.getSignature());
-		} catch (NoSuchAlgorithmException | SignatureException | CertificateException | InvalidKeyException
-				| NoSuchProviderException e) {
-			log.error("Could not verify signature of signing certificate: " + e.getMessage());
-			return false;
-		}
-	}
-
-	private Signature createSignatureInstance(final X509Certificate x509Certificate)
-			throws NoSuchAlgorithmException, NoSuchProviderException {
-		return Signature.getInstance(x509Certificate.getSigAlgName(), BouncyCastleProvider.PROVIDER_NAME);
-	}
-
-	private X509Certificate toX509Certificate(final X509CertificateHolder certificate) throws CertificateException {
-		final JcaX509CertificateConverter converter = new JcaX509CertificateConverter();
-		converter.setProvider(BouncyCastleProvider.PROVIDER_NAME);
-		return converter.getCertificate(certificate);
 	}
 
 	private String getCountryOfCertificate(X509CertificateHolder certificate) {
@@ -202,13 +232,13 @@ public class BatchSignatureVerifier {
 		return new JcaSimpleSignerInfoVerifierBuilder().setProvider(BouncyCastleProvider.PROVIDER_NAME)
 				.build(signerCert);
 	}
-	
-	
+
 	public boolean validateDiagnosisKeyWithSignature(List<EfgsKey> efgsKeys, Audit audit) {
 		EfgsProto.DiagnosisKeyBatch diagnosisKeyBatchPerCountry = EfgsProto.DiagnosisKeyBatch.newBuilder()
 				.addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(efgsKeys)).build();
 
-		return verify(diagnosisKeyBatchPerCountry, audit.getBatchSignature());
+		return verify(diagnosisKeyBatchPerCountry, audit.getBatchSignature(),
+				audit.getSigningCertificateOperatorSignature(), audit.getSigningCertificate());
 	}
-	
+
 }

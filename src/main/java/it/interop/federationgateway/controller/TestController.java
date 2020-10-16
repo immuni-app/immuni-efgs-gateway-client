@@ -115,6 +115,56 @@ public class TestController {
 		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
 	}
 
+	@GetMapping("/testSign")
+	public ResponseEntity<String> testSign() {
+		StringBuffer content = new StringBuffer();
+		try {
+			String countryOrigin = "IT";
+		    List<EfgsKey> entities = new ArrayList<EfgsKey>();
+		    
+		    for (int i=0; i<100; i++) {
+		    	Calendar calendar = new GregorianCalendar();
+		    	calendar.setTime(new Date());
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+		    	
+		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
+		    	
+			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 1, countryOrigin);
+			    
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+			    
+			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
+
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+
+			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+			    
+			    
+			    entities.add(key1);
+			    entities.add(key2);
+			    entities.add(key3);
+		    }
+
+		    EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
+		    	      .addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(entities))
+		    	      .build();
+
+	        String batchSignature = signatureGenerator.getSignatureForBytes(
+	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
+			
+		    content.append("BatchSignature: ").append(batchSignature).append("<br>");
+
+		    log.info(content.toString());	
+		
+		} catch (Exception e) {
+			log.error("ERRORE", e);
+			content.append("Errore: ").append(e.getMessage()).append("<br>");
+		}
+		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
+	}
+
 	@GetMapping("/upload/{batchTag}")
 	public ResponseEntity<String> upload(@PathVariable("batchTag") String batchTag) {
 		StringBuffer content = new StringBuffer();
@@ -205,8 +255,6 @@ public class TestController {
 						
 						List<Audit> auditList = respAudit.getData();
 						
-
-//					    List<EfgsKey> entities = DiagnosisKeyMapper.protoToEfgsKey(protoDiagnosisKeyBatch.getKeysList());
 
 					    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
 					    
