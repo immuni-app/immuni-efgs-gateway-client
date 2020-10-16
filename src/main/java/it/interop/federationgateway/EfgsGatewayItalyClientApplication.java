@@ -22,7 +22,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import it.interop.federationgateway.mapper.DiagnosisKeyMapper;
 
 @SpringBootApplication
-//@EnableScheduling
+@EnableScheduling
 public class EfgsGatewayItalyClientApplication {
 
 	public static void main(String[] args) {
