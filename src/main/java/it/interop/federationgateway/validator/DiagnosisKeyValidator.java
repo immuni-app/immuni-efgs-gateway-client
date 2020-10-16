@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import it.interop.federationgateway.model.EfgsKey;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 /*
  * keyData	
@@ -66,6 +67,8 @@ public class DiagnosisKeyValidator {
 	private static Integer KEY_DATA_LENGTH = 16; 
 	private static Integer MAX_ROLLING_START_PERIOD = 144; 
 	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8; 
+	@Setter
+	public static Integer DATA_RETENTION_DAYS = 14;
 
 	public static boolean isValid(EfgsKey efgsKey) {
 		if (efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_TEST
@@ -92,7 +95,7 @@ public class DiagnosisKeyValidator {
 	private static Long minRollingStartIntervalNumber() {
     	Calendar calendar = new GregorianCalendar();
     	calendar.setTime(new Date());
-	    calendar.add(Calendar.DAY_OF_MONTH, -15);
+	    calendar.add(Calendar.DAY_OF_MONTH, -DATA_RETENTION_DAYS);
 		return calendar.getTimeInMillis() / 1000 / 600;
 	}
 	

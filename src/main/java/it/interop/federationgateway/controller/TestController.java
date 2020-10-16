@@ -51,7 +51,9 @@ import it.interop.federationgateway.repository.BatchFileRepository;
 import it.interop.federationgateway.repository.EfgsWorkerInfoRepository;
 import it.interop.federationgateway.repository.UploadUeRawRepository;
 import it.interop.federationgateway.worker.EfgsWorker;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class TestController {
 
@@ -83,23 +85,10 @@ public class TestController {
 	@GetMapping("/test")
 	public ResponseEntity<String> test() {
 		StringBuffer content = new StringBuffer();
-		String countryOrigin = "IT";
 		try {
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(new Date());
 			calendar.add(Calendar.DAY_OF_MONTH, -Integer.parseInt("2"));
-			System.out.println(calendar.getTime());
-
-			
-//			UploadEuRaw uploadEuRaw = new UploadEuRaw("1234-01", "DE", null, 0f, 0f);
-//			uploadUeRawRepository.save(uploadEuRaw);
-//			
-//			SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmm");
-//			Date date = df.parse("20201011-1945") ;
-//			
-//			List<UploadEuRaw> idUploadEuRawToProcess = uploadUeRawRepository.delete(date);
-//			
-//			System.out.println("ciao");
 		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -115,7 +104,7 @@ public class TestController {
 		try {
 			
 			efgsWorker.uploadWorker();
-			System.out.println("OK");
+			log.info("OK");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -132,7 +121,7 @@ public class TestController {
 		try {
 			
 			efgsWorker.downloadWorker();
-			System.out.println("OK");
+			log.info("OK");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -142,23 +131,6 @@ public class TestController {
 		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
 	}
 
-//	@GetMapping("/testUpload")
-//	public ResponseEntity<String> testUpload() {
-//		StringBuffer content = new StringBuffer();
-//		try {
-//			
-//			efgsWorker.uploadWorker();
-//			System.out.println("OK");
-//			
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			content.append("Errore: ").append(e.getMessage()).append("<br>");
-//		}
-//		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
-//	}
-	
-	
 	@GetMapping("/upload/{batchTag}")
 	public ResponseEntity<String> upload(@PathVariable("batchTag") String batchTag) {
 		StringBuffer content = new StringBuffer();
@@ -197,22 +169,9 @@ public class TestController {
 		    	      .build();
 
 		    
-//	        SignatureGenerator signatureGenerator = new SignatureGenerator("d:/trustedCerts/efgs_batch_signature_certkey.pem");
-	        
-	        
 	        
 	        String batchSignature = signatureGenerator.getSignatureForBytes(
 	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
-
-//	        String batchSignatureInt = signatureGenerator.getInternalSignatureForBytes(
-//	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
-//	        
-//	        String batchSignatureExt = signatureGenerator.getExternalSignatureForBytes(
-//	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
-//	        
-//	        System.out.println("INT: "+batchSignatureInt);
-//	        System.out.println("EXT: "+batchSignatureExt);
-	        
 	        
 	        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
 		    
@@ -223,11 +182,10 @@ public class TestController {
 		    }
 		    content.append("BatchSignature: ").append(batchSignature).append("<br>");
 
-			System.out.println(content.toString());	
+		    log.info(content.toString());	
 		
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("ERRORE", e);
 			content.append("Errore: ").append(e.getMessage()).append("<br>");
 		}
 		return new ResponseEntity<String>(content.toString(), HttpStatus.OK);		
@@ -247,7 +205,7 @@ public class TestController {
 		@GetMapping("/download/{date}/{batchTag}")
 		public String download(@PathVariable("date") String date, @PathVariable("batchTag") String batchTag) {
 			try {
-				System.out.println("CIAOOOOOOO ----------------->");
+				log.info("CIAOOOOOOO ----------------->");
 				RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(date, "null".equalsIgnoreCase(batchTag)?null:batchTag);
 				StringBuffer text = new StringBuffer();
 				Map<String, Integer> count = new HashMap<String, Integer>();
@@ -281,11 +239,11 @@ public class TestController {
 					    	verifica = verifica || ver;
 
 					    	
-							System.out.println(audit.getCountry()+" Verifica firma: "+ver);
+					    	log.info(audit.getCountry()+" Verifica firma: "+ver);
 
 					    }
 					    
-						System.out.println(" Verifica firma: "+verifica);
+					    log.info(" Verifica firma: "+verifica);
 					    
 					    
 					    for (List<EfgsKey> entities: efgsKeyPerOriginMap.values()) {
@@ -301,17 +259,6 @@ public class TestController {
 
 				List<String> l = resp.getHeaders().get("nextBatchTag");
 
-//		        FileOutputStream fos;
-//				try {
-//					fos = new FileOutputStream(new File("d:/"+batchTag+".bin"));
-//			        fos.write(resp.getData().toByteArray());
-//			        fos.close();
-//				} catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-
-				
 				StringBuffer buffer = new StringBuffer();
 				buffer.append("<html>");
 				buffer.append("<body>");
@@ -331,48 +278,17 @@ public class TestController {
 				
 				return buffer.toString();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("ERRORE", e);
 				return e.getMessage();
 			}
 		}
 
-/*	
-	@ResponseBody
-	@GetMapping("/download/{date}/{batchTag}")
-	public String download(@PathVariable("date") String date, @PathVariable("batchTag") String batchTag) {
-		try {
-			RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(date, "null".equalsIgnoreCase(batchTag)?null:batchTag);
-			
-			List<String> l = resp.getHeaders().get("nextBatchTag");
-			
-			StringBuffer buffer = new StringBuffer();
-			buffer.append("<html>");
-			buffer.append("<body>");
-			buffer.append("<h1>Download:</h1>");
-			buffer.append("<p> Date: ").append(date).append("</p>");
-			buffer.append("<p> Tag batch: ").append(batchTag).append("</p>");
-			buffer.append("<p> Next tag batch: ").append(l!=null?l.get(0):"fine").append("</p>");
-			
-			buffer.append("<textarea rows=\"30\" cols=\"100\">").append(resp.getData()!=null?resp.getData().toString():"empty").append("</textarea>");
-			
-			buffer.append("</body>");
-			buffer.append("</html>");
-			
-			return buffer.toString();
-		} catch (RestApiException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return e.getMessage();
-		}
-	}
-*/
 	@ResponseBody
 	@GetMapping("/audit/{date}/{batchTag}")
 	public String audit(@PathVariable("date") String date, @PathVariable("batchTag") String batchTag) {
 		try {
 			RestApiResponse<List<Audit>> resp = client.audit(date, "null".equalsIgnoreCase(batchTag)?null:batchTag);
-			System.out.println(resp);
+			log.info("Response: ", resp);
 			
 			
 			StringBuffer buffer = new StringBuffer();
@@ -393,8 +309,7 @@ public class TestController {
 			
 			return buffer.toString();
 		} catch (RestApiException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("ERRORE", e);
 		}
 		return "ERROR";
 	}
