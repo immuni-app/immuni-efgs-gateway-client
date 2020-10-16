@@ -211,8 +211,13 @@ public class EfgsWorker {
 		        report = esito.getData();
 			} catch (HttpClientErrorException e) {
 				if (e.getRawStatusCode() == 400) {
-					statusCode = HttpStatus.BAD_REQUEST;
+					statusCode = RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400;
 					report = e.getMessage();
+				} else if (e.getRawStatusCode() == 409) {
+					statusCode = RestApiClient.UPLOAD_STATUS_BATCHTAG_ALREADY_EXIST_409;
+					report = e.getMessage();
+				} else {
+					throw e;
 				}
 				log.error("ERROR Processing upload HttpClientErrorException. Code: {} - Message: {}", e.getRawStatusCode(), e.getMessage(),  e);
 			}
@@ -229,14 +234,14 @@ public class EfgsWorker {
 
 				batchFileRepository.setBatchTag(batchFile);
 				log.info("Upload INFO batch file marked as sent.");
-
-		    	efgsLogRepository.save(
-		    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-		    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
-		    			);
-
-				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			}
+			
+	    	efgsLogRepository.save(
+	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
+	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
+	    			);
+
+			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 
 		} catch (RestApiException e) {
 			log.error("ERROR Processing upload RestApiException.", e);
