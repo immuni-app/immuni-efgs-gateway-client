@@ -189,7 +189,7 @@ public class EfgsWorker {
 			
 			batchFile.setOrigin(originCountry);
 
-			log.info("Upload INFO number of keys:"+batchFile.getKeys().size());
+			log.info("Upload INFO -> batchDate: {} - batchTag: {} - batch id: {} - number of keys: {}", batchDate, batchTag, id, batchFile.getKeys().size());
 
 			List<EfgsKey> keyEntities = DiagnosisKeyMapper.entityToEfgsKeys(batchFile);
 
@@ -197,12 +197,12 @@ public class EfgsWorker {
 			EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
 		    	      .addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(keyEntities))
 		    	      .build();
-			log.info("Upload INFO generated protobuf to upload");
+			log.info("Upload INFO generated protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 		    
 	        String batchSignature = signatureGenerator.getSignatureForBytes(
 	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
-			log.info("Upload INFO signed protobuf to upload");
+			log.info("Upload INFO signed protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 			String report = null;
 			HttpStatus statusCode = null;
@@ -210,8 +210,10 @@ public class EfgsWorker {
 		        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
 		        report = esito.getData();
 		        statusCode = esito.getStatusCode();
+				log.info("Upload INFO uploaded protobuf. -> batchDate: {} - batchTag: {} - batch id: {} - esito: {} - ", batchDate, batchTag, id, report);
 			} catch (HttpClientErrorException e) {
-				log.error("ERROR Processing upload HttpClientErrorException. Code: {} - Message: {}", e.getRawStatusCode(), e.getMessage(),  e);
+				log.error("ERROR Processing upload HttpClientErrorException. -> batchDate: {} - batchTag: {} - batch id: {} - Code: {} - Message: {}", 
+						batchDate, batchTag, id, e.getRawStatusCode(), e.getMessage(),  e);
 				if (e.getRawStatusCode() == 400) {
 					statusCode = RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400;
 					report = e.getMessage();
@@ -231,29 +233,28 @@ public class EfgsWorker {
 					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_CONTENT_406) {
 
 		        batchFile.setBatchTag(batchTag);
-				log.info("Upload INFO uploaded protobuf");
 
 				batchFileRepository.setBatchTag(batchFile);
-				log.info("Upload INFO batch file marked as sent.");
+				log.info("Upload INFO batch file marked as sent. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 			}
 			
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
 	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
 	    			);
-			log.info("Upload INFO saved log.");
+			log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
-			log.info("Upload INFO saved worker info.");
+			log.info("Upload INFO saved worker info. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 		} catch (RestApiException e) {
-			log.error("ERROR Processing upload RestApiException.", e);
+			log.error("ERROR Processing upload RestApiException. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id, e);
 		} catch (BatchSignatureException e) {
-			log.error("ERROR Processing upload BatchSignatureException.", e);
+			log.error("ERROR Processing upload BatchSignatureException. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id, e);
 		} catch (CMSException e) {
-			log.error("ERROR Processing upload CMSException.", e);
+			log.error("ERROR Processing upload CMSException. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id, e);
 		} catch (IOException e) {
-			log.error("ERROR Processing upload IOException.", e);
+			log.error("ERROR Processing upload IOException. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id, e);
 		}
 		log.info("Upload INFO after sending -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 	}
@@ -266,7 +267,7 @@ public class EfgsWorker {
 			RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(batchDate, batchTag);
 
 			if (resp.getStatusCode() == RestApiClient.DOWNLOAD_STATUS_RETURNS_BATCH_200) {
-				log.info("Start processing downloaded keys");
+				log.info("Start processing downloaded keys -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 			    nextBatchTag = resp.getNextBatchTag();
 
 			    String batchTagFound = resp.getBatchTag();
@@ -301,7 +302,8 @@ public class EfgsWorker {
 					    	}
 					    	
 					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
-							log.info("Signature verified: {}", verifiedSign);
+							log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
+									verifiedSign, batchDate, batchTag, country, count);
 					    	
 					    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOriginInner, batchTagFound, count);
 					    	
@@ -310,13 +312,13 @@ public class EfgsWorker {
 					    	diagnosisKeyEntity.setToProcess(verifiedSign);
 					    	
 					    	uploadUeRawRepository.save(diagnosisKeyEntity);
-							log.info("Saved raw key data");
+							log.info("Saved raw key data batchDate: {} - batchTag: {} - country: {} - block: {}", batchDate, batchTag, country, count);
 					    	
 					    	efgsLogRepository.save(
 					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
 					    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
 					    			);
-							log.info("Download INFO saved log.");
+							log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 						    	
 					    }
 						
@@ -329,18 +331,18 @@ public class EfgsWorker {
 				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, false, "ITALIAN BATCH", audit)
 				    			);
 				    }
-					log.info("Download INFO saved log.");
+					log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 				}
 				efgsWorkerInfoRepository.saveDownloadBatchTag(batchDate, batchTagFound);
 				log.info("Download INFO worker info.");
 				log.info("End processing downloaded keys");
 			} else {
-				log.info("Warning! Response code: {}", resp.getStatusCode().toString());
+				log.info("Warning! Response code: {} - batchDate: {} - batchTag: {}", resp.getStatusCode().toString(), batchDate, batchTag);
 				throw new Exception(resp.getStatusCode().toString());
 			}
 
 		} catch (Exception e) {
-			log.error("ERROR Processing download.", e);
+			log.error("ERROR Processing download. -> batchDate: {} - batchTag: {}", batchDate, batchTag, e);
 			return null;
 		}
 		log.info("Download INFO after sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
@@ -372,7 +374,7 @@ public class EfgsWorker {
 		for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
 			ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
 			uploadUeRepository.save(uploadEu);
-			log.info("Saved EU keys in order to produce the batch files");
+			log.info("Saved EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
 		}
 		
 		uploadUeRawRepository.setProcessed(id);
