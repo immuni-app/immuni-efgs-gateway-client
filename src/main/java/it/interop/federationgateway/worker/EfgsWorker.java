@@ -342,7 +342,11 @@ public class EfgsWorker {
 			}
 
 		} catch (Exception e) {
-			log.error("ERROR Processing download. -> batchDate: {} - batchTag: {}", batchDate, batchTag, e);
+			if (e instanceof HttpClientErrorException && ((HttpClientErrorException)e).getRawStatusCode() == 404) {
+				log.error("ERROR Processing download. -> batchDate: {} - batchTag: {} - {}", batchDate, batchTag, e.getMessage());
+			} else {
+				log.error("ERROR Processing download. -> batchDate: {} - batchTag: {}", batchDate, batchTag, e);
+			}
 			return null;
 		}
 		log.info("Download INFO after sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
