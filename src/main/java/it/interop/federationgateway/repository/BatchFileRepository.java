@@ -50,7 +50,7 @@ public class BatchFileRepository {
 		Query query = new Query();
         query.addCriteria(Criteria.where("_id").is(diagnosisKeyBatchFile.getId()));
 		Update update = new Update();
-		update.set("batch_tag", diagnosisKeyBatchFile.getBatchTag()).addToSet("upload_eu_report", diagnosisKeyBatchFile.getUploadEuReport());
+		update.set("batch_tag", diagnosisKeyBatchFile.getBatchTag());
 		mongoTemplate.findAndModify(query, update, BatchFile.class);
 	}
 

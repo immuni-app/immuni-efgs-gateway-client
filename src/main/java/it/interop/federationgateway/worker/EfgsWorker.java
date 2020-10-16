@@ -92,8 +92,8 @@ public class EfgsWorker {
 	@Autowired(required=true)
 	private BatchSignatureVerifier batchSignatureVerifier;
 	
-//	@Scheduled(cron = "${efgs.worker.upload.schedul}")
-//	@SchedulerLock(name = "EfgsWorker_uploadWorker")
+	@Scheduled(cron = "${efgs.worker.upload.schedul}")
+	@SchedulerLock(name = "EfgsWorker_uploadWorker")
 	public void uploadWorker() {
 		log.info("START Processing upload.");
 		//Recupero ultimo upload (ultima data e ultimo batchtag associato al file)
@@ -125,8 +125,8 @@ public class EfgsWorker {
 		log.info("END Processing upload.");
 	}
 	
-//	@Scheduled(cron = "${efgs.worker.download.schedul}")
-//	@SchedulerLock(name = "EfgsWorker_downloadWorker")
+	@Scheduled(cron = "${efgs.worker.download.schedul}")
+	@SchedulerLock(name = "EfgsWorker_downloadWorker")
 	public void downloadWorker() {
 		log.info("START Processing download.");
 		//Recupero ultimo download (ultima data e ultimo batchtag restituito dal gateway)
@@ -225,7 +225,6 @@ public class EfgsWorker {
 					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_CONTENT_406) {
 
 		        batchFile.setBatchTag(batchTag);
-		        batchFile.setUploadEuReport(report);
 				log.info("Upload INFO uploaded protobuf");
 
 				batchFileRepository.setBatchTag(batchFile);
