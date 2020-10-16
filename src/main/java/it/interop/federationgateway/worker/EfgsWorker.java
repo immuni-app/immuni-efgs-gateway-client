@@ -209,7 +209,9 @@ public class EfgsWorker {
 			try {
 		        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
 		        report = esito.getData();
+		        statusCode = esito.getStatusCode();
 			} catch (HttpClientErrorException e) {
+				log.error("ERROR Processing upload HttpClientErrorException. Code: {} - Message: {}", e.getRawStatusCode(), e.getMessage(),  e);
 				if (e.getRawStatusCode() == 400) {
 					statusCode = RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400;
 					report = e.getMessage();
@@ -219,7 +221,6 @@ public class EfgsWorker {
 				} else {
 					throw e;
 				}
-				log.error("ERROR Processing upload HttpClientErrorException. Code: {} - Message: {}", e.getRawStatusCode(), e.getMessage(),  e);
 			}
 	        
 	        
