@@ -241,8 +241,10 @@ public class EfgsWorker {
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
 	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
 	    			);
+			log.info("Upload INFO saved log.");
 
 			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
+			log.info("Upload INFO saved worker info.");
 
 		} catch (RestApiException e) {
 			log.error("ERROR Processing upload RestApiException.", e);
@@ -314,6 +316,7 @@ public class EfgsWorker {
 					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
 					    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
 					    			);
+							log.info("Download INFO saved log.");
 						    	
 					    }
 						
@@ -326,8 +329,10 @@ public class EfgsWorker {
 				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, false, "ITALIAN BATCH", audit)
 				    			);
 				    }
+					log.info("Download INFO saved log.");
 				}
 				efgsWorkerInfoRepository.saveDownloadBatchTag(batchDate, batchTagFound);
+				log.info("Download INFO worker info.");
 				log.info("End processing downloaded keys");
 			} else {
 				log.info("Warning! Response code: {}", resp.getStatusCode().toString());
