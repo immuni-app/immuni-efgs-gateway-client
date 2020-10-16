@@ -47,9 +47,6 @@ import it.interop.federationgateway.model.Audit;
 import it.interop.federationgateway.model.EfgsKey;
 import it.interop.federationgateway.model.EfgsKey.ReportType;
 import it.interop.federationgateway.model.EfgsProto;
-import it.interop.federationgateway.repository.BatchFileRepository;
-import it.interop.federationgateway.repository.EfgsWorkerInfoRepository;
-import it.interop.federationgateway.repository.UploadUeRawRepository;
 import it.interop.federationgateway.worker.EfgsWorker;
 import lombok.extern.slf4j.Slf4j;
 
@@ -61,26 +58,13 @@ public class TestController {
 	RestApiClient client;
 
 	@Autowired(required=true)
-	UploadUeRawRepository diagnosisKeyRepository;
-	
-	@Autowired(required=true)
-	BatchFileRepository diagnosisKeyBatchFileRepository;
-
-	
-	@Autowired(required=true)
 	private SignatureGenerator signatureGenerator;
 	
 	@Autowired(required=true)
 	private BatchSignatureVerifier batchSignatureVerifier;
 
 	@Autowired(required=true)
-	private EfgsWorkerInfoRepository efgsWorkerInfoRepository;
-	
-	@Autowired(required=true)
 	private EfgsWorker efgsWorker;
-
-	@Autowired(required=true)
-	private UploadUeRawRepository uploadUeRawRepository;
 
 	@GetMapping("/test")
 	public ResponseEntity<String> test() {
@@ -233,8 +217,6 @@ public class TestController {
 					    	UploadEuRaw diagnosisKeyEntity =DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound, 0);
 					    	
 					    	diagnosisKeyEntity.setVerifiedSign(ver);
-					    	
-					    	diagnosisKeyRepository.save(diagnosisKeyEntity);
 					    	
 					    	verifica = verifica || ver;
 
