@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,8 +41,6 @@ import it.interop.federationgateway.batchsigning.SignatureGenerator;
 import it.interop.federationgateway.client.RestApiClient;
 import it.interop.federationgateway.client.base.RestApiException;
 import it.interop.federationgateway.client.base.RestApiResponse;
-import it.interop.federationgateway.entity.EfgsLog;
-import it.interop.federationgateway.entity.UploadEuRaw;
 import it.interop.federationgateway.mapper.DiagnosisKeyMapper;
 import it.interop.federationgateway.model.Audit;
 import it.interop.federationgateway.model.EfgsKey;

@@ -15,10 +15,15 @@
 package it.interop.federationgateway.batchsigning;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.security.cert.X509Certificate;
 import java.util.Base64;
 import java.util.Comparator;
+
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ProtocolStringList;
@@ -152,6 +157,15 @@ public class BatchSignatureUtils {
 	private static void writeVisitedCountriesInByteArray(final ProtocolStringList countries,
 			final ByteArrayOutputStream byteArray) {
 		writeB64StringInByteArray(String.join(",", countries), byteArray);
+	}
+
+	public static String x509CertificateToPem(final X509Certificate cert) throws IOException {
+		final StringWriter writer = new StringWriter();
+		final JcaPEMWriter pemWriter = new JcaPEMWriter(writer);
+		pemWriter.writeObject(cert);
+		pemWriter.flush();
+		pemWriter.close();
+		return writer.toString().replaceAll("\r\n", "\n");
 	}
 
 }

@@ -16,7 +16,6 @@ package it.interop.federationgateway.batchsigning;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.security.InvalidKeyException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -47,7 +46,6 @@ import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.Store;
 import org.springframework.beans.factory.annotation.Value;
@@ -134,7 +132,7 @@ public class BatchSignatureVerifier {
 						JcaX509CertificateConverter converter = new JcaX509CertificateConverter();
 						X509Certificate signerCertConv = converter.getCertificate(signerCert);
 
-						String signingCertificateFromData = x509CertificateToPem(signerCertConv);
+						String signingCertificateFromData = BatchSignatureUtils.x509CertificateToPem(signerCertConv);
 
 						if (!signingCertificateFromData.equals(signingCertificate)) {
 							log.error("Erore: Certificate do not match.");
@@ -170,14 +168,6 @@ public class BatchSignatureVerifier {
 		return false;
 	}
 
-	public static String x509CertificateToPem(final X509Certificate cert) throws IOException {
-		final StringWriter writer = new StringWriter();
-		final JcaPEMWriter pemWriter = new JcaPEMWriter(writer);
-		pemWriter.writeObject(cert);
-		pemWriter.flush();
-		pemWriter.close();
-		return writer.toString().replaceAll("\r\n", "\n");
-	}
 
 	private boolean allOriginsMatchingCertCountry(DiagnosisKeyBatch batch, X509CertificateHolder certificate) {
 		String country = getCountryOfCertificate(certificate);
