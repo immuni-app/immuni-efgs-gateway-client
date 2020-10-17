@@ -76,7 +76,7 @@ public class BatchSignatureVerifier {
 	@Value("${truststore.anchor.alias}")
 	private String trustAnchorAlias;
 
-	private PublicKey anchoPublicKey = null;
+	private PublicKey anchoPublicKey;
 
 	public BatchSignatureVerifier() {
 		Security.addProvider(new BouncyCastleProvider());
@@ -95,6 +95,7 @@ public class BatchSignatureVerifier {
 		}
 	}
 
+	
 	public boolean verify(final DiagnosisKeyBatch batch, final String base64BatchSignature,
 			final String signingCertificateOperatorSignature, final String signingCertificate) {
 		final byte[] batchSignatureBytes = BatchSignatureUtils.b64ToBytes(base64BatchSignature);
@@ -126,26 +127,29 @@ public class BatchSignatureVerifier {
 						return false;
 					}
 
-					JcaX509CertificateConverter converter = new JcaX509CertificateConverter();
-					X509Certificate signerCertConv = converter.getCertificate(signerCert);
+					
+					boolean verified = verifySignerInfo(signerInfo, signerCert);
 
-					String signingCertificateFromData = x509CertificateToPem(signerCertConv);
+					if (verified) {
+						JcaX509CertificateConverter converter = new JcaX509CertificateConverter();
+						X509Certificate signerCertConv = converter.getCertificate(signerCert);
 
-					if (!signingCertificateFromData.equals(signingCertificate)) {
-						log.error("Erore: Certificate do not match.");
-						return false;
+						String signingCertificateFromData = x509CertificateToPem(signerCertConv);
+
+						if (!signingCertificateFromData.equals(signingCertificate)) {
+							log.error("Erore: Certificate do not match.");
+							return false;
+						}
+
+						Signature verifier = Signature.getInstance("SHA256with" + anchoPublicKey.getAlgorithm());
+						verifier.initVerify(anchoPublicKey);
+						verifier.update(signingCertificateFromData.getBytes());
+	
+						byte[] signatureBytes = Base64.getDecoder().decode(signingCertificateOperatorSignature);
+	
+						verified = verifier.verify(signatureBytes);
 					}
-
-					Signature verifier = Signature.getInstance("SHA256with" + anchoPublicKey.getAlgorithm());
-					verifier.initVerify(anchoPublicKey);
-					verifier.update(signingCertificateFromData.getBytes());
-
-					byte[] signatureBytes = Base64.getDecoder().decode(signingCertificateOperatorSignature);
-
-					
-					boolean verified = verifier.verify(signatureBytes);
 					log.info("END Signature verification... verified: {}", verified);
-					
 					return  verified;
 				}
 
@@ -160,6 +164,8 @@ public class BatchSignatureVerifier {
 			log.error("Erore: IOException by EFGS Trust Anchor.");
 		} catch (CertificateException | CMSException e) {
 			log.error("Erore: Error verifying batch signature", e);
+		} catch (OperatorCreationException e) {
+			log.error("Erore: OperatorCreationException verifying batch signature", e);
 		}
 		return false;
 	}

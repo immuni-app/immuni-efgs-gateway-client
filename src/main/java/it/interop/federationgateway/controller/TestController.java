@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,6 +42,7 @@ import it.interop.federationgateway.batchsigning.SignatureGenerator;
 import it.interop.federationgateway.client.RestApiClient;
 import it.interop.federationgateway.client.base.RestApiException;
 import it.interop.federationgateway.client.base.RestApiResponse;
+import it.interop.federationgateway.entity.EfgsLog;
 import it.interop.federationgateway.entity.UploadEuRaw;
 import it.interop.federationgateway.mapper.DiagnosisKeyMapper;
 import it.interop.federationgateway.model.Audit;
@@ -233,86 +235,114 @@ public class TestController {
 		  return arr;
 	  }
 	
-	
-		
-		@ResponseBody
-		@GetMapping("/download/{date}/{batchTag}")
-		public String download(@PathVariable("date") String date, @PathVariable("batchTag") String batchTag) {
-			try {
-				log.info("CIAOOOOOOO ----------------->");
-				RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(date, "null".equalsIgnoreCase(batchTag)?null:batchTag);
-				StringBuffer text = new StringBuffer();
-				Map<String, Integer> count = new HashMap<String, Integer>();
-				String batchTagFound = batchTag;
-				boolean verifica = false;
-				if (resp.getStatusCode() == HttpStatus.OK) {
-					if (resp.getData() != null) {
-						batchTagFound = resp.getHeaders().get("batchTag").get(0);
-						EfgsProto.DiagnosisKeyBatch protoDiagnosisKeyBatch = resp.getData();
-						
 
-						RestApiResponse<List<Audit>> respAudit = client.audit(date, batchTagFound);
-						
-						List<Audit> auditList = respAudit.getData();
-						
+	@ResponseBody
+	@GetMapping("/download/{batchDate}/{batchTag}")
+	public String download(@PathVariable("batchDate") String batchDate, @PathVariable("batchTag") String batchTag) {
+		log.info("Download INFO before sending -> batchDate: {} - batchTag: {}", batchDate, batchTag);
+		String nextBatchTag = null;
+		 String batchTagFound = batchTag;
+		try {
+			boolean verifica = false;
+			StringBuffer text = new StringBuffer();
+			Map<String, Integer> countTotal = new HashMap<String, Integer>();
+			RestApiResponse<EfgsProto.DiagnosisKeyBatch> resp = client.download(batchDate, batchTag);
 
-					    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
-					    
-					    for (Audit audit: auditList) {
-					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(audit.getCountry());
-					    	boolean ver = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOrigin, audit);
-					    	
-					    	UploadEuRaw diagnosisKeyEntity =DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOrigin, batchTagFound, 0);
-					    	
-					    	diagnosisKeyEntity.setVerifiedSign(ver);
-					    	
-					    	verifica = verifica || ver;
+			if (resp.getStatusCode() == RestApiClient.DOWNLOAD_STATUS_RETURNS_BATCH_200) {
+				log.info("Start processing downloaded keys -> batchDate: {} - batchTag: {}", batchDate, batchTag);
+			    nextBatchTag = resp.getNextBatchTag();
 
+			    batchTagFound = resp.getBatchTag();
+
+			    RestApiResponse<List<Audit>> respAudit = client.audit(batchDate, batchTagFound);
+				List<Audit> auditList = respAudit.getData();
+
+			    if (resp.getData() != null) {
+					
+					EfgsProto.DiagnosisKeyBatch protoDiagnosisKeyBatch = resp.getData();
+
+				    Map<String, List<EfgsKey>> efgsKeyPerOriginMap = DiagnosisKeyMapper.protoToEfgsKeyPerOrigin(protoDiagnosisKeyBatch.getKeysList());
+					log.info("Breakdown of UE keys by origin to verify the signature");
+					
+					Map<String, List<Audit>> auditToMapPerCounty = auditToMapPerCounty(auditList);
+					
+					for (String country : auditToMapPerCounty.keySet()) {
+						List<Audit> auditListInner =  auditToMapPerCounty.get(country);
+				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
+				    	int startIndex = 0;
+				    	int count = 0;
+					    for (Audit audit: auditListInner) {
+					    	count = count + 1;
+					    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
+					    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
+					    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
+					    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
+					    			startIndex = index + 1;
+					    			break;
+					    		}
+					    		
+					    	}
 					    	
-					    	log.info(audit.getCountry()+" Verifica firma: "+ver);
+					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
+							log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
+									verifiedSign, batchDate, batchTag, country, count);
+							
+					    	verifica = verifica || verifiedSign;
 
 					    }
-					    
-					    log.info(" Verifica firma: "+verifica);
-					    
-					    
-					    for (List<EfgsKey> entities: efgsKeyPerOriginMap.values()) {
-							for (EfgsKey e: entities) {
-								text.append("Key: ").append(new String(e.getKeyData())).append("\n\r");
-							}
-							count.put(entities.get(0).getOrigin(), entities.size());
-					    }
-
-
+						
 					}
+
+				    for (List<EfgsKey> entities: efgsKeyPerOriginMap.values()) {
+						for (EfgsKey e: entities) {
+							text.append("Key: ").append(new String(e.getKeyData())).append("\n\r");
+						}
+						countTotal.put(entities.get(0).getOrigin(), entities.size());
+				    }
+
 				}
-
-				List<String> l = resp.getHeaders().get("nextBatchTag");
-
-				StringBuffer buffer = new StringBuffer();
-				buffer.append("<html>");
-				buffer.append("<body>");
-				buffer.append("<h1>Download:</h1>");
-				buffer.append("<p> Date: ").append(date).append("</p>");
-				buffer.append("<p> Tag batch: ").append(batchTagFound).append("</p>");
-				buffer.append("<p> Next tag batch: ").append(l!=null?l.get(0):"fine").append("</p>");
-
-				buffer.append("<p> Count: ").append(count.toString()).append("</p>");
-				buffer.append("<p> Verifica firma: ").append(verifica).append("</p>");
-
-				buffer.append("<textarea rows=\"30\" cols=\"100\">").append(resp.getData()!=null?resp.getData().toString():"empty").append("</textarea>");
-				buffer.append("<textarea rows=\"30\" cols=\"100\">").append(text.toString()).append("</textarea>");
-				
-				buffer.append("</body>");
-				buffer.append("</html>");
-				
-				return buffer.toString();
-			} catch (Exception e) {
-				log.error("ERRORE", e);
-				return e.getMessage();
+				log.info("End processing downloaded keys");
+			} else {
+				log.info("Warning! Response code: {} - batchDate: {} - batchTag: {}", resp.getStatusCode().toString(), batchDate, batchTag);
 			}
-		}
 
+			StringBuffer buffer = new StringBuffer();
+			buffer.append("<html>");
+			buffer.append("<body>");
+			buffer.append("<h1>Download:</h1>");
+			buffer.append("<p> Date: ").append(batchDate).append("</p>");
+			buffer.append("<p> Tag batch: ").append(batchTagFound).append("</p>");
+			buffer.append("<p> Next tag batch: ").append(nextBatchTag).append("</p>");
+
+			buffer.append("<p> Count: ").append(countTotal.toString()).append("</p>");
+			buffer.append("<p> Verifica firma: ").append(verifica).append("</p>");
+
+			buffer.append("<textarea rows=\"30\" cols=\"100\">").append(resp.getData()!=null?resp.getData().toString():"empty").append("</textarea>");
+			buffer.append("<textarea rows=\"30\" cols=\"100\">").append(text.toString()).append("</textarea>");
+			
+			buffer.append("</body>");
+			buffer.append("</html>");
+			
+			return buffer.toString();
+		} catch (Exception e) {
+			log.error("ERRORE", e);
+			return e.getMessage();
+		}
+	}
+	
+	private Map<String, List<Audit>> auditToMapPerCounty(List<Audit> audits) {
+		Map<String, List<Audit>> auditToMapPerCounty = new HashMap<String, List<Audit>>();
+		for (Audit audit : audits) {
+			if (!auditToMapPerCounty.containsKey(audit.getCountry())) {
+				auditToMapPerCounty.put(audit.getCountry(), new ArrayList<Audit>());
+			}
+			auditToMapPerCounty.get(audit.getCountry()).add(audit);
+		}
+		
+		return auditToMapPerCounty;
+	}
+
+		
 	@ResponseBody
 	@GetMapping("/audit/{date}/{batchTag}")
 	public String audit(@PathVariable("date") String date, @PathVariable("batchTag") String batchTag) {
