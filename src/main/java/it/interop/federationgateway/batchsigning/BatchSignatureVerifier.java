@@ -96,10 +96,11 @@ public class BatchSignatureVerifier {
 	
 	public boolean verify(final DiagnosisKeyBatch batch, final String base64BatchSignature,
 			final String signingCertificateOperatorSignature, final String signingCertificate) {
-		final byte[] batchSignatureBytes = BatchSignatureUtils.b64ToBytes(base64BatchSignature);
+		
 		try {
-			if (batchSignatureBytes != null) {
+			if (base64BatchSignature != null) {
 				log.info("START Signature verification...");
+				final byte[] batchSignatureBytes = BatchSignatureUtils.b64ToBytes(base64BatchSignature);
 
 				final CMSSignedData signedData = new CMSSignedData(getBatchBytes(batch), batchSignatureBytes);
 				final SignerInformation signerInfo = getSignerInformation(signedData);
