@@ -240,7 +240,7 @@ public class EfgsWorker {
 			
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-	    					Long.valueOf(keyEntities.size()), 0l, batchSignature, report)
+	    					Long.valueOf(keyEntities.size()), Long.valueOf(batchFile.getKeys().size()-keyEntities.size()), batchSignature, report)
 	    			);
 			log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
@@ -328,7 +328,7 @@ public class EfgsWorker {
 					int count = 1;
 				    for (Audit audit: auditList) {
 				    	efgsLogRepository.save(
-				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, false, "EMPTY: ITALIAN BATCH", audit)
+				    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, true, "EMPTY: ITALIAN BATCH", audit)
 				    			);
 				    }
 					log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
