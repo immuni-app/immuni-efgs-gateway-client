@@ -40,11 +40,11 @@ The root contains the following folders:
 
 - **pom.xml**. This contains all the dependencies of the project.
 - **Dockerfile**. This contains all the commands to assemble the base image.
-- **docker-compose.yaml**. This contains the configuration to seamlessly run the service, as shown in [Environment](#environment) (DB references, External services URI).
+- **docker-compose.yml**. This contains the configuration to seamlessly run the service, as shown in [Environment](#environment) (DB references, External services URI).
 
 All the repository logic of Immuni’s EFGS Client can be found at the following path ```src/main/java```.
 
-The file for the different configurations ```application.properties``` can be found in ```src/main/resources```
+The file for the different configurations ```application.properties``` can be found in ```src/main/resources```.
 # Gitflow
 This repository adopts the [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) branch management system.
 
