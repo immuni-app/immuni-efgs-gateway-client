@@ -140,13 +140,7 @@ public class BatchSignatureVerifier {
 							return false;
 						}
 
-						Signature verifier = Signature.getInstance("SHA256with" + anchoPublicKey.getAlgorithm());
-						verifier.initVerify(anchoPublicKey);
-						verifier.update(signingCertificateFromData.getBytes());
-	
-						byte[] signatureBytes = Base64.getDecoder().decode(signingCertificateOperatorSignature);
-	
-						verified = verifier.verify(signatureBytes);
+						verified = verifySigner(signingCertificateFromData, signingCertificateOperatorSignature);
 					}
 					log.info("END Signature verification... verified: {}", verified);
 					return  verified;
@@ -169,6 +163,15 @@ public class BatchSignatureVerifier {
 		return false;
 	}
 
+	private boolean verifySigner(String signingCertificateFromData, String signingCertificateOperatorSignature) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+		Signature verifier = Signature.getInstance("SHA256with" + anchoPublicKey.getAlgorithm());
+		verifier.initVerify(anchoPublicKey);
+		verifier.update(signingCertificateFromData.getBytes());
+
+		byte[] signatureBytes = Base64.getDecoder().decode(signingCertificateOperatorSignature);
+
+		return verifier.verify(signatureBytes);
+	}
 
 	private boolean allOriginsMatchingCertCountry(DiagnosisKeyBatch batch, X509CertificateHolder certificate) {
 		String country = getCountryOfCertificate(certificate);

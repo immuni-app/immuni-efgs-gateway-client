@@ -71,6 +71,36 @@ public class SignatureGenerator {
 
 	private RestTemplate restTemplate;
 
+	@PostConstruct
+	private void intRestTemplate() throws RestApiException {
+		try {
+			KeyStore clientStore = KeyStore.getInstance("JKS");
+			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
+			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
+			//sslContextBuilder.useProtocol("TLS");
+			//La CA Actalis e certificato
+			sslContextBuilder.loadKeyMaterial(clientStore, certPassword.toCharArray());
+			
+			//Il certificato del gateway
+			sslContextBuilder.loadTrustMaterial(new File(jksTrustPath), jksTrustPassword.toCharArray());
+			SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build());
+
+		    HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+
+		    clientBuilder.disableCookieManagement();
+
+		    CloseableHttpClient httpClient = clientBuilder.setSSLSocketFactory(sslConnectionSocketFactory).build();
+			
+			HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
+			requestFactory.setConnectTimeout(10000); // 10 seconds
+			requestFactory.setReadTimeout(10000); // 10 seconds
+			
+			restTemplate = new RestTemplate(requestFactory);
+			
+		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException | KeyManagementException | IOException e) {
+			throw new RestApiException(e);
+		}
+	}
 
 	public String getSignatureForBytes(final byte[] data) throws CMSException, IOException, BatchSignatureException {
 		log.info("START Signature process");
@@ -106,39 +136,6 @@ public class SignatureGenerator {
 			throw new BatchSignatureException(externalUrl+" return null");
 		}
 	}
-
-	@PostConstruct
-	private void intRestTemplate() throws RestApiException {
-		try {
-			KeyStore clientStore = KeyStore.getInstance("JKS");
-			clientStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
-			SSLContextBuilder sslContextBuilder = new SSLContextBuilder();
-			//sslContextBuilder.useProtocol("TLS");
-			//La CA Actalis e certificato
-			sslContextBuilder.loadKeyMaterial(clientStore, certPassword.toCharArray());
-			
-			//Il certificato del gateway
-			sslContextBuilder.loadTrustMaterial(new File(jksTrustPath), jksTrustPassword.toCharArray());
-			SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build());
-
-		    HttpClientBuilder clientBuilder = HttpClientBuilder.create();
-
-		    clientBuilder.disableCookieManagement();
-
-		    CloseableHttpClient httpClient = clientBuilder.setSSLSocketFactory(sslConnectionSocketFactory).build();
-			
-			HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-			requestFactory.setConnectTimeout(10000); // 10 seconds
-			requestFactory.setReadTimeout(10000); // 10 seconds
-			
-			restTemplate = new RestTemplate(requestFactory);
-			
-		} catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException | KeyManagementException | IOException e) {
-			throw new RestApiException(e);
-		}
-	}
-	
-	
 }
 
 @Data
