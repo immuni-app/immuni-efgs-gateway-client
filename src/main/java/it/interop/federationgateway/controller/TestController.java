@@ -16,6 +16,7 @@ package it.interop.federationgateway.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.apache.commons.codec.binary.Base64;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -371,4 +372,49 @@ public class TestController {
 		return "ERROR";
 	}
 
+	
+	
+	@GetMapping("/keys")
+	public String keys() {
+		StringBuffer content = new StringBuffer();
+		try {
+		    
+	    	Calendar calendar = new GregorianCalendar();
+	    	calendar.setTime(new Date());
+		    for (int i=0; i<20; i++) {
+		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
+		    	StringBuffer key = new StringBuffer();
+		    	key.append("{")
+		    	.append("\"rolling_period\": 144, ")
+		    	.append("\"key_data\": \"").append(byteToBase64(getRandomKeyData())).append("\", ")
+		    	.append("\"rolling_start_number\": ").append(rsp)
+		    	.append("},");
+		    	content.append(key.toString()).append("\n");
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+		    }
+
+		    log.info(content.toString());	
+			StringBuffer buffer = new StringBuffer();
+			buffer.append("<html>");
+			buffer.append("<body>");
+			
+			buffer.append("<textarea rows=\"30\" cols=\"100\">").append( content.toString() ).append("</textarea>");
+
+			buffer.append("</body>");
+			buffer.append("</html>");
+			
+			return buffer.toString();
+		
+		} catch (Exception e) {
+			log.error("ERRORE", e);
+			content.append("Errore: ").append(e.getMessage()).append("<br>");
+		}
+		return "ERROR";		
+	}
+	public static String byteToBase64(byte[] bytes) {
+		Base64 base64Url = new Base64();
+		return base64Url.encodeAsString(bytes);
+	}
+	
+	
 }

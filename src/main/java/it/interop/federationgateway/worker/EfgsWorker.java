@@ -27,6 +27,7 @@ import org.bouncycastle.cms.CMSException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
@@ -54,6 +55,7 @@ import it.interop.federationgateway.repository.UploadUeRawRepository;
 import it.interop.federationgateway.repository.UploadUeRepository;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 
 @Slf4j
 @Service
@@ -90,8 +92,8 @@ public class EfgsWorker {
 	@Autowired(required=true)
 	private BatchSignatureVerifier batchSignatureVerifier;
 	
-	//@Scheduled(cron = "${efgs.worker.upload.schedul}")
-	//@SchedulerLock(name = "EfgsWorker_uploadWorker")
+	@Scheduled(cron = "${efgs.worker.upload.schedul}")
+	@SchedulerLock(name = "EfgsWorker_uploadWorker")
 	public void uploadWorker() {
 		log.info("START Processing upload.");
 		//Recupero ultimo upload (ultima data e ultimo batchtag associato al file)
@@ -123,8 +125,8 @@ public class EfgsWorker {
 		log.info("END Processing upload.");
 	}
 	
-	//@Scheduled(cron = "${efgs.worker.download.schedul}")
-	//@SchedulerLock(name = "EfgsWorker_downloadWorker")
+	@Scheduled(cron = "${efgs.worker.download.schedul}")
+	@SchedulerLock(name = "EfgsWorker_downloadWorker")
 	public void downloadWorker() {
 		log.info("START Processing download.");
 		//Recupero ultimo download (ultima data e ultimo batchtag restituito dal gateway)
@@ -168,8 +170,8 @@ public class EfgsWorker {
 		log.info("END Processing download.");
 	}
 
-	//@Scheduled(cron = "${efgs.worker.delete.schedul}")
-	//@SchedulerLock(name = "EfgsWorker_deleteWorker")
+	@Scheduled(cron = "${efgs.worker.delete.schedul}")
+	@SchedulerLock(name = "EfgsWorker_deleteWorker")
 	public void deleteOldDateWorker() {
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());

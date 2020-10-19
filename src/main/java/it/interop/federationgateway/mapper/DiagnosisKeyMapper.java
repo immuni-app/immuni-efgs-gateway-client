@@ -43,6 +43,7 @@ public class DiagnosisKeyMapper {
 	
 	private static Integer HIGHEST_TRASMSSION_RISK_LEVEL = 3;
 	private static Integer DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS = 4000;
+	private static Integer DAY_IN_MS = 86400000;
 	private static EfgsKey.ReportType DEFAULT_REPORT_TYPE = EfgsKey.ReportType.CONFIRMED_TEST;
 
 	public static List<EfgsKey> protoToEfgsKey(List<EfgsProto.DiagnosisKey> proto) {
@@ -183,7 +184,7 @@ public class DiagnosisKeyMapper {
 
 	private static Integer calculateDsos(DiagnosisKey diagnosisKeyPayload) {
 		Long time = Long.valueOf(diagnosisKeyPayload.getRollingStartIntervalNumber()) * 600 * 1000; 
-		Long days = (new Date().getTime() - time) / 86400000;
+		Long days = (new Date().getTime() - time) / DAY_IN_MS;
 		return DEFAULT_DAYS_SINCE_ONSET_OF_SYMPTOMS - days.intValue();
 	}
 	
