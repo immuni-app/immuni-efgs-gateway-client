@@ -240,7 +240,7 @@ public class EfgsWorker {
 			
 	    	efgsLogRepository.save(
 	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-	    					Long.valueOf(batchFile.getKeys().size()), 0l, batchSignature, report)
+	    					Long.valueOf(keyEntities.size()), 0l, batchSignature, report)
 	    			);
 			log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
