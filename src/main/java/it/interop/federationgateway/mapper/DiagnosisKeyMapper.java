@@ -108,8 +108,10 @@ public class DiagnosisKeyMapper {
 
 	public static List<EfgsKey> entityToEfgsKeys(BatchFile diagnosisKeyEntity) {
 		List<EfgsKey> entityKeys = new ArrayList<EfgsKey>();
-		for (DiagnosisKey diagnosisKeyPayload : diagnosisKeyEntity.getKeys()) {
-			entityKeys.add(entityPayloadToEfgsKeys(diagnosisKeyPayload, diagnosisKeyEntity.getOrigin()));
+		for (DiagnosisKey diagnosisKey : diagnosisKeyEntity.getKeys()) {
+			if (DiagnosisKeyValidator.isValid(diagnosisKey)) {
+				entityKeys.add(entityPayloadToEfgsKeys(diagnosisKey, diagnosisKeyEntity.getOrigin()));
+			}
 		}
 		return entityKeys;
 	}

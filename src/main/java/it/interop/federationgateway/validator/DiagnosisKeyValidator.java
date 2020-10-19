@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import it.interop.federationgateway.entity.DiagnosisKey;
 import it.interop.federationgateway.model.EfgsKey;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -91,7 +92,16 @@ public class DiagnosisKeyValidator {
 		}
 		return true;
 	}
-	
+
+	public static boolean isValid(DiagnosisKey diagnosisKey) {
+		if (diagnosisKey.getRollingStartIntervalNumber() < minRollingStartIntervalNumber() 
+				|| diagnosisKey.getRollingStartIntervalNumber() > maxRollingStartIntervalNumber()) {
+			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling start interval number.");
+			return false;
+		}
+		return true;
+	}
+
 	private static Long minRollingStartIntervalNumber() {
     	Calendar calendar = new GregorianCalendar();
     	calendar.setTime(new Date());
@@ -105,5 +115,4 @@ public class DiagnosisKeyValidator {
 		return calendar.getTimeInMillis() / 1000 / 600;
 	}
 	
-
 }
