@@ -88,7 +88,7 @@ For local testing first ensure you have a MongoDB and Redis instances running lo
 
 ```
 environment:
-    MONGO_DB_URI=mongodb://user:password@mongodb:27017/EGFSDB
+    MONGO_DB_URI=mongodb://user:password@mongodb:27017/EGFSDB-dev
     REDIS_URL=redis://:password@redis:15166
 ```
 Also you need the EFGS server running locally, you can install it from the public repo [European Federation Gateway Service](https://github.com/eu-federation-gateway-service/efgs-federation-gateway).
@@ -100,7 +100,7 @@ To properly work the client needs also:
 - the certificate for the connection in mTLS to the European Federation Gateway Service (the country of origin must be defined in the "_country_" field of the certificate subject) and pack it into a Java Key Store.
 ```
 environment:
-      - EFGS_BASE_URL=https://acc-efgs-ws.tech.ec.europa.eu
+      - EFGS_BASE_URL=https://example.efgs.eu
       - SSLEFGS_JKS_PATH=/security/sslclient/sslefgs.jks
       - SSLEFGS_JKS_PASSWORD=password
       - SSLEFGS_CERT_PASSWORD=password
