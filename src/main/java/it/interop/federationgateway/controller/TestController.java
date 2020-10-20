@@ -173,29 +173,30 @@ public class TestController {
 			
 		    List<EfgsKey> entities = new ArrayList<EfgsKey>();
 		    
-		    for (int i=0; i<100; i++) {
+		    for (int i=0; i<16; i++) {
 		    	Calendar calendar = new GregorianCalendar();
 		    	calendar.setTime(new Date());
-			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    calendar.add(Calendar.DAY_OF_MONTH, -i);
 		    	
 		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
+		    	log.info("TIME: "+rsp);
 		    	
 			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 1, countryOrigin);
 			    
-			    calendar.add(Calendar.DAY_OF_MONTH, -1);
-			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
-			    
-			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
-
-			    calendar.add(Calendar.DAY_OF_MONTH, -1);
-			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
-
-			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
-			    
+//			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+//			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+//			    
+//			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
+//
+//			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+//			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+//
+//			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+//			    
 			    
 			    entities.add(key1);
-			    entities.add(key2);
-			    entities.add(key3);
+//			    entities.add(key2);
+//			    entities.add(key3);
 		    }
 
 		    EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()

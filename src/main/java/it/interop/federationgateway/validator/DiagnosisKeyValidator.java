@@ -69,7 +69,7 @@ public class DiagnosisKeyValidator {
 	private static Integer MAX_ROLLING_START_PERIOD = 144; 
 	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8; 
 	@Setter
-	public static Integer DATA_RETENTION_DAYS = 14;
+	public static Integer DATA_RETENTION_DAYS = 15;
 
 	public static boolean isValid(EfgsKey efgsKey) {
 		if (efgsKey.getReportType() != EfgsKey.ReportType.CONFIRMED_TEST
@@ -96,7 +96,7 @@ public class DiagnosisKeyValidator {
 	public static boolean isValid(DiagnosisKey diagnosisKey) {
 		if (diagnosisKey.getRollingStartIntervalNumber() < minRollingStartIntervalNumber() 
 				|| diagnosisKey.getRollingStartIntervalNumber() > maxRollingStartIntervalNumber()) {
-			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling start interval number.");
+			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling start interval number {} for key {}.", diagnosisKey.getRollingStartIntervalNumber(), diagnosisKey.getKeyData());
 			return false;
 		}
 		return true;
