@@ -88,7 +88,7 @@ public class DiagnosisKeyMapper {
 				boolean valid = DiagnosisKeyValidator.isValid(efgsKey);
 				diagnosisKeyPayload.setValid(valid);
 				keysPayload.add(diagnosisKeyPayload);
-				invalid += valid ? 1 : 0;
+				invalid += valid ? 0 : 1;
 			}
 			diagnosisKeyEntity = new UploadEuRaw(batchTag, index, origin, keysPayload, Long.valueOf(keysPayload.size()), Long.valueOf(invalid));
 		}

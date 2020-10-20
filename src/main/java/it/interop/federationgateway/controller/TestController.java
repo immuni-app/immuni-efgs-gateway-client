@@ -265,30 +265,31 @@ public class TestController {
 					Map<String, List<Audit>> auditToMapPerCounty = auditToMapPerCounty(auditList);
 					
 					for (String country : auditToMapPerCounty.keySet()) {
-						List<Audit> auditListInner =  auditToMapPerCounty.get(country);
-				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
-				    	int startIndex = 0;
-				    	int count = 0;
-					    for (Audit audit: auditListInner) {
-					    	count = count + 1;
-					    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
-					    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
-					    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
-					    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
-					    			startIndex = index + 1;
-					    			break;
-					    		}
-					    		
-					    	}
-					    	
-					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
-							log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
-									verifiedSign, batchDate, batchTag, country, count);
-							
-					    	verifica = verifica || verifiedSign;
-
-					    }
-						
+						if (!country.equalsIgnoreCase("IT")) {
+							List<Audit> auditListInner =  auditToMapPerCounty.get(country);
+					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
+					    	int startIndex = 0;
+					    	int count = 0;
+						    for (Audit audit: auditListInner) {
+						    	count = count + 1;
+						    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
+						    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
+						    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
+						    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
+						    			startIndex = index + 1;
+						    			break;
+						    		}
+						    		
+						    	}
+						    	
+						    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
+								log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
+										verifiedSign, batchDate, batchTag, country, count);
+								
+						    	verifica = verifica || verifiedSign;
+	
+						    }
+						}
 					}
 
 				    for (List<EfgsKey> entities: efgsKeyPerOriginMap.values()) {
