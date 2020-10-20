@@ -14,7 +14,7 @@ services:
       - PROXY_USER=user
       - PROXY_PWD=password
       - MONGO_DB_URI=mongodb://user:password@mongodd:27017/EGFSDB
-      - REDIS_URL=edis://:password@redis:15166
+      - REDIS_URL=redis://:password@redis:15166
       - SIGN_EXTERNAL_URL=https://host/v1/sign
       - SSLDP_JKS_PATH=/security/sslclient/ssldp.jks
       - SSLDP_JKS_PASSWORD=password
