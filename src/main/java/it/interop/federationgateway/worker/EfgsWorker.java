@@ -286,42 +286,52 @@ public class EfgsWorker {
 					
 					for (String country : auditToMapPerCounty.keySet()) {
 						List<Audit> auditListInner =  auditToMapPerCounty.get(country);
-				    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
-				    	int startIndex = 0;
-				    	int count = 0;
-					    for (Audit audit: auditListInner) {
-					    	count = count + 1;
-					    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
-					    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
-					    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
-					    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
-					    			startIndex = index + 1;
-					    			break;
-					    		}
-					    		
-					    	}
-					    	
-					    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
-							log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
-									verifiedSign, batchDate, batchTag, country, count);
-					    	
-					    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOriginInner, batchTagFound, count);
-					    	
-					    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
-					    	//Not to process if the signature is not verified
-					    	diagnosisKeyEntity.setToProcess(verifiedSign);
-					    	
-					    	uploadUeRawRepository.save(diagnosisKeyEntity);
-							log.info("Saved raw key data batchDate: {} - batchTag: {} - country: {} - block: {}", batchDate, batchTag, country, count);
-					    	
-					    	efgsLogRepository.save(
-					    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
-					    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
-					    			);
-							log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
+						if (!country.equalsIgnoreCase(originCountry)) {
+					    	List<EfgsKey> efgsKeyPerOrigin = efgsKeyPerOriginMap.get(country);
+					    	int startIndex = 0;
+					    	int count = 0;
+						    for (Audit audit: auditListInner) {
+						    	count = count + 1;
+						    	List<EfgsKey> efgsKeyPerOriginInner = new ArrayList<EfgsKey>();
+						    	for (int index=startIndex; index<efgsKeyPerOrigin.size(); index++) {
+						    		efgsKeyPerOriginInner.add(efgsKeyPerOrigin.get(index));
+						    		if (efgsKeyPerOriginInner.size()>=audit.getAmount()) {
+						    			startIndex = index + 1;
+						    			break;
+						    		}
+						    		
+						    	}
 						    	
-					    }
-						
+						    	boolean verifiedSign = batchSignatureVerifier.validateDiagnosisKeyWithSignature(efgsKeyPerOriginInner, audit);
+								log.info("Signature verified: {} - batchDate: {} - batchTag: {} - country: {} - block: {}", 
+										verifiedSign, batchDate, batchTag, country, count);
+						    	
+						    	UploadEuRaw diagnosisKeyEntity = DiagnosisKeyMapper.efgsKeysToEntity(efgsKeyPerOriginInner, batchTagFound, count);
+						    	
+						    	diagnosisKeyEntity.setVerifiedSign(verifiedSign);
+						    	//Not to process if the signature is not verified
+						    	diagnosisKeyEntity.setToProcess(verifiedSign);
+						    	
+						    	uploadUeRawRepository.save(diagnosisKeyEntity);
+								log.info("Saved raw key data batchDate: {} - batchTag: {} - country: {} - block: {}", batchDate, batchTag, country, count);
+						    	
+						    	efgsLogRepository.save(
+						    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
+						    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
+						    			);
+								log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
+							    	
+						    }
+							
+						} else {
+							int count = 1;
+						    for (Audit audit: auditListInner) {
+						    	efgsLogRepository.save(
+						    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count++, audit.getAmount(), 0l, true, "EMPTY: ITALIAN BATCH", audit)
+						    			);
+						    }
+							log.info("Download INFO saved log inner. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
+						}
 					}
 				    
 				} else {
