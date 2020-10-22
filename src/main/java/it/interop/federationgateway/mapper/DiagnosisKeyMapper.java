@@ -108,9 +108,13 @@ public class DiagnosisKeyMapper {
 
 	public static List<EfgsKey> entityToEfgsKeys(BatchFile diagnosisKeyEntity) {
 		List<EfgsKey> entityKeys = new ArrayList<EfgsKey>();
+		List<String> checkDuplicate = new ArrayList<String>(); 
 		for (DiagnosisKey diagnosisKey : diagnosisKeyEntity.getKeys()) {
-			if (DiagnosisKeyValidator.isValid(diagnosisKey)) {
-				entityKeys.add(entityPayloadToEfgsKeys(diagnosisKey, diagnosisKeyEntity.getOrigin()));
+			if (!checkDuplicate.contains(diagnosisKey.getKeyData())) {
+				if (DiagnosisKeyValidator.isValid(diagnosisKey)) {
+					entityKeys.add(entityPayloadToEfgsKeys(diagnosisKey, diagnosisKeyEntity.getOrigin()));
+				}
+				checkDuplicate.add(diagnosisKey.getKeyData());
 			}
 		}
 		return entityKeys;

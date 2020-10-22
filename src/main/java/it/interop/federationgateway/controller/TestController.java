@@ -42,10 +42,13 @@ import it.interop.federationgateway.batchsigning.SignatureGenerator;
 import it.interop.federationgateway.client.RestApiClient;
 import it.interop.federationgateway.client.base.RestApiException;
 import it.interop.federationgateway.client.base.RestApiResponse;
+import it.interop.federationgateway.entity.BatchFile;
+import it.interop.federationgateway.entity.DiagnosisKey;
 import it.interop.federationgateway.mapper.DiagnosisKeyMapper;
 import it.interop.federationgateway.model.Audit;
 import it.interop.federationgateway.model.EfgsKey;
 import it.interop.federationgateway.model.EfgsKey.ReportType;
+import it.interop.federationgateway.repository.BatchFileRepository;
 import it.interop.federationgateway.model.EfgsProto;
 import it.interop.federationgateway.worker.EfgsWorker;
 import lombok.extern.slf4j.Slf4j;
@@ -66,14 +69,32 @@ public class TestController {
 	@Autowired(required=true)
 	private EfgsWorker efgsWorker;
 
+	@Autowired(required=true)
+	private BatchFileRepository batchFileRepository;
+
 	@GetMapping("/test")
 	public ResponseEntity<String> test() {
 		StringBuffer content = new StringBuffer();
 		try {
-			Calendar calendar = new GregorianCalendar();
-			calendar.setTime(new Date());
-			calendar.add(Calendar.DAY_OF_MONTH, -Integer.parseInt("2"));
+
+			
+			List<BatchFile> bl = batchFileRepository.getIdBatchFilesToSend();
+			for (BatchFile id:bl) {
+				List<String> mapKeys = new ArrayList<String>();
+				BatchFile BatchFile = batchFileRepository.getById(id.getId());
+				log.info("############################## {} - index: {} - {} ######################################", BatchFile.getId(), BatchFile.getIndex(), BatchFile.getOrigin());
+				for (DiagnosisKey key: BatchFile.getKeys()) {
+					if (mapKeys.contains(key.getKeyData())) {
+						log.info("TEK duplicata tek: {} - id: {}", key.getKeyData(), id.getId());
+					} else {
+						mapKeys.add(key.getKeyData());
+					}
+				}
+			}
 		
+			
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
