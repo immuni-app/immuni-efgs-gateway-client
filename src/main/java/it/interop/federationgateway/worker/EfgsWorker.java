@@ -95,7 +95,7 @@ public class EfgsWorker {
 	@Scheduled(cron = "${efgs.worker.upload.schedul}")
 	@SchedulerLock(name = "EfgsWorker_uploadWorker")
 	public void uploadWorker() {
-		log.info("START Processing upload.");
+		log.info("@@@  UPLOAD -> START Processing upload. @@@");
 		//Recupero ultimo upload (ultima data e ultimo batchtag associato al file)
 		EfgsWorkerInfo efgsWorkerInfo = efgsWorkerInfoRepository.getEfgsWorkerInfoUpload();
 		
@@ -122,13 +122,13 @@ public class EfgsWorker {
 			}
 		}
 			
-		log.info("END Processing upload.");
+		log.info("@@@  UPLOAD -> END Processing upload. @@@");
 	}
 	
 	@Scheduled(cron = "${efgs.worker.download.schedul}")
 	@SchedulerLock(name = "EfgsWorker_downloadWorker")
 	public void downloadWorker() {
-		log.info("START Processing download.");
+		log.info("###  DOWNLOAD -> START Processing download. ###");
 		//Recupero ultimo download (ultima data e ultimo batchtag restituito dal gateway)
 		EfgsWorkerInfo efgsWorkerInfo = efgsWorkerInfoRepository.getEfgsWorkerInfoDownload();
 		
@@ -167,16 +167,18 @@ public class EfgsWorker {
 			processUploadEuRaw(idUploadEuRaw.getId());
 		}
 		
-		log.info("END Processing download.");
+		log.info("###  DOWNLOAD -> END Processing download. ####");
 	}
 
 	@Scheduled(cron = "${efgs.worker.delete.schedul}")
 	@SchedulerLock(name = "EfgsWorker_deleteWorker")
 	public void deleteOldDateWorker() {
+		log.info("§§§ DELETE -> START Processing delete old data. §§§");
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
 		calendar.add(Calendar.DAY_OF_MONTH, -Integer.parseInt(dataRetentionDays));
 		uploadUeRawRepository.deleteOldData(calendar.getTime());
+		log.info("§§§ DELETE -> END Processing delete old data. §§§");
 	}
 	
 	
