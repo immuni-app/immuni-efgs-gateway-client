@@ -201,27 +201,27 @@ public class TestController {
 		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
 		    	log.info("TIME: "+rsp);
 		    	
-			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3999, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 1, countryOrigin);
+			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 3999, countryOrigin);
 			    
 			    calendar.add(Calendar.DAY_OF_MONTH, -1);
 			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
 			    
-			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3998, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
+			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3998, countryOrigin);
 
 			    calendar.add(Calendar.DAY_OF_MONTH, -1);
 			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
 
-			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3997, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3997, countryOrigin);
 			    
 			    calendar.add(Calendar.DAY_OF_MONTH, -1);
 			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
 
-			    EfgsKey key4 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3996, null, ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+			    EfgsKey key4 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, null, ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3996, countryOrigin);
 
 			    calendar.add(Calendar.DAY_OF_MONTH, -1);
 			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
 
-			    EfgsKey key5 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3995, Arrays.asList("ES,IE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+			    EfgsKey key5 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,IE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3995, countryOrigin);
 			    
 			    entities.add(key1);
 			    entities.add(key2);
