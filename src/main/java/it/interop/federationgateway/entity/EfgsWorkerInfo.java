@@ -19,6 +19,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -52,6 +53,8 @@ public class EfgsWorkerInfo implements Serializable {
 	@Field("last_execution")
 	private Date lastExecution;
 	
+	@Field("skipped_counties")
+	private List<String> skippedCounties;
 	
 	public enum OperationType {
 		UPLOAD,

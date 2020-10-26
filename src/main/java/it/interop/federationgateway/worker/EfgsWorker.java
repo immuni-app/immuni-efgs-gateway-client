@@ -164,7 +164,7 @@ public class EfgsWorker {
 		List<UploadEuRaw> idUploadEuRawToProcess = uploadUeRawRepository.getIdUploadEuRawToProcess();
 		
 		for (UploadEuRaw idUploadEuRaw: idUploadEuRawToProcess) {
-			processUploadEuRaw(idUploadEuRaw.getId());
+			processUploadEuRaw(idUploadEuRaw.getId(), efgsWorkerInfo.getSkippedCounties());
 		}
 		
 		log.info("###  DOWNLOAD -> END Processing download. ####");
@@ -319,7 +319,7 @@ public class EfgsWorker {
 						    	
 						    	efgsLogRepository.save(
 						    			EfgsLog.buildDownloadEfgsLog(audit.getCountry(), batchTagFound, count,
-						    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "OK", audit)
+						    					Long.valueOf(diagnosisKeyEntity.getKeys().size()), diagnosisKeyEntity.getInvalid(), verifiedSign, "TO PROCESS", audit)
 						    			);
 								log.info("Download INFO saved log. -> batchDate: {} - batchTag: {}", batchDate, batchTag);
 							    	
@@ -379,7 +379,7 @@ public class EfgsWorker {
 	}
 	
 	@Transactional
-	public void processUploadEuRaw(String id) {
+	public void processUploadEuRaw(String id, List<String> skippedCountries) {
 		log.info("START processing raw keys data -> id: {}", id);
 		UploadEuRaw uploadEuRaw = uploadUeRawRepository.getById(id);
 		
@@ -387,16 +387,22 @@ public class EfgsWorker {
 		log.info("Breakdown of UE keys by country");
 		
 		Map<String, Long> ammountPerCountry = new HashMap<String, Long>();
-		for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
-			ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
-			uploadUeRepository.save(uploadEu);
-			log.info("Saved EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
-		}
+		String processStatus = "TO PROCESS";
 		
+		if (skippedCountries != null && skippedCountries.contains(uploadEuRaw.getOrigin())) {
+			processStatus = "SKIPPED";
+		} else {
+			processStatus = "PROCESSED";
+			for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
+				ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
+				uploadUeRepository.save(uploadEu);
+				log.info("Saved EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
+			}
+		}
 		uploadUeRawRepository.setProcessed(id);
 
-		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), uploadEuRaw.getIndex(), ammountPerCountry);
-		log.info("END processing raw keys data -> id: {}", id);
+		efgsLogRepository.setStaristicByCountryBatchtag(uploadEuRaw.getOrigin(), uploadEuRaw.getBatchTag(), uploadEuRaw.getIndex(), ammountPerCountry, processStatus);
+		log.info("END processing raw keys data -> id: {} - status: {}", id, processStatus);
 	}
 	
 	
