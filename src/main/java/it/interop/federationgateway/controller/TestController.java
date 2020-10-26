@@ -193,31 +193,41 @@ public class TestController {
 		try {
 			
 		    List<EfgsKey> entities = new ArrayList<EfgsKey>();
-		    
-		    for (int i=0; i<16; i++) {
+		    for (int i=0; i<100; i++) {
 		    	Calendar calendar = new GregorianCalendar();
 		    	calendar.setTime(new Date());
-			    calendar.add(Calendar.DAY_OF_MONTH, -i);
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
 		    	
 		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
 		    	log.info("TIME: "+rsp);
 		    	
-			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 1, countryOrigin);
+			    EfgsKey key1 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3999, Arrays.asList("ES,DE,DK".split(",")), ReportType.SELF_REPORT, 1, countryOrigin);
 			    
-//			    calendar.add(Calendar.DAY_OF_MONTH, -1);
-//			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
-//			    
-//			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
-//
-//			    calendar.add(Calendar.DAY_OF_MONTH, -1);
-//			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
-//
-//			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
-//			    
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+			    
+			    EfgsKey key2 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3998, Arrays.asList("ES,DK".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 2, countryOrigin);
+
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+
+			    EfgsKey key3 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3997, Arrays.asList("ES,DE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+			    
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+
+			    EfgsKey key4 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3996, null, ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
+
+			    calendar.add(Calendar.DAY_OF_MONTH, -1);
+			    rsp =  calendar.getTimeInMillis() / 1000 / 600;
+
+			    EfgsKey key5 = new EfgsKey(getRandomKeyData(), (int)rsp, 144, 3995, Arrays.asList("ES,IE".split(",")), ReportType.CONFIRMED_CLINICAL_DIAGNOSIS, 3, countryOrigin);
 			    
 			    entities.add(key1);
-//			    entities.add(key2);
-//			    entities.add(key3);
+			    entities.add(key2);
+			    entities.add(key3);
+			    entities.add(key4);
+			    entities.add(key5);
 		    }
 
 		    EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
@@ -404,7 +414,8 @@ public class TestController {
 		    
 	    	Calendar calendar = new GregorianCalendar();
 	    	calendar.setTime(new Date());
-		    for (int i=0; i<20; i++) {
+	    	calendar.add(Calendar.DAY_OF_MONTH, 2);
+		    for (int i=0; i<30; i++) {
 		    	long rsp =  calendar.getTimeInMillis() / 1000 / 600;
 		    	StringBuffer key = new StringBuffer();
 		    	key.append("{")
