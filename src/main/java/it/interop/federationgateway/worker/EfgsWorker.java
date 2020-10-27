@@ -391,12 +391,16 @@ public class EfgsWorker {
 		
 		if (skippedCountries != null && skippedCountries.contains(uploadEuRaw.getOrigin())) {
 			processStatus = "SKIPPED";
+			for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
+				ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
+				log.info("SKIPPED - EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
+			}
 		} else {
 			processStatus = "PROCESSED";
 			for (UploadEu uploadEu : mapUploadEuPerCountry.values()) {
 				ammountPerCountry.put(uploadEu.getCountry(), Long.valueOf(uploadEu.getKeys().size()));
 				uploadUeRepository.save(uploadEu);
-				log.info("Saved EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
+				log.info("PROCESSED - EU keys in order to produce the batch files -> id: {} - country: {} - keys: {}", id, uploadEu.getCountry(), uploadEu.getKeys().size());
 			}
 		}
 		uploadUeRawRepository.setProcessed(id);
