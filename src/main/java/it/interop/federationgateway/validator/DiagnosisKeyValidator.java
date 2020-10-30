@@ -67,7 +67,8 @@ public class DiagnosisKeyValidator {
 
 	private static Integer KEY_DATA_LENGTH = 16; 
 	private static Integer MAX_ROLLING_START_PERIOD = 144; 
-	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8; 
+	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8;
+	private static Integer DEFAULT_TRASMISSION_RISK_LEVEL = 0x7fffffff;
 	@Setter
 	public static Integer DATA_RETENTION_DAYS = 15;
 
@@ -86,13 +87,14 @@ public class DiagnosisKeyValidator {
 		} else if (efgsKey.getRollingPeriod() < 1 || efgsKey.getRollingPeriod() > MAX_ROLLING_START_PERIOD) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid rolling period.");
 			return false;
-		} else if (efgsKey.getTransmissionRiskLevel() < 0 || efgsKey.getTransmissionRiskLevel() > MAX_TRASMISSION_RISK_LEVEL) {
+		} else if ((efgsKey.getTransmissionRiskLevel() < 0 || efgsKey.getTransmissionRiskLevel() > MAX_TRASMISSION_RISK_LEVEL)
+				&& efgsKey.getTransmissionRiskLevel() != DEFAULT_TRASMISSION_RISK_LEVEL) {
 			log.error(VALIDATION_FAILED_MESSAGE + "Invalid transmission risk level.");
 			return false;
 		}
 		return true;
 	}
-
+	
 	public static boolean isValid(DiagnosisKey diagnosisKey) {
 		if (diagnosisKey.getRollingStartIntervalNumber() < minRollingStartIntervalNumber() 
 				|| diagnosisKey.getRollingStartIntervalNumber() > maxRollingStartIntervalNumber()) {
