@@ -68,7 +68,7 @@ public class DiagnosisKeyValidator {
 	private static Integer KEY_DATA_LENGTH = 16; 
 	private static Integer MAX_ROLLING_START_PERIOD = 144; 
 	private static Integer MAX_TRASMISSION_RISK_LEVEL = 8;
-	private static Integer DEFAULT_TRASMISSION_RISK_LEVEL = 0x7fffffff;
+	private static int DEFAULT_TRASMISSION_RISK_LEVEL = 0x7fffffff;
 	@Setter
 	public static Integer DATA_RETENTION_DAYS = 15;
 
