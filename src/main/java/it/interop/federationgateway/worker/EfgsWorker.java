@@ -191,62 +191,63 @@ public class EfgsWorker {
 			
 			batchFile.setOrigin(originCountry);
 
-			log.info("Upload INFO -> batchDate: {} - batchTag: {} - batch id: {} - number of keys: {}", batchDate, batchTag, id, batchFile.getKeys().size());
-
 			List<EfgsKey> keyEntities = DiagnosisKeyMapper.entityToEfgsKeys(batchFile);
 
-			
-			EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
-		    	      .addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(keyEntities))
-		    	      .build();
-			log.info("Upload INFO generated protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+			log.info("Upload INFO -> batchDate: {} - batchTag: {} - batch id: {} - number of keys: {} - keys valid: {}", batchDate, batchTag, id, batchFile.getKeys().size(), keyEntities.size());
 
-		    
-	        String batchSignature = signatureGenerator.getSignatureForBytes(
-	                BatchSignatureUtils.generateBytesToVerify(protoBatch));
-			log.info("Upload INFO signed protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
-
-			String report = null;
-			HttpStatus statusCode = null;
-			try {
-		        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
-		        report = esito.getData();
-		        statusCode = esito.getStatusCode();
-				log.info("Upload INFO uploaded protobuf. -> batchDate: {} - batchTag: {} - batch id: {} - esito: {} - ", batchDate, batchTag, id, report);
-			} catch (HttpClientErrorException e) {
-				log.error("ERROR Processing upload HttpClientErrorException. -> batchDate: {} - batchTag: {} - batch id: {} - Code: {} - Message: {}", 
-						batchDate, batchTag, id, e.getRawStatusCode(), e.getMessage(),  e);
-				if (e.getRawStatusCode() == 400) {
-					statusCode = RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400;
-					report = e.getMessage();
-				} else if (e.getRawStatusCode() == 409) {
-					statusCode = RestApiClient.UPLOAD_STATUS_BATCHTAG_ALREADY_EXIST_409;
-					report = e.getMessage();
-				} else {
-					throw e;
+			if (keyEntities != null && keyEntities.size() > 0) {
+				EfgsProto.DiagnosisKeyBatch protoBatch = EfgsProto.DiagnosisKeyBatch.newBuilder()
+			    	      .addAllKeys(DiagnosisKeyMapper.efgsKeyToProto(keyEntities))
+			    	      .build();
+				log.info("Upload INFO generated protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+	
+			    
+		        String batchSignature = signatureGenerator.getSignatureForBytes(
+		                BatchSignatureUtils.generateBytesToVerify(protoBatch));
+				log.info("Upload INFO signed protobuf to upload. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+	
+				String report = null;
+				HttpStatus statusCode = null;
+				try {
+			        RestApiResponse<String> esito = client.upload(batchTag, batchSignature, protoBatch);
+			        report = esito.getData();
+			        statusCode = esito.getStatusCode();
+					log.info("Upload INFO uploaded protobuf. -> batchDate: {} - batchTag: {} - batch id: {} - esito: {} - ", batchDate, batchTag, id, report);
+				} catch (HttpClientErrorException e) {
+					log.error("ERROR Processing upload HttpClientErrorException. -> batchDate: {} - batchTag: {} - batch id: {} - Code: {} - Message: {}", 
+							batchDate, batchTag, id, e.getRawStatusCode(), e.getMessage(),  e);
+					if (e.getRawStatusCode() == 400) {
+						statusCode = RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400;
+						report = e.getMessage();
+					} else if (e.getRawStatusCode() == 409) {
+						statusCode = RestApiClient.UPLOAD_STATUS_BATCHTAG_ALREADY_EXIST_409;
+						report = e.getMessage();
+					} else {
+						throw e;
+					}
 				}
+		        
+		        
+				if (statusCode == RestApiClient.UPLOAD_STATUS_CREATED_201 
+						|| statusCode == RestApiClient.UPLOAD_STATUS_WARNING_207
+						|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_SIGNATURE_400
+						|| statusCode == RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400
+						|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_CONTENT_406) {
+	
+			        batchFile.setBatchTag(batchTag);
+	
+					batchFileRepository.setBatchTag(batchFile);
+					log.info("Upload INFO batch file marked as sent. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+				}
+				
+		    	efgsLogRepository.save(
+		    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
+		    					Long.valueOf(keyEntities.size()), Long.valueOf(batchFile.getKeys().size()-keyEntities.size()), batchSignature, report)
+		    			);
+				log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+	
+				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			}
-	        
-	        
-			if (statusCode == RestApiClient.UPLOAD_STATUS_CREATED_201 
-					|| statusCode == RestApiClient.UPLOAD_STATUS_WARNING_207
-					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_SIGNATURE_400
-					|| statusCode == RestApiClient.UPLOAD_STATUS_BAD_REQUEST_400
-					|| statusCode == RestApiClient.UPLOAD_STATUS_INVALID_CONTENT_406) {
-
-		        batchFile.setBatchTag(batchTag);
-
-				batchFileRepository.setBatchTag(batchFile);
-				log.info("Upload INFO batch file marked as sent. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
-			}
-			
-	    	efgsLogRepository.save(
-	    			EfgsLog.buildUploadEfgsLog(originCountry, batchTag, 
-	    					Long.valueOf(keyEntities.size()), Long.valueOf(batchFile.getKeys().size()-keyEntities.size()), batchSignature, report)
-	    			);
-			log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
-
-			efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 			log.info("Upload INFO saved worker info. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 		} catch (RestApiException e) {
