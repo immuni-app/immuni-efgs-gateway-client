@@ -172,7 +172,7 @@ public class EfgsWorker {
 
 	@Scheduled(cron = "${efgs.worker.delete.schedul}")
 	@SchedulerLock(name = "EfgsWorker_deleteWorker")
-	public void deleteOldDateWorker() {
+	public void deleteOldDataWorker() {
 		log.info("§§§ DELETE -> START Processing delete old data. §§§");
 		Calendar calendar = new GregorianCalendar();
 		calendar.setTime(new Date());
