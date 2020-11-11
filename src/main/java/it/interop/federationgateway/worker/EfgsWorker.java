@@ -249,6 +249,8 @@ public class EfgsWorker {
 				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
 				log.info("Upload INFO saved worker info. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 			} else {
+		        batchFile.setBatchTag("EMPTY-BATCH");
+				batchFileRepository.setBatchTag(batchFile);
 				log.info("Upload INFO not uploaded: empty ke -> batch id: {} - esito: Empty keys - ", id);
 			}
 
