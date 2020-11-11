@@ -89,7 +89,7 @@ public class RestApiClientImpl extends RestApiClientBase implements RestApiClien
 		String localVarPath = "/diagnosiskeys/audit/download/{date}/{batchTag}".replaceAll("\\{date\\}", date).replaceAll("\\{batchTag\\}", batchTag);
 
 		StringBuffer url = new StringBuffer(getBaseUrl()).append(localVarPath);
-		log.info("REST Client calling-> {}", url.toString());
+		log.info("START REST Client calling-> {}", url.toString());
 		
 		HttpHeaders headers = makeBaseHeaders();
 		headers.set("Content-Type", "application/json");
@@ -123,7 +123,7 @@ public class RestApiClientImpl extends RestApiClientBase implements RestApiClien
 		String localVarPath = "/diagnosiskeys/upload";
 		
 		StringBuffer url = new StringBuffer(getBaseUrl()).append(localVarPath);
-		log.info("REST Client calling-> {}", url.toString());
+		log.info("START REST Client calling-> {}", url.toString());
 		
 		HttpHeaders headers = makeBaseHeaders();
 		headers.set("Content-Type", "application/protobuf; version=1.0");
