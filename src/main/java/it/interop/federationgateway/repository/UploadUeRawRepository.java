@@ -63,7 +63,7 @@ public class UploadUeRawRepository {
 	public void deleteOldData(Date date) {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("created_date").lt(date));
-		mongoTemplate.findAndRemove(query, UploadEuRaw.class);
+		mongoTemplate.findAllAndRemove(query, UploadEuRaw.class);
 	}
 	
 }
