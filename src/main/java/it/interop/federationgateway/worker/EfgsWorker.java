@@ -247,8 +247,10 @@ public class EfgsWorker {
 				log.info("Upload INFO saved log. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 	
 				efgsWorkerInfoRepository.saveUploadBatchTag(batchDate, batchTag);
+				log.info("Upload INFO saved worker info. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
+			} else {
+				log.info("Upload INFO not uploaded: empty ke -> batch id: {} - esito: Empty keys - ", id);
 			}
-			log.info("Upload INFO saved worker info. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id);
 
 		} catch (RestApiException e) {
 			log.error("ERROR Processing upload RestApiException. -> batchDate: {} - batchTag: {} - batch id: {}", batchDate, batchTag, id, e);
